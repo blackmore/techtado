@@ -1,0 +1,13 @@
+<% @tasks.each do |task| %>
+<div id="task_<%= task.id %>" class="task" >
+	<ul>
+		<li><span class="<%= get_status(task.status) %>"></span></a><%= link_to_unless_current h(description_heading(task.description)), task, :class => 'tsk_name' %>
+		</li>
+		<li>
+			<span class="tskWhoStatusTime"><%=  who_status_time(task) %></span>
+			<%= comments(task, 'finished') %>
+			<%= resubmitted(task) %>
+		</li>
+	</ul>		
+</div>
+<% end %>

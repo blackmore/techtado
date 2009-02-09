@@ -1,0 +1,52 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  _yes: "yes"
+  _no: "no"
+  tasks:
+    logged_out: "You are currently not logged in"
+    logged_in_as: "Logged in as"
+    login: "Login"
+    logout: "Logout"
+    logout_message: "Are you sure you want to logout?"
+    menu:
+      archive: "Archive"
+
+    form_new:
+       new_task: "New task"
+       informed: "Keep me informed by email"
+       submit: "Add this task"
+       
+  task:
+    assigned_to: "working on this for"
+    finished: "finished this"
+    resubmitted: "resubmitted this"
+    submitted: "submitted this"
+    ago: "ago."
+    once: "once"
+    times: "times"
+    
+    status_link:
+      bounce: "bounce"
+      snatch: "snatch it!"
+      resubmit: "resubmit"
+      Ill_do_this: "I'll do this"
+      
+    comment:
+      plural: " comments"
+      singular: " comment"
+      title: "Comments"
+    comment_form:
+      add_comment: "New comment"
+      submit: "Add this comment"
+      not_logged_in: "You must login to add a comment"
+    details:
+      date: "Date:"
+      created_by: "Created by:"
+      worked_on_by: "Worked on by:"
+      working_on_by: "Working on by:"
+      finished_by: "Finished by:"
+      resubmitted: "Resubmitted:"
+      number: "Number:"
+      

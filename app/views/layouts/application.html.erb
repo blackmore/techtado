@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Tasks: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'master' %>
+  <%= javascript_include_tag :all %>
+  <%= auto_discovery_link_tag :atom, formatted_tasks_path(:atom) %>
+</head>
+<body>
+	<div id="header">
+		<div id="login_status">
+			<% if !current_user -%>
+				<%= t 'tasks.logged_out' %> (<%= link_to t('tasks.login'), new_user_session_path %>)
+			<% else -%>
+				<%= t 'tasks.logged_in_as' %> <%= current_user.first_name %>
+			<span id="log_link">( <%= link_to t('tasks.logout'), user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> )</span>
+			<% end -%> 
+		</div>
+	</div>
+	<div id="menu">
+		<div id="navigation">
+			<ul>
+				<li id="todo" <%= is_active?('tasks') %> >
+					<%= link_to 'To Do', tasks_path %>
+				</li>
+				<li id="archive" <%= is_active?('archive') %> >
+					<%= link_to t('tasks.menu.archive'), archive_path %>
+				</li>
+			</ul>
+		</div>
+		<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+	</div>
+	<div id="page">
+		<div id="content">
+			<div id="mainlogin">
+				<% if flash[:notice] %><div class="notice"><%= flash[:notice] %></div><% end %>
+				<%= yield  %>
+			</div>
+			</div>
+			<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+		</div>
+	</div>
+</body>
+</html>

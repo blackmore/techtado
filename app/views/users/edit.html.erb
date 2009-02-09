@@ -1,0 +1,10 @@
+<div id="register">
+	<h2>Edit my account</h2>
+	<% form_for @user, :url => account_path do |f| %>
+	  <%= render :partial => "form", :object => f %>
+	  <%= f.submit "Register" %>
+	<% end %>
+	<%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
+	<br /><%= link_to "My Profile", account_path %>
+</div>
+

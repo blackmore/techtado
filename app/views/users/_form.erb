@@ -1,0 +1,27 @@
+<div>
+	<%= form.label "First name" %><br />
+	<%= form.text_field :first_name, :size => 22 %>
+</div>
+<div>
+	<%= form.label "Last name" %><br />
+	<%= form.text_field :last_name, :size => 22 %>
+</div>
+<div>
+	<%= form.label "Email" %><br />
+	<%= form.text_field :email, :size => 22 %>
+</div>
+<div>
+	<%= form.label "Password" %><br />
+	<%= form.password_field :password, :size => 22 %>
+</div>
+<div>
+	<%= form.label "Confirm password" %><br />
+	<%= form.password_field :password_confirmation, :size => 22 %>
+</div>
+<div>
+	<%= form.label "Language" %>
+	 <%= form.select(:language, { "English" => "en", "Deutsch" => "de"}) %>
+</div>
+
+
+

@@ -1,0 +1,655 @@
+/* @override http://0.0.0.0:3000/stylesheets/style-2.css?1231522121 */
+
+/* Eric Meyers Reset CSS rules */
+html, body, div, span,
+applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dd, dl, dt, li, ol, ul,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	line-height: 1.6;
+	font-family: inherit;
+	text-align: left;
+	vertical-align: baseline;
+}
+a img, :link img, :visited img {
+	border: 0;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ol, ul {
+	list-style: none;
+}
+q:before, q:after,
+blockquote:before, blockquote:after {
+	content: "";
+}
+
+/* @end */
+
+/* @group task_master */
+
+body {
+	background-color: #cbc9cf;
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+#wrapper {
+	width: 750px;
+	min-height: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+}
+
+/* @group headder */
+
+#headder {
+	padding-top: 10px;
+	width: 730px;
+	height: 95px;
+	background-color: #807f83;
+	padding-left: 20px;
+
+}
+
+#logo {
+	width: 200px;
+	height: 85px;
+	margin-left: 20px;
+	margin-top: 10px;
+	background-color: #807f83;
+	float: left;
+	color: white;
+	font: bold 2.5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+#tado{
+	font-style: italic;
+	font-size: .8em;
+}
+div#login_status{
+	float: right;
+	font-size: .78em;
+	margin-top: -5px;
+	color: #424143;
+}
+#login_status a{
+	color: #0e61b9;
+}
+#login_status a:hover{
+	color: #1175e0;
+}
+#login_status a:visited{
+	color: #0e61b9;
+}
+#log_link{
+	margin-left: 5px;
+	margin-right: 10px;
+}
+#log_link a{
+	color: #0e61b9;
+}
+#log_link a:hover{
+	color: #1175e0;
+}
+#log_link a:visited{
+	color: #0e61b9;
+}
+
+/* @group menu */
+
+
+#menu {
+	width: 300px;
+	overflow: auto;
+	float: right;
+	margin-right: 2px;
+	margin-top: 35px;
+	clear: right;
+}
+
+#menu ul.navigation{
+	display: block;
+	list-style-type: none;
+	overflow: auto;
+}
+
+#menu ul.navigation li{
+	float: right;
+	list-style-type: none;
+	margin-right: 1px;
+	padding: 0px;
+}
+
+.navigation li a {
+	display: block;
+	width: 120px;
+	height: 29px;
+	padding-top: 7px;
+	font-size:1em;
+	font-weight: bold;
+	line-height:1.56em;
+	text-decoration:none;
+	text-align: center;
+	
+	background-color: #cbc9cf;
+	color: #807f83;
+}
+.navigation li a.active{
+	background-color: white;
+	color: #67666a;
+}
+
+.navigation li a:hover{
+	background-color: white;
+	color: #106ed3;
+}
+
+
+
+/* @end */
+
+/* @group search */
+
+#search_box {
+	float: right;
+	margin-left: 10px;
+}
+
+input#search{
+	border-style: none;
+	height: 20px;
+	font-size: .90em;
+	padding: 2px 3px;
+	margin-right: 10px;
+	color: #67666a;
+}
+
+input#searchSubmit {
+	display: none;
+}
+
+#submit {
+	display: none;
+	width:30px;
+}
+
+
+
+/* @end */
+/* @end */
+
+/* @end */
+
+/* @group main_content */
+
+/* @group Add task */
+
+
+div#addTask {
+	display: block;
+	border-top: 1px solid #cbc9cf;
+	padding: 20px 10px;
+	background-color: #ececec;
+	border-bottom: 1px solid #cbc9cf;
+	margin-top: 40px;
+}
+
+#addTask form label {
+	float: left;
+	margin-right: 5px;
+	
+}
+
+#addTask form textarea {
+	font-size: 1em;
+	line-height: 1.4em;
+}
+
+#addTask form p {
+	margin-left: 86px;
+	font-size: 13px;
+	margin-top: 10px;
+}
+
+
+input#tSubmit {
+	float: right;
+	margin-right: 20px;
+	font-size: 2em;
+	margin-top: -1px;
+}
+
+/* @end */
+
+#page {
+	background-color: #fff;
+	padding: 35px;
+	margin: 0px;
+	display: inline-table;
+	width: 680px;
+}
+
+
+/* @group task_list */
+
+/* @group re-submitted */
+
+.reSubmit_1 {
+	color: #e8bfbb;
+}
+.reSubmit_2 {
+	color: #e8948b;
+}
+
+.reSubmit_3 {
+	color: #e86a5c;
+}
+
+.reSubmit {
+	color: #e81700;
+}
+
+
+
+
+/* @end */
+
+.tskWhoStatusTime {
+	margin-left: 46px;
+}
+
+div#tasks {
+	font-size: 13px
+}
+div.task{
+	margin-bottom: 5px;
+}
+a.tsk_assingedTo {
+	width: 23px;
+	display: block;
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	color: #807f83;
+	padding-left: 1px;
+	letter-spacing: 2px;
+}
+
+a.tsk_assingedTo:hover {
+	text-decoration: underline;
+}
+
+a.tsk_comments:hover {
+	text-decoration: none;
+}
+
+a.tsk_comments, a.tsk_comments:visited {
+	color: #807f83;
+}
+
+span.tsk_created {
+	margin-left: 22px;
+}
+
+a.tsk_statusTodo, a.tsk_statusWIP,
+a.tsk_statusFinished,
+span.tsk_statusFinished,
+span.tsk_statusTodo,
+span.tsk_statusWIP {
+	width: 28px;
+	height: 24px;
+	background: url(../images/status.png) no-repeat 0 -60px;
+	clear: right;
+	float: left;
+	overflow: auto;
+	display: block;
+	z-index: 1;
+}
+h3.tsk_statusTodo, span.tsk_statusTodo{
+	background: url(../images/status.png) no-repeat 0 -60px;
+}
+a.tsk_statusWIP, h3.tsk_statusWIP, span.tsk_statusWIP {
+	background: url(../images/status.png) no-repeat 0 0px;
+}
+
+li.tsk_bottomRow {
+	margin-top: -1px;
+	color: #807f83;
+	padding: 0px 5px 5px 5px;
+
+}
+li.tsk_topRow{
+	padding: 5px 5px 0px 5px;
+}
+
+a.tsk_name, span.tsk_name{
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 5px;
+	margin-left: 18px;
+	color: #000;
+	text-decoration: none;
+}
+
+
+
+a.tsk_name:hover {
+	color: #106ed3;
+}
+a.change_status{
+	margin-left: 10px;
+	color: #0e61b9;
+	font: normal 13px "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+a.change_status:hover{
+	color: #1175e0;
+}
+a.change_status:visited{
+	color: #0e61b9;
+}
+
+a.tsk_statusTodo:hover, a.tsk_statusWIP:hover {
+	background: url(../images/status.png) no-repeat 0 -30px;
+}
+
+a.tsk_statusFinished, span.tsk_statusFinished, h3.tsk_statusFinished{
+	background: url(../images/status.png) no-repeat 0 -30px;
+}
+
+
+
+/* @end */
+
+/* @end */
+
+/* @group login_page */
+
+strong {
+	font-weight: bold;
+}
+
+h2 {
+	font: 26px Georgia, "Times New Roman", Times, serif;
+	margin-bottom: 20px;
+	
+}
+
+#login form p, #register form p {
+	padding-bottom: 10px;
+}
+
+p#remember_me {
+	font-size: 13px;
+}
+#login form input, #register form input{
+	font-size: 16px;
+	color: #1e1e1f;
+	padding: 2px;
+}
+
+input#submit_login, input#submit_register {
+	float: right;
+	margin-top: 10px;
+	margin-right: 65px;
+}
+
+
+
+div#login {
+	width: 280px;
+	display: block;
+	float: left;
+	padding-left: 40px;
+}
+
+div#center {
+	width: 30px;
+	float: left;
+}
+
+div#top_midBorder, div#bot_midBorder {
+	height: 150px;
+	width: 15px;
+	margin-left: 15px;
+	border-left: 1px solid #cbc9cf;
+}
+
+#center p {
+	text-align: center;
+	font: 20px Georgia, "Times New Roman", Times, serif;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+
+
+div#register {
+	padding-left: 40px;
+
+}
+
+form div {
+	margin-bottom: 10px;
+	clear: both;
+
+}
+
+div.formErrorLeft {
+	display: inline-table;
+	font-size: 13px;
+	margin-left: 10px;
+	color: #ff5e0a;
+}
+
+div#remember_me {
+	font-size: 13px;
+}
+
+
+
+
+
+
+
+
+/* @end */
+
+/* @group errors */
+
+.fieldWithErrors {
+  background-color: #e81a0c;
+  display: table;
+  float: left;
+}
+
+#errorExplanation {
+  
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+	border-top-color: #c20404;
+	border-top-width: 1px;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  padding: 5px 5px 5px 15px;
+  margin: -7px;
+  color: #fff;
+  font: bold 12px "Lucida Grande", Lucida, Verdana, sans-serif;
+	background-color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: none;
+}
+
+
+
+
+
+/* @end */
+
+/* @group ideas */
+
+
+
+/* @end */
+
+.form_notes {
+	font-size: 12px;
+	color: #807f83;
+}
+
+/* @group show */
+
+/* @group comments */
+h3#comment_header {
+	display: block;
+	margin-top: 40px;
+	font-size: 16px;
+	width: 401px;
+	color: #1e1e1f;
+	margin-left: 5px;
+	border-bottom: 1px solid #cbc9cf;
+	margin-bottom: 10px;
+}
+
+div.comment {
+	font-size: 13px;
+	padding: 5px 5px 5px 0px;
+	margin-bottom: 8px;
+	color: #1e1e1f;
+	border-bottom: 1px solid #e0e0e0;
+	margin-left: 5px;
+
+}
+
+form#new_comment.new_comment {
+	margin-top: 20px;
+	padding: 5px;
+	background-color: #eaecf1;
+}
+
+textarea#comment_body {
+	font-size: 14px;
+}
+
+input#comment_submit {
+	margin-top: 15px;
+	float: right;
+	margin-right: 30px;
+}
+
+span.comment_details {
+	font-size: 11px;
+	color: #cbc9cf;
+}
+
+
+
+/* @end */
+
+div#show_task {
+	padding: 5px;
+	float: left;
+	display: block;
+	width: 396px;
+	margin-bottom: 10px;
+	padding-bottom: 20px;
+}
+#left_show{
+	float: left;
+	display: block;
+	width: 406px;
+}
+
+#show_task h3 {
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 0px;
+	padding-left: 46px;
+	color: #000;
+}
+h3.tsk_statusFinished{
+	
+}
+h3.tsk_statusTodo{
+	
+}
+h3.tsk_statusWIP{
+	
+}
+
+#show_task p {
+	font-size: 13px;
+	padding-left: 46px;
+	line-height: 20px;
+	margin-right: 10px;
+	
+}
+
+div#show_task_details {
+	font-size: 11px;
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #cbc9cf;
+	padding: 10px 15px;
+	border-top: 1px solid #cbc9cf;
+	display: block;
+	float: right;
+}
+.right{
+	text-align: right;
+	width: 100px;
+	padding-right: 10px;
+}
+
+#show_task_details hr {
+	border-top: 1px solid #cbc9cf;
+	border-left-style: none;
+}
+
+
+
+/* @end */
+
+
+
+div.pagination {
+	font-size: 13px;
+	color: #807f83; 
+	margin-left: 45%;
+}
+
+
+
+a.next_page, a.prev_page, a.prev_page:visited, a.next_page:visited {
+	color: #0e61b9;
+	text-decoration: none;
+}
+a.next_page:hover, a.prev_page:hover{
+	color: #1175e0;
+	text-decoration: none;
+}

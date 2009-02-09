@@ -1,0 +1,19 @@
+<h3>Details:</h3>
+<ul id="details">
+	<li>
+		<span><%= t 'task.details.created_by' %></span><%= user_full_name(@task.user_id) %><br />
+		<span><%= t 'task.details.date' %></span><%= show_date(@task.created_at) %>
+	</li>
+	<li>
+		<span><%= t 'task.details.worked_on_by' %></span><%= user_full_name(@task.assigned_to) %><br />
+		<span><%= t 'task.details.date' %></span><%= show_date(@task.assigned_at) %>
+	</li>
+	<li>
+		<span><%= t 'task.details.finished_by' %></span><%= user_full_name(@task.finished_by) %><br />
+		<span><%= t 'task.details.date' %></span><%= show_date(@task.finished_at) %>
+	</li>
+	<li>
+		<span><%= t'task.details.resubmitted' %></span><%=  @task.resubmit > 0 ? t('_yes') : t('_no') %><br />
+		<span><%= t 'task.details.number' %></span><%= @task.resubmit ? @task.resubmit : "-" %>
+	</li>
+</ul>

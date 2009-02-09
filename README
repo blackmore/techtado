@@ -1,0 +1,15 @@
+A SMALL TODO APP FOR --TECH--
+
+TODO
+	DONE: Style the search result notice id => searchResultHeader
+	- Style pager
+	DONE: Keep me informed by email switch
+	DONE: Get rid of "Working on by" => worked on by
+	DONE: language select  plus add to User model the language string
+	
+BUGS
+	DONE: Resubmitted always shows yes
+	DONE: with long texts only the heading is shown.
+	DONE: problem with the formatting of this description text.
+	- RSS brakes when nothing in array
+	

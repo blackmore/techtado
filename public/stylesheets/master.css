@@ -1,0 +1,586 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1234013970 */
+
+body {
+	background-color:#222;
+	font: 13.34px/17.34px helvetica,arial,clean,sans-serif;*font-size:small;
+
+}
+
+label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #777;
+}
+
+#header {
+	width:888px;
+	height:110px;
+	margin:auto;
+	background-color: #1175e0;
+	background-image: url(../images/header.png);
+}
+
+#menu {
+	width:888px;
+	margin:auto;
+	font-size: 16px;
+	background: #0e61b9 url(../images/header.png) no-repeat 0 -110px;
+}
+
+#page {
+	width:868px;
+	margin:auto;
+	background-color:white;
+	border-left:solid 1px #454545;
+	border-right:solid 1px #454545;
+}
+
+#content {
+	padding-left:20px;
+	padding-top:40px;
+	background-repeat:no-repeat;
+	padding-bottom: 20px;
+}
+
+/* @group errors */
+
+.fieldWithErrors input#user_first_name {
+	border: 3px solid #ff0080;
+}
+.fieldWithErrors input#user_last_name {
+	border: 3px solid #ff0080;
+}
+
+.fieldWithErrors input#user_email {
+	border: 3px solid #ff0080;
+}
+
+.fieldWithErrors input#user_password {
+	border: 3px solid #ff0080;
+}
+
+
+
+/* @end */
+
+#mainContent {
+	width:550px;
+	float:left;
+}
+
+div#show_task {
+	margin-bottom: 40px;
+	color: #f4f4f4;
+}
+
+#sideBar {
+	width:235px;
+	float:right;
+	padding:20px;
+	background-color:#F4F4F4;
+	border-left:1px solid #DCDCDC;
+	min-height: 400px;
+}
+
+input#searchSubmit {
+	display: none;
+}
+
+div#search_box {
+	background: url(../images/mag_glass.png) no-repeat 0 4px;
+	border-color: #f4f4f4;
+	
+}
+
+h3 {
+	margin: 0;
+	color: #424143;
+}
+
+/* @group login */
+
+#log_link a {
+	color: #000;
+}
+
+div#login_status {
+	text-align: right;
+	margin-right: 20px;
+	padding-top: 10px;
+}
+
+
+
+/* @end */
+
+
+
+/* @group navagation */
+
+#navigation {
+	display: block;
+	float: right;
+	padding-right: 20px;
+	font-size: 16px;
+}
+
+#navigation * {
+	padding: 0;
+	margin: 0;
+}
+
+#navigation ul {
+	display: block;
+	margin: 0 auto;
+}
+
+#navigation li {
+	display: block;
+	float: left;
+}
+
+#navigation li a {
+	display: block;
+	padding: 15px 10px 10px;
+	color: #444;
+	font-weight: bolder;
+	text-decoration: none;
+	background-color: #807f83;
+	text-align: center;
+	width: 5.5em;
+}
+li#todo {
+	margin-right: 2px;
+}
+#navigation li a:hover {
+	color: #106ed3;
+	background-color: #fff;
+}
+
+#navigation li.active a, #navigation li.active a:hover {
+	background-color: #fff;
+}
+/* @end */
+
+/* @group task */
+
+div.task ul li{
+	color: #807f83;
+}
+div.task ul{
+	margin-top: 0px;
+	padding: 2px 0px 0px 0px;
+	list-style-type: none;
+	margin-bottom: 15px;
+}
+
+a.tsk_comments {
+	color: #807f83;
+	font-style: italic;
+}
+
+hr{
+	color: #d5d4d9;
+	margin-top: 0;
+	margin-right: 10px;
+	border-right-style: none;
+	border-left-style: none;
+	border-top: 1px solid #f2f2f2;
+}
+
+input#search {
+	border: 2px solid #b4b4b4;
+	font-size: 14px;
+	margin-left: 25px;
+	margin-bottom: 10px;
+	width: 87%;
+}
+
+span.reSubmit_1 {
+	color: #FFC2E1;
+	font-style: italic;
+}
+span.reSubmit_2 {
+	color: #FF85C2;
+	font-style: italic;
+}
+span.reSubmit_3 {
+	color: #FF47A4;
+	font-style: italic;
+}
+
+span.reSubmit {
+	color: #FF0A85;
+	font-style: italic;
+}
+
+
+
+a.tsk_name, span.tsk_name{
+	font-size: 16px;
+	font-weight: bold;
+	margin-left: 18px;
+	margin-right: 10px;
+	color: #000;
+	text-decoration: none;
+}
+
+span.tskWhoStatusTime {
+	margin-left: 18px;
+	color: #67666a;
+	font-style: italic;
+}
+
+
+a.tsk_statusTodo,
+a.tsk_statusWIP,
+a.tsk_statusFinished,
+span.tsk_statusFinished,
+span.tsk_statusTodo,
+span.tsk_statusWIP {
+	float: left;
+	display: block;
+	height: 24px;
+	margin-bottom: 10px;
+	width: 28px;
+}
+
+a.tsk_statusTodo, span.tsk_statusTodo {
+	background: url(../images/status.png) no-repeat 0 -60px;
+}
+a.tsk_statusWIP, span.tsk_statusWIP {
+	background: url(../images/status.png) no-repeat 0 0px;
+}
+
+a.tsk_statusFinished, span.tsk_statusFinished {
+	background: url(../images/status.png) no-repeat 0 -30px;
+}
+
+a.tsk_statusWIP:hover, a.tsk_statusTodo:hover {
+	background: url(../images/status.png) no-repeat 0 -30px;
+}
+
+
+
+/* @end */
+
+/* @group add_task */
+
+
+
+
+div#addTask {
+	border-top: 1px solid #f2f2f2;
+	background-color: #fbfbfb;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+div#addComent {
+	
+	background-color: #f4f4f4;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 20px;
+	margin-left: 90px;
+	border-top: 1px solid #e5e5e5;
+}
+
+
+#new_task p, #login_form p {
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 5px;
+	color: #777;
+}
+
+input#task_submit {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+/* @end */
+
+/* @group comment */
+
+div.postedBy span {
+	color: #a6a5a9;
+}
+
+div#comments {
+	border-top: 1px solid #e5e5e5;
+}
+
+div.postedBy {
+	font-size: 10px;
+	line-height: 16px;
+	width: 130px;
+	float: left;
+	font-weight: bold;
+	color: #424143;
+}
+
+div.commentBody {
+	float: left;
+	width: 420px;
+		color: #424143;
+}
+
+div.comment {
+	border-bottom: 1px solid #e5e5e5;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+
+/* @end */
+
+/* @group task_details */
+
+ul#details {
+	margin: 10px 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#details li span {
+	padding-right: 10px;
+	display: block;
+	width: 115px;
+	float: left;
+	text-align: right;
+	color: #424143;
+}
+
+
+
+#details li {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+
+/* @end */
+
+
+textarea#comment_body, textarea#task_description {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	width: 97%;
+	border: 3px solid #b4b4b4;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	line-height: 1.5em;
+	color: #000000;
+}
+
+#comment_submit {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+/* @group login */
+
+div#login {
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#login h2, #register h2, #forgot_password h2 {
+	margin: 0px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-size: 22px;
+}
+
+input#user_session_login, 
+input#user_session_password,
+input#user_first_name,input#user_last_name, input#user_email,
+input#user_password,input#user_password_confirmation,
+input#email{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	width: 94%;
+	border: 3px solid #b4b4b4;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	line-height: 1.5em;
+	color: #000000;
+}
+
+input#submit_login {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+
+
+
+
+/* @end */
+
+/* @group flashes */
+
+div.notice {
+	color: #9a995f;
+	background-color: #fdffc6;
+	border: 1px solid #f2f096;
+	padding: 3px 6px;
+	margin-bottom: 15px;
+	margin-right: 20px;
+}
+
+
+
+/* @end */
+
+/* @group register */
+
+
+div#register {
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#register_form {
+	display: block;
+	width: 320px;
+	height: 100%;
+	border-top: 1px solid #e5e5e5;
+	background-color:#F4F4F4;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+div#errorExplanation.errorExplanation {
+	padding: 5px 10px;
+	border: 1px solid #ff0080;
+	background-color: #FFEBF5;
+	margin-right: auto;
+	font-size: 0.8em;
+	color: #de0049;
+	width: 70%;
+	margin-left: auto;
+}
+
+div#password_reset_form {
+	
+}
+
+#errorExplanation h2 {
+	margin: 0;
+}
+
+input#user_submit {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+/* @end */
+
+/* @group forgot_pass */
+
+#forgot_password form {
+	border-top: 1px solid #e5e5e5;
+	background-color:#F4F4F4;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+
+#forgot_password form input {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+div#forgot_password {
+	width: 410px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div#forgot_password {
+	width: 410px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+/* @end */
+
+/* @group resetPassword */
+
+div#password_reset_form {
+	display: block;
+	width: 320px;
+	height: 100%;
+	border-top: 1px solid #e5e5e5;
+	background-color:#F4F4F4;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+div#password_reset {
+	width: 320px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/* @end */
+
+/* @group login_form */
+
+#login_form {
+	border-top: 1px solid #f2f2f2;
+	background-color: #fbfbfb;
+	padding-top: 10px;
+	padding-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	
+
+}
+
+div#mainlogin {
+	min-height: 300px;
+}
+
+
+
+
+
+/* @end */
+
+#show_task p {
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 46px;
+	color: #3f3f3f;
+}
+
+
+

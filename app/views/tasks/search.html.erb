@@ -1,0 +1,5 @@
+<div class='notice'>Found <%= @tasks.length %> <%= @tasks.length == 1 ? 'result' : 'results' %> for " <i><%= @search_query %></i> "</div>
+
+<div id="tasks">
+	<%= render :partial => 'no_action_task' %>
+</div>

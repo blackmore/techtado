@@ -1,0 +1,89 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+    ############      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        zero: 'weniger als 1 Sekunde'
+        one: 'weniger als 1 Sekunde'
+        other: 'weniger als {{count}} Sekunden'
+      x_seconds:
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      less_than_x_minutes:
+        zero: 'weniger als 1 Minute'
+        one: 'weniger als eine Minute'
+        other: 'weniger als {{count}} Minuten'
+      x_minutes:
+        one: '1 Minute'
+        other: '{{count}} Minuten'
+      about_x_hours:
+        one: 'etwa 1 Stunde'
+        other: 'etwa {{count}} Stunden'
+      x_days:
+        one: '1 Tag'
+        other: '{{count}} Tage'
+      about_x_months:
+        one: 'etwa 1 Monat'
+        other: 'etwa {{count}} Monate'
+      x_months:
+        one: '1 Monat'
+        other: '{{count}} Monate'
+      about_x_years:
+        one: 'etwa 1 Jahr'
+        other: 'etwa {{count}} Jahre'
+      over_x_years:
+        one: 'mehr als 1 Jahr'
+        other: 'mehr als {{count}} Jahre'
+
+  _yes: "Ja"
+  _no: "Nein"
+  tasks:
+    logged_out: "Du bist momentan nicht eingeloggt"
+    logged_in_as: "Einloggen als "
+    login: "Login"
+    logout: "Logout"
+    logout_message: "Bist Du sicher, dass Du Dich ausloggen möchtest?"
+    menu:
+      archive: "Archiv"
+
+    form_new:
+       new_task: "Neue Aufgabe"
+       informed: "Ich möchte per email informiert werden"
+       submit: "Aufgabe hinzufügen"
+       
+  task:
+    assigned_to: "working on this for" 
+    finished: "finished this" 
+    resubmitted: "resubmitted this"
+    submitted: "submitted this"
+    ago: "ago."
+    once: "once" 
+    times: "times" 
+    
+    status_link:
+      bounce: "Zurückgeben"
+      snatch: "Zugreifen"
+      resubmit: "wieder einreichen"
+      Ill_do_this: "Ich mache das!"
+      
+    comment:
+      plural: " Kommentare"
+      singular: " Kommentar"
+      title: "Kommentar"
+    comment_form:
+      add_comment: "Neuer Kommentar"
+      submit: "Zu den Kommentaren hinzufügen"
+      not_logged_in: "Du musst Dich eingeloggen, um einen Kommentar hinzufügen"
+    details:
+      date: "Datum:"
+      created_by: "Angelegt von:"
+      worked_on_by: "Bearbeitet von:"
+      working_on_by: "Working on by:" 
+      finished_by: "Beendet von:"
+      resubmitted: "Wieder eingereicht:"
+      number: "Anzahl:"
+      
