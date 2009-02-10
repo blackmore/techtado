@@ -1,7 +1,7 @@
 class Postoffice < ActionMailer::Base
   # make note of the headers, content type, and time sent
   # these help prevent your email from being flagged as spam
-  default_url_options[:host] = "0.0.0.0:3000"
+  default_url_options[:host] = "10.1.1.211/techtado"
   
     def status_changed(task)
       @recipients   = task.user.email

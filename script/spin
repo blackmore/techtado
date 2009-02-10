@@ -1,3 +1,3 @@
 #!/bin/sh
 
-script/process/spawner -p 8000 -i 2 --prefix /techtado
+script/process/spawner -p 8000 -i 1 --prefix /techtado
