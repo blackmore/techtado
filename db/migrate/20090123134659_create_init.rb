@@ -35,6 +35,7 @@ class CreateInit < ActiveRecord::Migration
       t.string   "last_name"
       t.string   "perishable_token",  :default => "", :null => false
       t.string   "email",             :default => "", :null => false
+      t.string   "language"
       t.timestamps
     end
     
