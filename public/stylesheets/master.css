@@ -1,3 +1,5 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1234300968 */
+
 body {
 	background-color:#222;
 	font: 13.34px/17.34px helvetica,arial,clean,sans-serif;*font-size:small;
@@ -8,6 +10,7 @@ label {
 	font-size: 14px;
 	font-weight: bold;
 	color: #777;
+	margin: 0;
 }
 
 a, a:visited {
@@ -23,14 +26,14 @@ a:hover{
 	height:110px;
 	margin:auto;
 	background-color: #1175e0;
-	background-image: url(../images/header.png);
+	background-image: url(../images/header_new.png);
 }
 
 #menu {
 	width:888px;
 	margin:auto;
 	font-size: 16px;
-	background: #0e61b9 url(../images/header.png) no-repeat 0 -110px;
+	background: #0e61b9 url(../images/header_new.png) no-repeat 0 -110px;
 }
 
 #page {
@@ -154,6 +157,10 @@ div#login_status {
 	background-color: #807f83;
 	text-align: center;
 	width: 5.5em;
+	-webkit-border-top-right-radius: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	-moz-border-radius-topleft: 8px;
 }
 li#todo {
 	margin-right: 2px;
@@ -407,6 +414,17 @@ div#login {
 	margin-top: 15px;
 	margin-bottom: 5px;
 	font-size: 22px;
+}
+
+#login h2 a {
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+}
+
+#login_form div a {
+	text-decoration: none;
 }
 
 input#user_session_login, 

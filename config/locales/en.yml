@@ -8,7 +8,7 @@ en:
     logged_out: "You are currently not logged in"
     logged_in_as: "Logged in as"
     login: "Login"
-    logout: "Logout"
+    logout: "Log out"
     logout_message: "Are you sure you want to logout?"
     menu:
       archive: "Archive"

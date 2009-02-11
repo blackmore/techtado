@@ -45,7 +45,7 @@ de:
     logged_out: "Du bist momentan nicht eingeloggt"
     logged_in_as: "Einloggen als "
     login: "Login"
-    logout: "Logout"
+    logout: "Log out"
     logout_message: "Bist Du sicher, dass Du Dich ausloggen möchtest?"
     menu:
       archive: "Archiv"
