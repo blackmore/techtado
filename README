@@ -12,4 +12,5 @@ BUGS
 	DONE: with long texts only the heading is shown.
 	DONE: problem with the formatting of this description text.
 	- RSS brakes when nothing in array
+	- password reset ip
 	
