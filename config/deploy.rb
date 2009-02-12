@@ -1,3 +1,4 @@
+set :ruby, "/usr/local/bin"
 set :application, "techtado"
 set :repository,  "git://github.com/blackmore/techtado.git"
 
