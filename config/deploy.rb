@@ -1,5 +1,4 @@
 default_environment["PATH"] = "/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin"
-/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 set :application, "techtado"
 set :repository,  "git://github.com/blackmore/techtado.git"
