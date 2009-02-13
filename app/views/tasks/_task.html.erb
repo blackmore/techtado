@@ -1,19 +1,15 @@
 <% div_for task do %>
 	<ul>
 		<li>
-			<%- if current_user -%>
-				<%= link_to_remote '', :html => { :class => get_status(task.status) }, :url => update_index_page_path(task, :status => 'finished' ) -%>
-			<%- else -%>
-				<span class="<%= get_status(task.status) %>"</span>
-			<%- end -%>
+			<%= link_to_remote '', :html => { :class => get_status(task.status) }, :url => update_index_page_path(task, :status => 'finished' ) -%>
 			<%= link_to_unless_current h(description_heading(task.description)), task, :class => 'tsk_name' -%>
-			<%- if task.status == 1 && current_user -%>
+			<%- if task.status == 1 -%>
 				<%= link_to_remote t('task.status_link.Ill_do_this'), :url => update_index_page_path(task, :status => 'assign_to_user'), :html => {:class => "change_status"} -%>
 			<%- end -%>
 		</li>
 		<li>
 			<span class="tskWhoStatusTime"><%=  who_status_time(task) -%></span> - 
-			<%= comments(task, 'index') %><%= resubmitted(task) %>
+			<%= comments(task) %><%= resubmitted(task) %>
 		</li>
 	</ul>
 <% end %>

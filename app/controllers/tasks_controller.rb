@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.outstanding.paginate :page => params[:page], :order => 'created_at DESC'
+    @tasks = Task.outstanding.paginate :page => params[:page]
     @task = Task.new
     respond_to do |format|
       format.html #index.html.erb

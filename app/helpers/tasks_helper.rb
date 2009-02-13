@@ -126,15 +126,15 @@ module TasksHelper
   end
   
   
-  def comments(task, page)
+  def comments(task)
     number = task.comments.length
     if number > 0
       link_to "#{number}" + (number > 1 ? t('task.comment.plural') : t('task.comment.singular')), task, :class => "tsk_comments"
     else
-      if page == 'finished'
-        ""
-      else
+      if current_user
         link_to('add comment', task, :class => "tsk_comments" )
+      else
+        'No comments'
       end
     end
   end
