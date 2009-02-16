@@ -280,8 +280,6 @@ span.reSubmit {
 	font-style: italic;
 }
 
-
-
 a.tsk_name, span.tsk_name{
 	font-size: 16px;
 	font-weight: bold;
@@ -308,12 +306,10 @@ span.tskWhoStatusTime {
 
 a.tsk_statusTodo,
 a.tsk_statusWIP,
-a.tsk_statusWIP_user,
 a.tsk_statusFinished,
 span.tsk_statusFinished,
 span.tsk_statusTodo,
-span.tsk_statusWIP,
-span.tsk_statusWIP_user {
+span.tsk_statusWIP{
 	float: left;
 	display: block;
 	height: 30px;
@@ -326,18 +322,18 @@ span.tsk_statusWIP_user {
 }
 
 a.tsk_statusTodo, span.tsk_statusTodo {
-	background: url(../images/status_v2.png) no-repeat 0 -83px;
+	background: url(../images/status_v2.gif) no-repeat 0 -83px;
 }
 a.tsk_statusWIP, span.tsk_statusWIP {
-	background: url(../images/status_v2.png) no-repeat 0 0px;
+	background: url(../images/status_v2.gif) no-repeat 0 0px;
 }
 
 a.tsk_statusFinished, span.tsk_statusFinished {
-	background: url(../images/status_v2.png) no-repeat 0 -40px;
+	background: url(../images/status_v2.gif) no-repeat 0 -40px;
 }
 
 a.tsk_statusWIP:hover, a.tsk_statusTodo:hover {
-	background: url(../images/status_v2.png) no-repeat 0 -40px;
+	background: url(../images/status_v2.gif) no-repeat 0 -40px;
 }
 
 
