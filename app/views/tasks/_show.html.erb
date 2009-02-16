@@ -1,7 +1,7 @@
 <% if current_user %>
-<%= link_to_remote '', :html => {:class => get_status(@task.status)}, :url => update_show_page_path(@task, :status => "finished"	)%>
+<%= link_to_remote '', :html => {:class => get_status(@task)}, :url => update_show_page_path(@task, :status => "finished"	)%>
 <% else %>
-<span class="<%= get_status(@task.status) %>"></span>
+<span class="<%= get_status(@task) %>"></span>
 <% end %>
 
 <% show_description(@task) %>

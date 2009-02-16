@@ -26,7 +26,8 @@ module TasksHelper
    	end
 	end
 
-	def get_status(s)
+	def get_status(task)
+	  s = task.status
 	  case s
   	  when -1 : 'tsk_statusFinished'
       when 1 :  'tsk_statusTodo'
@@ -138,6 +139,15 @@ module TasksHelper
       end
     end
   end
+  
+  def belongs_to_user(task)
+    if current_user.id == task.assigned_to
+      'belongs_to_user'
+    else
+      ''
+    end
+  end
+  
 
   
 

@@ -1,7 +1,7 @@
-<% div_for task do %>
+<% div_for (task, :class => belongs_to_user(task) ) do %>
 	<ul>
 		<li>
-			<%= link_to_remote '', :html => { :class => get_status(task.status) }, :url => update_index_page_path(task, :status => 'finished' ) -%>
+			<%= link_to_remote '', :html => { :class => get_status(task) }, :url => update_index_page_path(task, :status => 'finished' ) -%>
 			<%= link_to_unless_current h(description_heading(task.description)), task, :class => 'tsk_name' -%>
 			<%- if task.status == 1 -%>
 				<%= link_to_remote t('task.status_link.Ill_do_this'), :url => update_index_page_path(task, :status => 'assign_to_user'), :html => {:class => "change_status"} -%>
