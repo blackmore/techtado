@@ -25,6 +25,33 @@ module TasksHelper
    		string
    	end
 	end
+	
+	def description_heading_sidebar(description)
+    string = find_description_head_sidebar(description)
+    if description > string
+      string + ' ...'
+    else
+      string
+    end
+	end
+	
+	def find_description_head_sidebar(text, count = 27)
+	  if text =~ /\n/
+       split_on_return = text.split(/\n/)
+       string = split_on_return[0]
+     else
+       string = text
+     end
+
+   	if string.length >= count 
+   		shortened = string[0, count]
+   		splitted = shortened.split(/\s/)
+   		words = splitted.length
+   		splitted[0, words-1].join(" ")
+   	else 
+   		string
+   	end
+	end
 
 	def get_status(task)
 	  s = task.status
