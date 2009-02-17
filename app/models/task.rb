@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   named_scope :outstanding, :conditions => ['status >= ?', 0 ]
   named_scope :marked_as_wip, :conditions => {:status => 0}
   named_scope :finished, :conditions => {:status => -1}
+  named_scope :recently_completed, :conditions => {:status => -1}, :order => "finished_at DESC", :limit => '6'
   
   def self.search(search)
     if search

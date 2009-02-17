@@ -14,9 +14,11 @@ en:
       archive: "Archive"
 
     form_new:
-       new_task: "New task"
-       informed: "Keep me informed by email"
-       submit: "Add this task"
+      new_task: "New task"
+      informed: "Keep me informed by email"
+      submit: "Add this task"
+    recently_completed:
+      title: "Recently completed tasks"
        
   task:
     assigned_to: "working on this for"

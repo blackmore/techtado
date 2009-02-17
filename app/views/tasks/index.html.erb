@@ -1,20 +1,22 @@
 <div id="tasks">
-	<% if current_user %>
-		<%= render :partial => @tasks %>
-	<% else %>
-		<%= render :partial => 'no_action_task' %>
-	<% end %>
+	<ul>
+		<% if current_user %>
+			<%= render :partial => @tasks %>
+		<% else %>
+			<%= render :partial => 'no_action_task' %>
+		<% end %>
+	</ul>
 </div>
 <%= will_paginate @tasks, :page_links => false %>
 <% if current_user && !@search%>
-<div id="addTask">
-	<% remote_form_for(@task) do |f| %>
-	  	<%= f.error_messages %>
-		<%= f.label @task, t('tasks.form_new.new_task') %>
-		<%= f.text_area :description, :rows => "4", :cols => "40"  %>
-		<p><%= t 'tasks.form_new.informed' %> <%= f.check_box :send_email %></p>
-		<hr>
-		<%= f.submit t('tasks.form_new.submit') %>
-	<% end %>
-</div>
+	<div id="addTask">
+		<% remote_form_for(@task) do |f| %>
+		  	<%= f.error_messages %>
+			<%= f.label @task, t('tasks.form_new.new_task') %>
+			<%= f.text_area :description, :rows => "4", :cols => "40"  %>
+			<p><%= t 'tasks.form_new.informed' %> <%= f.check_box :send_email %></p>
+			<hr>
+			<%= f.submit t('tasks.form_new.submit') %>
+		<% end %>
+	</div>
 <% end %>

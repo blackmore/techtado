@@ -1,5 +1,7 @@
-case  @state
-when 'assign_to_user' : page.replace_html "task_#{@task.id}", :partial => @task; page[@task].visual_effect :highlight
-when 'finished'       : page.remove "task_#{@task.id}"
+if @state == 'assign_to_user'
+  page.replace_html "task_#{@task.id}", :partial => @task; page[@task].visual_effect :highlight
+else
+  @recently_completed_tasks = [@task]
+  page.insert_html :top, :recently_completed_tasks, :partial => 'recently_completed_tasks'
+  page.remove "task_#{@task.id}"
 end
-

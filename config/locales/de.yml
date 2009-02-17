@@ -54,6 +54,8 @@ de:
        new_task: "Neue Aufgabe"
        informed: "Ich möchte per email informiert werden"
        submit: "Aufgabe hinzufügen"
+    recently_completed:
+       title: "kürzlich erledigte Aufgaben"
        
   task:
     assigned_to: "working on this for" 
