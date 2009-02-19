@@ -9,6 +9,7 @@ class TasksController < ApplicationController
     @tasks = Task.outstanding.paginate :page => params[:page]
     @task = Task.new
     @recently_completed_tasks = Task.recently_completed
+    @frozen_tasks = Task.frozen
     respond_to do |format|
       format.html #index.html.erb
       format.xml  { render :xml => @tasks }
@@ -105,6 +106,10 @@ class TasksController < ApplicationController
   def search
     @tasks = Task.search(params[:search])
     @search_query = params[:search]
+    respond_to do |format|
+      format.html { render :layout => 'search'}
+      format.xml  { render :xml => @tasks }
+    end
   end
   
   def update_index_page

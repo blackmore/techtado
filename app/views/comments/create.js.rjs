@@ -1,3 +1,11 @@
 page.insert_html :bottom, :comments, :partial => @comment
 page[@comment].visual_effect :highlight
 page[:new_comment].reset
+page.replace_html "show_task", :partial => '/tasks/show'
+page["show_task"].visual_effect :highlight
+
+if @task.freezed?
+  page.replace_html "freeze_task", "Unfreeze task? <input id='unfreeze' name='unfreeze' type='checkbox' value='1' />"
+else
+  page.replace_html "freeze_task", "Freeze task? <input id='freeze' name='freeze' type='checkbox' value='1' />"
+end

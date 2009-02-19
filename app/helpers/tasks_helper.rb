@@ -57,8 +57,9 @@ module TasksHelper
 	  s = task.status
 	  case s
   	  when -1 : 'tsk_statusFinished'
-      when 1 :  'tsk_statusTodo'
   	  when 0 :  'tsk_statusWIP'
+  	  when -2 :  'tsk_statusFreeze'
+      else  'tsk_statusTodo'
 	  end
 	end
 	
@@ -104,16 +105,16 @@ module TasksHelper
   def who_status_time(task)
     status = task.status
     user_id, date = case status
-                      when  1:  task.resubmit > 0 ? [task.resubmitted_by, task.resubmitted_at] : [task.user_id, task.created_at]
                       when  0:  [task.assigned_to, task.assigned_at] 
                       when -1:  [task.finished_by, task.finished_at]
+                      else      task.resubmit > 0 ? [task.resubmitted_by, task.resubmitted_at] : [task.user_id, task.created_at]
                     end
     user = User.find(user_id)
     
     case status
-    when 1: "#{user.first_name.capitalize} #{task.resubmit > 0 ? t('task.resubmitted') : t('task.submitted') } #{time_ago_in_words(date)} #{t('task.ago')}"
     when 0: "#{user.first_name.capitalize}'s #{t('task.assigned_to')} #{time_ago_in_words(date)}." 
     when -1: "#{user.first_name.capitalize} #{t('task.finished')} #{time_ago_in_words(date)} #{t('task.ago')}"
+    else    "#{user.first_name.capitalize} #{task.resubmit > 0 ? t('task.resubmitted') : t('task.submitted') } #{time_ago_in_words(date)} #{t('task.ago')}"
     end
   end
   
@@ -136,7 +137,7 @@ module TasksHelper
   
   def change_status_link(task)
     status = task.status
-    if current_user
+    if current_user && !task.freezed?
       user_id = current_user.id
       
       if status == 0 && task.assigned_to == user_id
@@ -146,9 +147,9 @@ module TasksHelper
       end
       
       case status
-      when 1: link_to_remote t('task.status_link.Ill_do_this'), :url => update_show_page_path(@task, :status => 'assign_to_user'), :html => {:class => "change_status"}
       when 0: link
       when -1: link_to_remote t('task.status_link.resubmit'), :url => update_show_page_path(@task, :status => 'resubmit'), :html => {:class => "change_status"}
+      else     link_to_remote t('task.status_link.Ill_do_this'), :url => update_show_page_path(@task, :status => 'assign_to_user'), :html => {:class => "change_status"}
       end
     end
   end

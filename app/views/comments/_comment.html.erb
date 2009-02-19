@@ -4,7 +4,7 @@
 	<span><%= short_time_ago(comment.created_at) %> ago</span>
 </div>
 <div class="commentBody">
-	<%= h(comment.body) %>
+	<%= comment.body %>
 </div>
 <p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
 <% end %>

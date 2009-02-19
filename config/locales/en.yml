@@ -28,6 +28,10 @@ en:
     ago: "ago."
     once: "once"
     times: "times"
+    frozen:
+      title: "Frozen tasks"
+      unfreeze_ch: "Unfreeze task"
+      freeze_ch: "Freeze task"
     
     status_link:
       bounce: "bounce"

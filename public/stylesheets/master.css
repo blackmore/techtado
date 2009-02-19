@@ -1,3 +1,5 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1234866540 */
+
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1234864966 */
 
 /* @group CSS RESET */
@@ -311,9 +313,11 @@ span.tskWhoStatusTime {
 a.tsk_statusTodo,
 a.tsk_statusWIP,
 a.tsk_statusFinished,
+a.tsk_statusFreeze,
 span.tsk_statusFinished,
 span.tsk_statusTodo,
-span.tsk_statusWIP{
+span.tsk_statusWIP,
+span.tsk_statusFreeze{
 	float: left;
 	display: block;
 	height: 30px;
@@ -338,6 +342,32 @@ a.tsk_statusFinished, span.tsk_statusFinished {
 
 a.tsk_statusWIP:hover, a.tsk_statusTodo:hover {
 	background: url(../images/status_v2.gif) no-repeat 0 -44px;
+}
+a.tsk_statusFreeze, span.tsk_statusFreeze{
+	background: url(../images/status_v2.gif) no-repeat 0 -120px;
+}
+
+
+
+strong.unfreeze {
+	color: #2fb81b;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+	background-color: #DCF7CF;
+	padding: 2px 4px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+}
+strong.freeze {
+	color: #0e61b9;
+	font-size: 14px;
+	font-weight: bold;
+	margin-right: 10px;
+	background-color: #CCD1DF;
+	padding: 2px 4px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
 }
 
 #tasks ul {
@@ -373,12 +403,13 @@ div#addComent {
 }
 
 
-#new_task p, #login_form p {
+#new_task p, #login_form p, p#freeze_task {
 	padding: 0px;
 	margin: 0px;
 	margin-bottom: 5px;
 	color: #777;
 }
+
 
 input#task_submit {
 	margin-top: 5px;
@@ -693,12 +724,20 @@ div#mainlogin {
 	margin-top: 15px;
 }
 
-#recently_completed_tasks li{
-		background: url(../images/sidebar_finished.gif) no-repeat -4px;
+#recently_completed_tasks li, #frozen_task_list li{
+		background: url(../images/sidebar_status.gif) no-repeat 0 -23px;
 		padding-top: 2px;
 		padding-bottom: 1px;
 		margin-top: 5px;
 		margin-bottom: 5px;
+}
+
+ul#frozen_task_list {
+	margin-bottom: 15px;
+}
+
+#frozen_task_list li {
+		background: url(../images/sidebar_status.gif) no-repeat;
 }
 
 div#recently_completed_tasks {
@@ -706,9 +745,9 @@ div#recently_completed_tasks {
 }
 
 
-#recently_completed_tasks li a {
+#recently_completed_tasks li a, #frozen_task_list li a  {
 	margin-left: 30px;
-		color: #424143;
+	color: #424143;
 }
 
 

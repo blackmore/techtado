@@ -4,7 +4,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Tasks: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'master' %>
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'prototype', 'task', 'effects', 'application' %>
   <%= auto_discovery_link_tag :atom, formatted_tasks_path(:atom) %>
 </head>
 <body>
@@ -43,7 +43,8 @@
 						<%= text_field_tag :search, (params[:search] ? params[:search] : ' search'), :onFocus => 'clearText(this)' %>
 						<%=  submit_tag 'Search', :name => nil, :id => 'searchSubmit' %>
 					<% end -%>
-				</div>  
+				</div>
+				<hr/>
 			</div>
 			<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
 		</div>

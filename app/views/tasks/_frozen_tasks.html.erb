@@ -1,0 +1,3 @@
+<% @frozen_tasks.each do |task| %>
+	<li><%= link_to h(description_heading_sidebar(task.description)), task %></li>
+<% end %>

@@ -64,7 +64,11 @@ de:
     submitted: "submitted this"
     ago: "ago."
     once: "once" 
-    times: "times" 
+    times: "times"
+    frozen:
+       title: "Frozen tasks"
+       unfreeze_ch: "Unfreeze task"
+       freeze_ch: "Freeze task" 
     
     status_link:
       bounce: "Zurückgeben"

@@ -6,7 +6,7 @@ TODO
 	DONE: Keep me informed by email switch
 	DONE: Get rid of "Working on by" => worked on by
 	DONE: language select  plus add to User model the language string
-	- last 10 finished jobs right hand side under search
+	DONE: last 10 finished jobs right hand side under search
 	
 BUGS
 	DONE: Resubmitted always shows yes

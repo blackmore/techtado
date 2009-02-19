@@ -4,7 +4,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Tasks: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'master' %>
-  <%= javascript_include_tag :all %>
+  <%= javascript_include_tag 'prototype', 'task', 'effects', 'application' %>
   <%= auto_discovery_link_tag :atom, formatted_tasks_path(:atom) %>
 </head>
 <body>
@@ -45,6 +45,15 @@
 					<% end -%>
 				</div>
 				<hr/>
+				<% if @frozen_tasks.length > 0 %>
+					<h3><%= t 'task.frozen.title' %></h3>
+						<div>
+							<ul id="frozen_task_list">
+								<%= render :partial => 'frozen_tasks' %>
+							</ul>
+						</div>
+					<hr/>
+				<% end %>
 				<h3><%= t('tasks.recently_completed.title') %> </h3>
 				<div>
 					<ul id="recently_completed_tasks">
