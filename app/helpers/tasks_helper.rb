@@ -176,6 +176,14 @@ module TasksHelper
     end
   end
   
+  def urgent?(task)
+    if task.urgent
+      '<span class="urgent"</span>'
+    else
+      '<span class="not_urgent"</span>'
+    end
+  end
+  
 
   
 

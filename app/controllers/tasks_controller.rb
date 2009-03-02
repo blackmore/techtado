@@ -160,7 +160,7 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
       status = params[:status]
       @state_params = case status
-                      when 'finished' : { :status => -1, :finished_by => current_user.id, :finished_at => Time.now }
+                      when 'finished' : { :status => -1, :finished_by => current_user.id, :finished_at => Time.now, :urgent => nil }
                       when 'bounce' : { :status => 1, :assigned_to => nil, :assigned_at => nil }
                       when 'assign_to_user' : { :status => 0, :assigned_to => current_user.id,:assigned_at => Time.now }
                       when 'resubmit' : { :status => 1, :assigned_to => nil, :assigned_at => nil, :finished_by => nil, :finished_at => nil, :resubmitted_at => Time.now, :resubmitted_by => current_user.id, :resubmit => @task.resubmit + 1 }

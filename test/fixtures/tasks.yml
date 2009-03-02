@@ -4,10 +4,8 @@ one:
   description: MyText
   user_id: 1
   status: 1
-  email: false
 
 two:
   description: MyText
   user_id: 1
   status: 1
-  email: false

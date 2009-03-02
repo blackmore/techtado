@@ -1,45 +1,32 @@
 require 'test_helper'
+#require File.dirname(__FILE__) + '/../test_helper'
 
 class TasksControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:tasks)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create task" do
-    assert_difference('Task.count') do
-      post :create, :task => { }
+  context "on GET to :show for first record" do
+    setup do
+      @task = Task.create(:description => "tell")
+     #get :show, :id => 1
     end
 
-    assert_redirected_to task_path(assigns(:task))
-  end
+#    should_assign_to :task
+#    should_respond_with :success
+#    should_render_template :show
+#    should_not_set_the_flash
 
-  test "should show task" do
-    get :show, :id => tasks(:one).id
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, :id => tasks(:one).id
-    assert_response :success
-  end
-
-  test "should update task" do
-    put :update, :id => tasks(:one).id, :task => { }
-    assert_redirected_to task_path(assigns(:task))
-  end
-
-  test "should destroy task" do
-    assert_difference('Task.count', -1) do
-      delete :destroy, :id => tasks(:one).id
+    should "do something else really cool" do
+      #assert_equal 1, assigns(:task).id
     end
-
-    assert_redirected_to tasks_path
   end
+  
+  
+#  context "A Task instance" do
+#      setup do
+#        @task = Factory(:task)
+#      end
+#      
+#      should "return its full name" do
+#          assert_equal 'Small test', @task.description
+#          assert_equal  1, @task.status
+#        end
+#      end
 end

@@ -14,15 +14,6 @@ class Postoffice < ActionMailer::Base
       body[:status] = task.status_to_str 
       body[:link_to_show_task] = task_url(task)
     end
-    
-    def test(task)
-      @recipients   = 'nigel@blackmore.de'
-      @from         = "Tech-tado <noreply@titelbild.de>"
-      headers         "Reply-to" => "tech@titelbild.de"
-      @subject      = "TEST"
-      @sent_on      = Time.now
-      @content_type = "text/html"
-    end
    
    
 

@@ -6,7 +6,7 @@ class Task < ActiveRecord::Base
   named_scope :marked_as_wip, :conditions => {:status => 0}
   named_scope :frozen, :conditions => {:status => -2}
   named_scope :finished, :conditions => {:status => -1}
-  named_scope :recently_completed, :conditions => {:status => -1}, :order => "finished_at DESC", :limit => '6'
+  named_scope :recently_completed, :conditions => {:status => -1}, :order => 'finished_at DESC', :limit => '6'
   
   def self.search(search)
     if search
@@ -31,6 +31,7 @@ class Task < ActiveRecord::Base
   def deliver_status_changed!
     Postoffice.deliver_status_changed(self)
   end
+  
   
   def freezed?
     status == -2

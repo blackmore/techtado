@@ -54,6 +54,7 @@ de:
        new_task: "Neue Aufgabe"
        informed: "Ich möchte per email informiert werden"
        submit: "Aufgabe hinzufügen"
+       urgent: "Mark as URGENT!"
     recently_completed:
        title: "kürzlich erledigte Aufgaben"
        

@@ -7,6 +7,8 @@ TODO
 	DONE: Get rid of "Working on by" => worked on by
 	DONE: language select  plus add to User model the language string
 	DONE: last 10 finished jobs right hand side under search
+	- When comments are added send notifier
+	. Shorten names if they are too long eg. Veronica Trespalacios  to Veronica T.
 	
 BUGS
 	DONE: Resubmitted always shows yes
@@ -14,3 +16,11 @@ BUGS
 	DONE: problem with the formatting of this description text.
 	- RSS brakes when nothing in array
 	DONE: password reset IP
+	
+	
+NOTES
+	Notify: I'll create two or maybe one file with the names of the people to email of urgent and all tasks.
+			This file will be loaded in the controller through spawn so the check can be made if an email in 
+			to be sent at all. if there are names in the list then these names can be sent off to the 
+			postoffice model, and the mails sent.
+			Jabber:	???

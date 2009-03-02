@@ -14,6 +14,7 @@
 		  	<%= f.error_messages %>
 			<%= f.label @task, t('tasks.form_new.new_task') %>
 			<%= f.text_area :description, :rows => "4", :cols => "40"  %>
+			<p><%= t 'tasks.form_new.urgent' %> <%= f.check_box :urgent %></p>
 			<p><%= t 'tasks.form_new.informed' %> <%= f.check_box :send_email %></p>
 			<hr>
 			<%= f.submit t('tasks.form_new.submit') %>

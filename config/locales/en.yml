@@ -17,6 +17,7 @@ en:
       new_task: "New task"
       informed: "Keep me informed by email"
       submit: "Add this task"
+      urgent: "Mark as URGENT!"
     recently_completed:
       title: "Recently completed tasks"
        
