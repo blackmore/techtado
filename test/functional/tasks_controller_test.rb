@@ -1,32 +1,26 @@
 require 'test_helper'
-#require File.dirname(__FILE__) + '/../test_helper'
+#set_session_for(record_object)
+#set_cookie_for(record_object)
+#set_http_auth_for(username, password)
 
 class TasksControllerTest < ActionController::TestCase
-  context "on GET to :show for first record" do
+  context "description" do
     setup do
-      @task = Task.create(:description => "tell")
-     #get :show, :id => 1
+      get :show, :id => 1
     end
-
-#    should_assign_to :task
-#    should_respond_with :success
-#    should_render_template :show
-#    should_not_set_the_flash
-
-    should "do something else really cool" do
-      #assert_equal 1, assigns(:task).id
-    end
+    should_assign_to :task
+    should_render_with_layout 'showpage'
   end
   
+  context "create a new task" do
+    setup do
+      set_session_for(users(:ben))
+      set_cookie_for(users(:ben))
+      get :new
+    end
+    #should_assign_to :task
+    
   
-#  context "A Task instance" do
-#      setup do
-#        @task = Factory(:task)
-#      end
-#      
-#      should "return its full name" do
-#          assert_equal 'Small test', @task.description
-#          assert_equal  1, @task.status
-#        end
-#      end
+  end
+  
 end

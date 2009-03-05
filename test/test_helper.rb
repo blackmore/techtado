@@ -1,10 +1,7 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
-require 'shoulda/assertions'
-require 'shoulda/macros'
-require 'shoulda/helpers'
-require 'shoulda/rails' if defined? RAILS_ROOT
+require 'authlogic/testing/test_unit_helpers'
 
 class Test::Unit::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method

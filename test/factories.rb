@@ -1,3 +1,4 @@
+
 Factory.define :user do |f|
   f.first_name 'John'
   f.last_name  'Doe'
@@ -11,5 +12,7 @@ end
 Factory.define :task do |f|
   f.description 'Small test'
   f.send_email 'false'
-  f.urgent 'false'
+  f.urgent 'true'
+  f.user_id '1'
+  f.resubmit '0'
 end
