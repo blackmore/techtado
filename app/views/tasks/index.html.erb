@@ -1,11 +1,9 @@
 <div id="tasks">
-	<ul>
-		<% if current_user %>
-			<%= render :partial => @tasks %>
-		<% else %>
-			<%= render :partial => 'no_action_task' %>
-		<% end %>
-	</ul>
+	<% if current_user %>
+		<%= render :partial => @tasks %>
+	<% else %>
+		<%= render :partial => 'no_action_task' %>
+	<% end %>
 </div>
 <%= will_paginate @tasks, :page_links => false %>
 <% if current_user && !@search%>

@@ -1,4 +1,5 @@
 <% div_for (task, :class => belongs_to_user(task) ) do %>
+<ul>
 	<li>
 		<%= link_to_remote '', :html => { :class => get_status(task) }, :url => update_index_page_path(task, :status => 'finished' ) -%><%= urgent?(task) %>
 		<%= link_to_unless_current h(description_heading(task.description)), task, :class => 'tsk_name' -%>
@@ -10,4 +11,5 @@
 		<span class="tskWhoStatusTime"><%=  who_status_time(task) -%></span> - 
 		<%= comments(task) %><%= resubmitted(task) %>
 	</li>
+</ul>
 <% end %>
