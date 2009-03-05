@@ -1,3 +1,7 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1236260407 */
+
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1236256886 */
+
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1235997482 */
 
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1235389450 */
@@ -26,6 +30,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 	font-family: inherit;
 	vertical-align: baseline;
+}
+
+li {
+	color: #807f83;
 }
 /* remember to define focus styles! */
 :focus {
@@ -299,6 +307,7 @@ a.tsk_name:visited, span.tsk_name:visited{
 a.tsk_name, span.tsk_name{
 	font-size: 16px;
 	font-weight: bold;
+	padding-left: 10px;
 	margin-left: 4px;
 	margin-right: 10px;
 	color: #000;
@@ -310,6 +319,7 @@ a.tsk_name:hover, span.tsk_name:hover{
 }
 
 span.tskWhoStatusTime {
+	padding-left: 10px;
 	margin-left: 4px;
 	color: #67666a;
 	font-style: italic;
@@ -762,17 +772,12 @@ div#recently_completed_tasks {
 
 /* @end */
 
-/* @group urgent_tasks */
-span.urgent, span.not_urgent{
-	float: left;
-	width: 6px;
-	height: 25px;
-	margin-left: 8px;
-}
-span.urgent{
-	background: url(../images/urgent.gif) no-repeat 0 1px;
-}
+/* @end */
 
+/* @group urgent_tasks */
+a.tsk_name.urgent, span.tsk_name.urgent{
+	background: url(../images/urgent.gif) no-repeat;
+}
 
 /* @end */
 

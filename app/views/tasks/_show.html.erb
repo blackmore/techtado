@@ -1,9 +1,9 @@
 <% if current_user && !@task.freezed? %>
-	<%= link_to_remote '', :html => {:class => get_status(@task)}, :url => update_show_page_path(@task, :status => "finished"	)%><%= urgent?(@task) %>
+	<%= link_to_remote '', :html => {:class => get_status(@task)}, :url => update_show_page_path(@task, :status => "finished"	)%>
 <% else %>
-	<span class="<%= get_status(@task) %>"></span><%= urgent?(@task) %>
+	<span class="<%= get_status(@task) %>"></span>
 <% end %>
 <% show_description(@task) %>
-<span class="tsk_name"><%= @headding %></span>
+<span class="tsk_name <%= urgent?(@task) %>"><%= @headding %></span>
 <%= change_status_link(@task) %>
 <p><%= @description %></p>
