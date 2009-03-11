@@ -1,3 +1,5 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1236262088 */
+
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1236260407 */
 
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1236256886 */
@@ -307,8 +309,7 @@ a.tsk_name:visited, span.tsk_name:visited{
 a.tsk_name, span.tsk_name{
 	font-size: 16px;
 	font-weight: bold;
-	padding-left: 10px;
-	margin-left: 4px;
+	margin-left: 14px;
 	margin-right: 10px;
 	color: #000;
 	text-decoration: none;
@@ -319,8 +320,7 @@ a.tsk_name:hover, span.tsk_name:hover{
 }
 
 span.tskWhoStatusTime {
-	padding-left: 10px;
-	margin-left: 4px;
+	margin-left: 14px;
 	color: #67666a;
 	font-style: italic;
 }
@@ -775,8 +775,14 @@ div#recently_completed_tasks {
 /* @end */
 
 /* @group urgent_tasks */
-a.tsk_name.urgent, span.tsk_name.urgent{
-	background: url(../images/urgent.gif) no-repeat;
+a.tsk_name.urgent0, span.tsk_name.urgent0{
+	padding-left: 56px;
+	background: url(../images/urgent_txt.gif) no-repeat;
+}
+
+a.tsk_name.urgent1, span.tsk_name.urgent1{
+	padding-left: 56px;
+	background: url(../images/urgent1_txt.gif) no-repeat;
 }
 
 /* @end */

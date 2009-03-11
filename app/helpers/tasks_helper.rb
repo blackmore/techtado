@@ -8,7 +8,7 @@ module TasksHelper
     end
 	end
 	
-	def find_description_head(text, count = 37)
+	def find_description_head(text, count = 34)
 	  if text =~ /\n/
        split_on_return = text.split(/\n/)
        string = split_on_return[0]
@@ -188,7 +188,7 @@ module TasksHelper
 
  def urgent?(task)
    if task.urgent
-     'urgent'
+     "urgent#{rand(2)}"
    else
      ''
    end
