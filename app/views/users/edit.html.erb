@@ -10,7 +10,7 @@
 	  <div id="notify_me">
 		Off<%= f.radio_button 'task_notify', 'false' %> On<%= f.radio_button 'task_notify', 'true' %> <br />
 		<span>Notify me when a task is 
-        <%= select :user, :notify_on,{ "Created" => "create", "Urgent"  => "urgent" } %></span>
+        <%= f.select :notify_on, { "Created" => "create", "Urgent"  => "urgent" } %></span>
 	  </div>
 	
 		</div>
