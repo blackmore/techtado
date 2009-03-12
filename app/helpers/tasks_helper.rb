@@ -83,7 +83,7 @@ module TasksHelper
   def user_full_name(n)
     if n
       user = User.find(n)
-      "#{user.first_name} #{user.last_name}"
+      "#{user.first_name} #{user.last_name.first}."
     else
       "-"
     end

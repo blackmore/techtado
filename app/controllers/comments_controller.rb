@@ -12,6 +12,9 @@ class CommentsController < ApplicationController
     end
     params[:comment].merge!('user_id' => current_user.id)
     @comment = @task.comments.create!(params[:comment])
+    spawn do
+      @task.deliver_comment_notify!
+    end
     respond_to do |format|
       format.html { redirect_to @task }
       format.js

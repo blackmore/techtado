@@ -1,4 +1,4 @@
-<% div_for (task, :class => belongs_to_user(task) ) do %>
+<% div_for (task, :class => belongs_to_user(task)) do %>
 <ul>
 	<li>
 		<%= link_to_remote '', :html => { :class => get_status(task) }, :url => update_index_page_path(task, :status => 'finished' ) -%>

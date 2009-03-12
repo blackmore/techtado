@@ -1,4 +1,11 @@
 class User < ActiveRecord::Base
+    
+    def before_save
+      if self.task_notify == false
+        self.notify_on = "None"
+      end
+    end
+    
   #----- Authlogic -----#
     acts_as_authentic
     validates_presence_of :first_name, :last_name
@@ -17,4 +24,19 @@ class User < ActiveRecord::Base
     #----- LANGUAGES -----#
       LANG = [  ]
     #----- * -----#
+    
+    #----- NOTIFY -----#
+    def self.notify(urgent)
+      if urgent
+        users_urgent = find_all_by_notify_on("urgent").collect{ |user| user.email}
+        users_create = find_all_by_notify_on("create").collect{ |user| user.email}
+        users = users_urgent + users_create
+        users.uniq
+      else
+        users = find_all_by_notify_on("create").collect{ |user| user.email}
+      end
+    end
+    #----- * -----#
+    
+
 end

@@ -1,10 +1,22 @@
-<div id="register">
+<% form_for @user, :url => account_path do |f| %>
+<%= f.error_messages %>
+<div id="update_profile">
 	<h2>Edit my account</h2>
-	<% form_for @user, :url => account_path do |f| %>
+	<div id="update_profile_form">
 	  <%= render :partial => "form", :object => f %>
-	  <%= f.submit "Register" %>
-	<% end %>
-	<%= link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %>
-	<br /><%= link_to "My Profile", account_path %>
+	<div id="notify_me_comtainer">
+
+	<%= f.label "Task notification" %><br />
+	  <div id="notify_me">
+		Off<%= f.radio_button 'task_notify', 'false' %> On<%= f.radio_button 'task_notify', 'true' %> <br />
+		<span>Notify me when a task is 
+        <%= select :user, :notify_on,{ "Created" => "create", "Urgent"  => "urgent" } %></span>
+	  </div>
+	
+		</div>
+		<hr>
+	  <%= f.submit "Update my profile" %><%= link_to "Cancel", tasks_path %>
+	</div>
 </div>
+<% end %>
 

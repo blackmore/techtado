@@ -32,6 +32,19 @@ class Task < ActiveRecord::Base
     Postoffice.deliver_status_changed(self)
   end
   
+  def deliver_notify!
+    @notify_users = User.notify(self.urgent)
+    if @notify_users.length > 0
+      Postoffice.deliver_notify(@notify_users, self)
+    end
+  end
+  
+  def deliver_comment_notify!
+    unless self.user_id == self.comments.last.user_id
+      Postoffice.deliver_comment_notify(self)
+    end
+  end
+  
   
   def freezed?
     status == -2

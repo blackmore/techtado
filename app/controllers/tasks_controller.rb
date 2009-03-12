@@ -55,6 +55,9 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        spawn do
+          @task.deliver_notify!
+        end
         flash[:notice] = 'Task was successfully created.'
         format.html { redirect_to(@task) }
         format.xml  { render :xml => @task, :status => :created, :location => @task }

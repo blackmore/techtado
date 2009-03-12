@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090224101317) do
+ActiveRecord::Schema.define(:version => 20090312084152) do
 
   create_table "comments", :force => true do |t|
     t.integer  "task_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20090224101317) do
     t.string   "notify_on",         :default => "None"
     t.string   "notify_method",     :default => "email"
     t.string   "jabber_address",    :default => "",      :null => false
+    t.boolean  "task_notify",       :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

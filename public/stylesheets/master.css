@@ -1,3 +1,7 @@
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1236780867 */
+
+/* @override http://0.0.0.0:3000/stylesheets/master.css?1236374466 */
+
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1236262088 */
 
 /* @override http://0.0.0.0:3000/stylesheets/master.css?1236260407 */
@@ -527,7 +531,7 @@ div#login {
 }
 
 
-#login h2, #register h2, #forgot_password h2 {
+#login h2, #register h2, #forgot_password h2, #update_profile h2 {
 	margin: 0px;
 	margin-top: 15px;
 	margin-bottom: 5px;
@@ -590,13 +594,13 @@ div.notice {
 /* @group register */
 
 
-div#register {
+div#register, div#update_profile {
 	width: 320px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-div#register_form {
+div#register_form, div#update_profile_form {
 	display: block;
 	width: 320px;
 	height: 100%;
@@ -607,6 +611,35 @@ div#register_form {
 	margin-top: 10px;
 	margin-bottom: 50px;
 }
+
+div#notify_me {
+	padding: 13px 15px;
+	margin-top: 5px;
+	margin-right: 10px;
+	font-size: 14px;
+	color: #69676a;
+	margin: 0;
+	background-color: #e7e7e7;
+	margin-bottom: 10px;
+}
+
+#update_profile_form hr {
+	border-top: 1px solid #dcdcdc;
+}
+
+#notify_me span {
+	display: block;
+	margin-top: 6px;
+}
+
+#update_profile_form div label {
+}
+
+div#notify_me_comtainer {
+	margin-top: 15px;
+	margin-right: 10px;
+}
+
 
 div#errorExplanation.errorExplanation {
 	padding: 5px 10px;
@@ -631,6 +664,11 @@ input#user_submit {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+
+#update_profile_form a {
+	margin-left: 10px;
+}
+
 
 
 

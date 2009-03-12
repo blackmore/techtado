@@ -13,6 +13,17 @@ function clearText(thefield){
 document.observe('dom:loaded', function (event) {
 //  // Find the button that we want to disable
 //  //var comment_button = $('comment_submit');
+var user_notify_on = $('user_notify_on');
+
+var user_task_notify_false = $('user_task_notify_false')
+
+if (user_task_notify_false.checked == true)
+user_notify_on.disabled = true;
+
+new Field.Observer(user_task_notify_false, 0.3, function() {
+	user_notify_on.disabled = (user_task_notify_false.checked == true);
+});
+
 var task_button = $('task_submit');
 //  // Disable it!
 //  //comment_button.disabled = true;

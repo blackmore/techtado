@@ -1,8 +1,16 @@
-<h3>Status: <%= @status %></h3>
-<p>For details click the link below:<br />
-<a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a>
+<h2>Status: <%= @status %></h2>
+<p><%= @task.description %><br />
+<span style="color: #424143">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %> ago</span>
 </p>
+<% if @task.comments.length > 0 %>
+<h3>Comments</h3>
+<ul style="	list-style-type: none; margin-top: 10px;">
+	<% @task.comments.each do |comment| %>
+		<li style="margin-bottom: 10px"><%= comment.body %><br /><span style="color: #424143">comment by: <%= comment.full_name %></span></li>
+	<% end %>
+</ul>
+<% end %>
 
-<p>If the above URL does not work try copying and pasting it into your browser.
-If you continue to have problem please feel free to contact us.</p>
-<a href="mailto:tech@titelbild.de">tech@titelbild.de</a>
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
+
+<p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

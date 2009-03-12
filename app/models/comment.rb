@@ -5,4 +5,8 @@ class Comment < ActiveRecord::Base
     User.find(user_id).full_name
   end
   
+  def first_name
+    User.find(user_id).first_name
+  end
+  
 end

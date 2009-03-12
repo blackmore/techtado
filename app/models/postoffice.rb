@@ -11,12 +11,35 @@ class Postoffice < ActionMailer::Base
       @sent_on      = Time.now
       @content_type = "text/html"
       
-      body[:status] = task.status_to_str 
+      body[:status] = task.status_to_str
+      body[:task] = task 
       body[:link_to_show_task] = task_url(task)
     end
-   
-   
-
+    
+    def notify(emails, task)
+      @recipients   = emails
+      @from         = "Tech-tado <noreply@titelbild.de>"
+      headers         "Reply-to" => "tech@titelbild.de"
+      @subject      = "#{task.urgent ? 'URGENT!' : 'New'} task added to Tech tado."
+      @sent_on      = Time.now
+      @content_type = "text/html"
+      body[:task] = task
+      body[:link_to_show_task] = task_url(task)
+    end
+    
+    def comment_notify(task)
+      @recipients   = task.user.email
+      @from         = "Tech-tado <noreply@titelbild.de>"
+      headers         "Reply-to" => "tech@titelbild.de"
+      @subject      = "#{task.comments.last.first_name} commented on \"#{subject_task(task.description)}\""
+      @sent_on      = Time.now
+      @content_type = "text/html"
+      
+      body[:latest_comment] = task.comments.last
+      body[:task] = task 
+      body[:link_to_show_task] = task_url(task)
+    end
+    
      def password_reset_instructions(user)
        subject       "Password Reset Instructions"
        from          "Tech-tado <noreply@titelbild.de>"
