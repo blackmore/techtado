@@ -27,8 +27,8 @@ class Postoffice < ActionMailer::Base
       body[:link_to_show_task] = task_url(task)
     end
     
-    def comment_notify(task)
-      @recipients   = task.user.email
+    def comment_notify(task, emails)
+      @recipients   = emails
       @from         = "Tech-tado <noreply@titelbild.de>"
       headers         "Reply-to" => "tech@titelbild.de"
       @subject      = "#{task.comments.last.first_name} commented on \"#{subject_task(task.description)}\""

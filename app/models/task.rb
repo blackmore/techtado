@@ -40,8 +40,15 @@ class Task < ActiveRecord::Base
   end
   
   def deliver_comment_notify!
-    unless self.user_id == self.comments.last.user_id
-      Postoffice.deliver_comment_notify(self)
+    user_id_list = [ self.user_id, self.assigned_to, self.finished_by ].uniq.compact
+    if user_id_list.include?(self.comments.last.user_id)
+      user_id_list = user_id_list - [self.comments.last.user_id]
+      exit if user_id_list == []
+    end
+    
+    unless user_id_list.include?(self.comments.last.user_id)
+      emails = user_id_list.collect{ |i| User.find(i).email }
+      Postoffice.deliver_comment_notify(self, emails)
     end
   end
   

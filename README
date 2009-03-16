@@ -2,14 +2,13 @@ A SMALL TODO APP FOR --TECH--
 
 TODO
 	DONE: Style the search result notice id => searchResultHeader
-	- Style pager
 	DONE: Keep me informed by email switch
 	DONE: Get rid of "Working on by" => worked on by
 	DONE: language select  plus add to User model the language string
 	DONE: last 10 finished jobs right hand side under search
-	- When comments are added send notifier
+	DONE: When comments are added send notifier
 	DONE: Shorten names if they are too long eg. Veronica Trespalacios  to Veronica T.
-	- time_in_words does not work in the mails.
+	DONE: time_in_words does not work in the mails.
 	
 BUGS
 	DONE: Resubmitted always shows yes
@@ -17,7 +16,6 @@ BUGS
 	DONE: problem with the formatting of this description text.
 	- RSS brakes when nothing in array
 	DONE: password reset IP
-	CAN't Push
 	
 	
 NOTES
@@ -25,4 +23,3 @@ NOTES
 			This file will be loaded in the controller through spawn so the check can be made if an email in 
 			to be sent at all. if there are names in the list then these names can be sent off to the 
 			postoffice model, and the mails sent.
-			Jabber:	???
