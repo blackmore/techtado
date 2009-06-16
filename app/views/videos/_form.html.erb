@@ -1,0 +1,23 @@
+<% form_for :video, :url => videos_path  do |f| %>
+<%= f.error_messages %>
+<div id="customer_wrapper">
+	<div id="customer">
+		<span>1. Enter customers name:</span> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+	</div>
+</div>
+<div id="video_wrapper">
+	<h4>2. Fill out the video/videos details</h4>
+	<div id="videos">
+		<%= render :partial => 'video', :collection => @videos %>
+	</div>
+	<div id="add_another_video">
+			<%= link_to_function "add a video" do |page|
+			page.insert_html :bottom, :videos, :partial => 'video', :object => Video.new 
+		end %>
+	</div>
+
+</div>
+
+<div id="video_submit">
+	<%= image_submit_tag("submit_video.png") %>
+<% end %>

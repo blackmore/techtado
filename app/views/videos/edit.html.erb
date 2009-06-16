@@ -1,0 +1,36 @@
+<% title "Edit Video" %>
+<h1>Edit Video</h1>
+<% form_for @video do |f| %>
+<%= f.error_messages %>
+<div id="customer_wrapper">
+	<div id="customer">
+		<span>Customers name:</span> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+	</div>
+</div>
+<div id="video_wrapper">
+	<h4>Video details</h4>
+	<div id="videos">
+		<div class="video">
+			<div class="video_title_field">
+				<%= f.label :title %><br />
+				<%= f.text_field :title, :size => 50 %>
+			</div>
+			<div class="video_length_field">
+				<%= f.label :length %><br />
+				<%= f.text_field :length, :size => 7 %>
+			</div>
+			<div class="video_source_field">
+				<%= f.label :source_media, "Source", :class => "video_source_label" %><br />
+				<%= f.select(:source_media, Video::SOURCES, :include_blank => true) %>
+			</div>
+		<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>	
+		</div>
+	</div>
+</div>
+
+<div id="video_submit">
+	<%= image_submit_tag("submit_video.png") %>
+<% end %>
+<%= link_to "Back to List", list_path, :id => "cancel_video" %>
+<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>	
+</div>

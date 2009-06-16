@@ -1,0 +1,38 @@
+<% if @total == 0 %>
+
+<p>No items found...</p>
+
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th <%= sort_td_class_helper "title" %> id="video_title">
+        <%= sort_link_helper "Title", "title" %>
+      </th>
+      <th <%= sort_td_class_helper "customer" %> id="video_customer">
+        <%= sort_link_helper "Customer", "customer" %>
+      </th>
+      <th <%= sort_td_class_helper "source_media" %> id="video_source">
+        <%= sort_link_helper "Source", "source_media" %>
+      </th>
+      <th <%= sort_td_class_helper "created" %> id="video_created_at">
+        <%= sort_link_helper "Date", "created" %>
+      </th>
+	  <th id="edit_video"></th>
+	  <th id="destroy_video"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @videos.each do |video| %>
+    <tr class="<%= cycle("even","odd") %>">
+      <td><%= video.title %></td>
+      <td><%= video.customer.name %></td>
+      <td><%= video.source_media %></td>
+	  <td><%= video.customer.updated_at.strftime("%a %d/%m/%y") %></td>
+      <td class="video_edit_link"><%= link_to "Edit", edit_video_path(video) %></td>
+      <td class="video_destroy_link"><%= link_to "Destroy", video, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

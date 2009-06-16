@@ -38,6 +38,15 @@ class User < ActiveRecord::Base
     end
     #----- * -----#
     
+    #------ Video Archive -------#
+    def filtered_customers
+      if self.new_video_notify_filter != nil
+        customers = self.new_video_notify_filter.split(', ')
+      else
+        []
+      end
+    end
+    
     
 
 end

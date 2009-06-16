@@ -40,6 +40,9 @@ ActionController::Routing::Routes.draw do |map|
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
   
+  #map.resources :videos
+  #map.list 'video_archive', :controller => "videos", :action => "list"
+  
   #-----  my task routes  -----#
   map.resources :tasks, :has_many => :comments
   map.archive 'archive', :controller => "tasks", :action => "archive"
