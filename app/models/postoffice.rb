@@ -48,6 +48,21 @@ class Postoffice < ActionMailer::Base
        body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
      end
      
+     def notification(video, emails, videos)
+       @recipients   = emails
+       @from         = "Video_Archive <noreply@titelbild.de>"
+       headers         "Reply-to" => "tech@titelbild.de"
+       @subject      = "#{video.customer.name}, NEW! #{videos.length > 1 ? 'videos.' : 'video.'}" 
+       @sent_on      = Time.now
+       @content_type = "text/html"
+
+       body[:videos] = videos
+       body[:customer] = video.customer
+       #body[:link_to_show_task] = "..."#task_url(task)
+     end
+     
+     private
+     
      def subject_task(text, count = 37)
      	  if text =~ /\n/
           split_on_return = text.split(/\n/)

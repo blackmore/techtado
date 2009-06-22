@@ -1,0 +1,1121 @@
+
+
+Finished in 0.011107 seconds
+
+0 examples, 0 failures
+================================================================================
+app/controllers/comments_controller.rb
+================================================================================
+   class CommentsController < ApplicationController
+   
+     def create
+!!     @task = Task.find(params[:task_id])
+!!     if params[:freeze]
+!!       @task.update_attributes(:status  => -2)
+!!       params[:comment][:body] = '<strong class="freeze">Frozen</strong>' + params[:comment][:body]
+!! 
+!!     elsif params[:unfreeze]
+!!       @task.update_attributes(:status  => 1)
+!!       params[:comment][:body] = '<strong class="unfreeze">Unfrozen</strong>' + params[:comment][:body]
+!!     end
+!!     params[:comment].merge!('user_id' => current_user.id)
+!!     @comment = @task.comments.create!(params[:comment])
+!!     spawn do
+!!       @task.deliver_comment_notify!
+!!     end
+!!     respond_to do |format|
+!!       format.html { redirect_to @task }
+!!       format.js
+!!     end
+!!   end
+!! end
+================================================================================
+app/helpers/videos_helper.rb
+================================================================================
+   module VideosHelper
+   
+     def pagination_links_remote(paginator)
+!!     page_options = {:window_size => 1}
+!!     pagination_links_each(paginator, page_options) do |n|
+!!       options = {
+!!         :url => {:action => 'list', :params => params.merge({:page => n})},
+!!         :update => 'table',
+!!         :before => "Element.show('spinner')",
+!!         :success => "Element.hide('spinner')"
+!!       }
+!!       html_options = {:href => url_for(:action => 'list', :params => params.merge({:page => n}))}
+!!       link_to_remote(n.to_s, options, html_options)
+!!     end
+!!   end
+     
+     def sort_td_class_helper(param)
+!!     result = 'class="sortup"' if params[:sort] == param
+!!     result = 'class="sortdown"' if params[:sort] == param + "_reverse"
+!!     return result
+!!   end
+     
+     def sort_link_helper(text, param)
+!!     key = param
+!!     key += "_reverse" if params[:sort] == param
+!!     options = {
+!!         :url => {:action => 'list', :params => params.merge({:sort => key, :page => nil})},
+!!         :update => 'table',
+!!         :before => "Element.show('spinner')",
+!!         :success => "Element.hide('spinner')"
+!!     }
+!!     html_options = {
+!!       :title => "Sort by this field",
+!!       :href => url_for(:action => 'list', :params => params.merge({:sort => key, :page => nil}))
+!!     }
+!!     link_to_remote(text, options, html_options)
+!!   end
+!! end
+================================================================================
+app/controllers/videos_controller.rb
+================================================================================
+   class VideosController < ApplicationController
+     def index
+!!     @videos = Video.all
+!!   end
+     
+     def show
+!!     @video = Video.find(params[:id])
+!!   end
+     
+     def new
+!!     @videos = [Video.new]
+!!   end
+     
+     def create
+!!     @videos = []
+!!     @videos_saved = []
+!!     for video in params[:video][:details]
+!!       @video = Video.new(video.merge(params[:video]))
+!!       unless @video.save
+!!         @videos << @video
+!!       else
+!!         @videos_saved << @video
+!!       end
+!!     end
+!!     
+!!     if !@videos_saved.empty?
+!!       spawn do
+!!         @video.deliver_notification!(@videos_saved)
+!!       end
+!!     end
+!!     
+!!     if @videos.empty?
+!!       flash[:notice] = "Successfully created video."
+!!       redirect_to list_path
+!!     else
+!!       render :action => 'new'
+!!     end
+!!   end
+     
+     def edit
+!!     @video = Video.find(params[:id])
+!!   end
+     
+     def update
+!!     @video = Video.find(params[:id])
+!!     if @video.update_attributes(params[:video])
+!!       flash[:notice] = "Successfully updated video."
+!!       redirect_to list_path
+!!     else
+!!       render :action => 'edit'
+!!     end
+!!   end
+     
+     def destroy
+!!     @video = Video.find(params[:id])
+!!     @video.destroy
+!!     flash[:notice] = "Successfully destroyed video."
+!!     redirect_to list_path
+!!   end
+     
+     def list
+!!       @video = Video.new
+!!       
+!!       filter_on = case params[:filter_on].to_i
+!!                    when 1 then "title"
+!!                    when 2 then "customers.name"
+!!                    end
+!!                    
+!!       sort, @direction = case params[:sort]
+!!                         when "title"  then ["title", "title_down"]
+!!                         when "source_media"   then ["source_media", "source_down"]
+!!                         when "customer" then ["customers.name", "customers_down"]
+!!                         when "created"  then ["created_at", "created_down"]
+!!                         when "title_reverse"  then ["title DESC", "title_up"]
+!!                         when "source_media_reverse"   then ["source_media DESC", "sources_up"]
+!!                         when "customer_reverse" then ["customers.name DESC", "customers_up"]
+!!                         when "created_reverse"  then ["created_at DESC", "videos_up"]
+!!                         else "videos.created_at DESC"
+!!                         end
+!! 
+!!       conditions = ["#{filter_on} LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
+!! 
+!!       @videos = Video.find(:all, :include => [:customer], :order => sort, :conditions => conditions)
+!! 
+!!       if request.xml_http_request?
+!!         render :partial => "videos_list", :layout => false
+!!       end
+!!     end
+!! end
+================================================================================
+app/controllers/tasks_controller.rb
+================================================================================
+   class TasksController < ApplicationController
+     before_filter :require_user, :except => [:index, :show, :archive, :search ]
+     before_filter :created_by, :only => :create
+     before_filter :show_query, :only => [:update_show_page, :update_index_page]
+   
+     # GET /tasks
+     # GET /tasks.xml
+     def index
+!!     @tasks = Task.outstanding.paginate :page => params[:page]
+!!     @task = Task.new
+!!     @recently_completed_tasks = Task.recently_completed
+!!     @frozen_tasks = Task.frozen
+!!     respond_to do |format|
+!!       format.html #index.html.erb
+!!       format.xml  { render :xml => @tasks }
+!!       format.atom
+!!     end
+!!   end
+     
+     # GET /tasks/1
+     # GET /tasks/1.xml
+     def show
+!!     @task = Task.find(params[:id])
+!!     if params[:status]
+!!     
+!!     else
+!!       respond_to do |format|
+!!         format.html { render :action => 'show', :layout => 'showpage'}
+!!         format.xml  { render :xml => @task }
+!!       end
+!!     end
+!! 
+!!   end
+   
+     # GET /tasks/new
+     # GET /tasks/new.xml
+     def new
+!!     @task = Task.new
+!! 
+!!     respond_to do |format|
+!!       format.html # new.html.erb
+!!       format.xml  { render :xml => @task }
+!!     end
+!!   end
+   
+     # GET /tasks/1/edit
+     def edit
+!!     @task = Task.find(params[:id])
+!!   end
+   
+     # POST /tasks
+     # POST /tasks.xml
+     def create
+!!     @task = Task.new(params[:task])
+!! 
+!!     respond_to do |format|
+!!       if @task.save
+!!         spawn do
+!!           @task.deliver_notify!
+!!         end
+!!         flash[:notice] = 'Task was successfully created.'
+!!         format.html { redirect_to(@task) }
+!!         format.xml  { render :xml => @task, :status => :created, :location => @task }
+!!         format.js
+!!       else
+!!         format.html { render :action => "new" }
+!!         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+!!         format.js
+!!       end
+!!     end
+!!   end
+   
+     # PUT /tasks/1
+     # PUT /tasks/1.xml
+     def update
+!!     @task = Task.find(params[:id])
+!!     respond_to do |format|
+!!       if @task.update_attributes(@params)
+!!         flash[:notice] = 'Task was successfully updated.'
+!!         format.html { redirect_to(@task) }
+!!         format.xml  { head :ok }
+!!       else
+!!         format.html { render :action => "edit" }
+!!         format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+!!       end
+!!     end
+!!   end
+   
+     # DELETE /tasks/1
+     # DELETE /tasks/1.xml
+     def destroy
+!!     @task = Task.find(params[:id])
+!!     @task.destroy
+!! 
+!!     respond_to do |format|
+!!       format.html { redirect_to(tasks_url) }
+!!       format.xml  { head :ok }
+!!     end
+!!   end
+     
+     def archive
+!!     @tasks = Task.finished.paginate :page => params[:page], :order => 'created_at DESC'
+!!     respond_to do |format|
+!!       format.html { render :layout => 'archive'}
+!!       format.xml  { render :xml => @tasks }
+!!     end
+!!   end
+     
+     def search
+!!     @tasks = Task.search(params[:search])
+!!     @search_query = params[:search]
+!!     respond_to do |format|
+!!       format.html { render :layout => 'search'}
+!!       format.xml  { render :xml => @tasks }
+!!     end
+!!   end
+     
+     def update_index_page
+!!     @task = Task.find(params[:id])
+!!     @state = params[:status]
+!!       respond_to do |format|
+!!         if @task.update_attributes(@state_params)
+!!           if @task.send_email
+!!             spawn do
+!!               @task.deliver_status_changed!
+!!             end
+!!           end
+!!           format.html {redirect_to(tasks_path)}
+!!           format.js { render :partial => 'update_index.rjs'}
+!!         else
+!!           format.html {render :action => "index"}
+!!         end
+!!       end
+!!   end
+     
+     def update_show_page
+!!     @task = Task.find(params[:id])
+!!       respond_to do |format|
+!!         if @task.update_attributes(@state_params)
+!!           if @task.send_email
+!!             spawn do
+!!               @task.deliver_status_changed!
+!!             end
+!!           end
+!!           format.html {redirect_to(tasks_path)}
+!!           format.js { render :partial => 'show.rjs'}
+!!         else
+!!           format.html {render :action => "index"}
+!!         end
+!!       end
+!!   end
+     
+     private
+     def created_by
+!!     params[:task].merge!('user_id' => current_user.id,
+!!                          'status' => 1,
+!!                          'assigned_to' => nil,
+!!                          'resubmit' => 0 )
+!!   end
+     
+     def show_query
+!!     if params[:status]
+!!       @task = Task.find(params[:id])
+!!       status = params[:status]
+!!       @state_params = case status
+!!                       when 'finished' : { :status => -1, :finished_by => current_user.id, :finished_at => Time.now, :urgent => nil }
+!!                       when 'bounce' : { :status => 1, :assigned_to => nil, :assigned_at => nil }
+!!                       when 'assign_to_user' : { :status => 0, :assigned_to => current_user.id,:assigned_at => Time.now }
+!!                       when 'resubmit' : { :status => 1, :assigned_to => nil, :assigned_at => nil, :finished_by => nil, :finished_at => nil, :resubmitted_at => Time.now, :resubmitted_by => current_user.id, :resubmit => @task.resubmit + 1 }
+!!       end
+!!    end
+!!   end
+!!   
+!! end
+================================================================================
+app/models/postoffice.rb
+================================================================================
+   class Postoffice < ActionMailer::Base
+     # make note of the headers, content type, and time sent
+     # these help prevent your email from being flagged as spam SPAM
+     default_url_options[:host] = "10.1.1.211"
+     
+       def status_changed(task)
+!!       @recipients   = task.user.email
+!!       @from         = "Tech-tado <noreply@titelbild.de>"
+!!       headers         "Reply-to" => "tech@titelbild.de"
+!!       @subject      = "Ref: #{subject_task(task.description)}"
+!!       @sent_on      = Time.now
+!!       @content_type = "text/html"
+!!       
+!!       body[:status] = task.status_to_str
+!!       body[:task] = task 
+!!       body[:link_to_show_task] = task_url(task)
+!!     end
+       
+       def notify(emails, task)
+!!       @recipients   = emails
+!!       @from         = "Tech-tado <noreply@titelbild.de>"
+!!       headers         "Reply-to" => "tech@titelbild.de"
+!!       @subject      = "#{task.urgent ? 'URGENT!' : 'New'} task added to Tech tado."
+!!       @sent_on      = Time.now
+!!       @content_type = "text/html"
+!!       body[:task] = task
+!!       body[:link_to_show_task] = task_url(task)
+!!     end
+       
+       def comment_notify(task, emails)
+!!       @recipients   = emails
+!!       @from         = "Tech-tado <noreply@titelbild.de>"
+!!       headers         "Reply-to" => "tech@titelbild.de"
+!!       @subject      = "#{task.comments.last.first_name} commented on \"#{subject_task(task.description)}\""
+!!       @sent_on      = Time.now
+!!       @content_type = "text/html"
+!!       
+!!       body[:latest_comment] = task.comments.last
+!!       body[:task] = task 
+!!       body[:link_to_show_task] = task_url(task)
+!!     end
+       
+        def password_reset_instructions(user)
+!!        subject       "Password Reset Instructions"
+!!        from          "Tech-tado <noreply@titelbild.de>"
+!!        recipients    user.email
+!!        sent_on       Time.now
+!!        body          :edit_password_reset_url => edit_password_reset_url(user.perishable_token)
+!!      end
+        
+        def notification(video, emails, videos)
+!!        @recipients   = emails
+!!        @from         = "Video_Archive <noreply@titelbild.de>"
+!!        headers         "Reply-to" => "tech@titelbild.de"
+!!        @subject      = "#{video.customer.name}, NEW! #{videos.length > 1 ? 'videos.' : 'video.'}" 
+!!        @sent_on      = Time.now
+!!        @content_type = "text/html"
+!! 
+!!        body[:videos] = videos
+!!        body[:customer] = video.customer
+!!        #body[:link_to_show_task] = "..."#task_url(task)
+!!      end
+        
+        private
+        
+        def subject_task(text, count = 37)
+!!      	  if text =~ /\n/
+!!           split_on_return = text.split(/\n/)
+!!           string = split_on_return[0]
+!!         else
+!!           string = text
+!!         end
+!! 
+!!       	if string.length >= count 
+!!       		shortened = string[0, count]
+!!       		splitted = shortened.split(/\s/)
+!!       		words = splitted.length
+!!       		splitted[0, words-1].join(" ")
+!!       	else 
+!!       		string
+!!       	end
+!!      end
+!! end
+================================================================================
+app/helpers/tasks_helper.rb
+================================================================================
+   module TasksHelper
+     def description_heading(description)
+!!     string = find_description_head(description)
+!!     if description > string
+!!       string + ' ...'
+!!     else
+!!       string
+!!     end
+!! 	end
+   	
+   	def find_description_head(text, count = 34)
+!! 	  if text =~ /\n/
+!!        split_on_return = text.split(/\n/)
+!!        string = split_on_return[0]
+!!      else
+!!        string = text
+!!      end
+!! 
+!!    	if string.length >= count 
+!!    		shortened = string[0, count]
+!!    		splitted = shortened.split(/\s/)
+!!    		words = splitted.length
+!!    		splitted[0, words-1].join(" ")
+!!    	else 
+!!    		string
+!!    	end
+!! 	end
+   	
+   	def description_heading_sidebar(description)
+!!     string = find_description_head_sidebar(description)
+!!     if description > string
+!!       string + ' ...'
+!!     else
+!!       string
+!!     end
+!! 	end
+   	
+   	def find_description_head_sidebar(text, count = 27)
+!! 	  if text =~ /\n/
+!!        split_on_return = text.split(/\n/)
+!!        string = split_on_return[0]
+!!      else
+!!        string = text
+!!      end
+!! 
+!!    	if string.length >= count 
+!!    		shortened = string[0, count]
+!!    		splitted = shortened.split(/\s/)
+!!    		words = splitted.length
+!!    		splitted[0, words-1].join(" ")
+!!    	else 
+!!    		string
+!!    	end
+!! 	end
+   
+   	def get_status(task)
+!! 	  s = task.status
+!! 	  case s
+!!   	  when -1 : 'tsk_statusFinished'
+!!   	  when 0 :  'tsk_statusWIP'
+!!   	  when -2 :  'tsk_statusFreeze'
+!!       else  'tsk_statusTodo'
+!! 	  end
+!! 	end
+   	
+   	def get_user_name(n)
+!! 	  user = User.find(n)
+!! 	  user.first_name
+!! 	end
+   	
+     def resubmitted(task)
+!!     value = task.resubmit
+!!     if value > 0
+!!       case value
+!!       when 1: " - <span class='reSubmit_1'>#{t('task.details.resubmitted')} #{task.resubmit}</span>"
+!!       when 2: " - <span class='reSubmit_2'>#{t('task.details.resubmitted')} #{task.resubmit}</span>"
+!!       when 3: " - <span class='reSubmit_3'>#{t('task.details.resubmitted')} #{task.resubmit}</span>"
+!!       else    " - <span class='reSubmit'>#{t('task.details.resubmitted')} #{task.resubmit}</span>" 
+!!       end
+!!     end
+!!   end
+     
+     def user_full_name(n)
+!!     if n
+!!       user = User.find(n)
+!!       "#{user.first_name} #{user.last_name.first}."
+!!     else
+!!       "-"
+!!     end
+!!   end
+     
+     def show_date(date)
+!!     if date
+         date.strftime("%d.%m.%y")
+       else
+         "-"
+       end
+     end
+     
+     def format_text(text)
+       text.gsub!(/\n/, "<br />")
+       text
+     end
+   
+     def who_status_time(task)
+       status = task.status
+       user_id, date = case status
+                         when  0:  [task.assigned_to, task.assigned_at] 
+                         when -1:  [task.finished_by, task.finished_at]
+!!                       else      task.resubmit > 0 ? [task.resubmitted_by, task.resubmitted_at] : [task.user_id, task.created_at]
+!!                     end
+!!     user = User.find(user_id)
+!!     
+!!     case status
+!!     when 0: "#{user.first_name.capitalize}'s #{t('task.assigned_to')} #{time_ago_in_words(date)}." 
+!!     when -1: "#{user.first_name.capitalize} #{t('task.finished')} #{time_ago_in_words(date)} #{t('task.ago')}"
+!!     else    "#{user.first_name.capitalize} #{task.resubmit > 0 ? t('task.resubmitted') : t('task.submitted') } #{time_ago_in_words(date)} #{t('task.ago')}"
+!!     end
+!!   end
+     
+     def show_description(task)
+!!     description = task.description
+!!     headding = find_description_head(description)
+!!     if description > headding
+!!       @headding = headding
+!!       body = description.sub!(headding, "")
+!!        if body =~ /^\n/
+!!          @description = body.sub!(/\n/, "")
+!!         end
+!!         body.gsub!(/\n/, "<br />")
+!!         @description = body
+!!     else
+!!       @headding = headding
+!!       @description = ""
+!!     end
+!!   end
+     
+     def change_status_link(task)
+!!     status = task.status
+!!     if current_user && !task.freezed?
+!!       user_id = current_user.id
+!!       
+!!       if status == 0 && task.assigned_to == user_id
+!!         link = link_to_remote t('task.status_link.bounce'), :url => update_show_page_path(@task, :status => 'bounce' ), :html => {:class => "change_status"}
+!!       else
+!!         link = link_to_remote t('task.status_link.snatch'), :url => update_show_page_path(@task, :status => 'assign_to_user'), :html => {:class => "change_status"}
+!!       end
+!!       
+!!       case status
+!!       when 0: link
+!!       when -1: link_to_remote t('task.status_link.resubmit'), :url => update_show_page_path(@task, :status => 'resubmit'), :html => {:class => "change_status"}
+!!       else     link_to_remote t('task.status_link.Ill_do_this'), :url => update_show_page_path(@task, :status => 'assign_to_user'), :html => {:class => "change_status"}
+!!       end
+!!     end
+!!   end
+     
+     
+     def comments(task)
+!!     number = task.comments.length
+!!     if number > 0
+!!       link_to "#{number}" + (number > 1 ? t('task.comment.plural') : t('task.comment.singular')), task, :class => "tsk_comments"
+!!     else
+!!       if current_user
+!!         link_to('add comment', task, :class => "tsk_comments" )
+!!       else
+!!         'No comments'
+!!       end
+!!     end
+!!   end
+     
+     def belongs_to_user(task)
+!!     if current_user.id == task.assigned_to
+!!       'belongs_to_user'
+!!     else
+!!       ''
+!!     end
+!!   end
+   
+   
+     #----- MAYBE_USE_LATER -----#
+       #  def urgent?(task)
+       #    if task.urgent
+       #      '<div class="urgent"></div>'
+       #    else
+       #      '<div class="not_urgent"></div>'
+       #    end
+       #  end
+   
+    def urgent?(task)
+!!    if task.urgent
+!!      "urgent#{rand(2)}"
+!!    else
+!!      ''
+!!    end
+!!  end
+!!   
+!! 
+!!   
+!! 
+!!   	
+!! end
+================================================================================
+app/helpers/application_helper.rb
+================================================================================
+   # Methods added to this helper will be available to all templates in the application.
+   module ApplicationHelper
+     
+     #-----  adds a active class to the current page tab.  -----#
+     def is_active?(page)
+!!     if current_page?(:controller => page)
+!!       "class='active'"
+!!     else
+!!       ""
+!!     end
+!!   end
+     #----- * -----#
+     
+     #----- SHORT_TIME_AGO -----#
+     def short_time_ago(time)
+!!     string = time_ago_in_words(time)
+!!     string.gsub!('about', '')
+!!     string.gsub!('hours', 'hrs')
+!!     string.gsub!('minutes', 'mins')
+!!     string.gsub!('less than', 'under')
+!!     string
+!!   end
+!!   #----- * -----#
+!! end
+================================================================================
+app/controllers/password_resets_controller.rb
+================================================================================
+   class PasswordResetsController < ApplicationController
+     before_filter :require_no_user
+     before_filter :load_user_using_perishable_token, :only => [:edit, :update]
+       
+     def new
+!!     render
+!!   end
+   
+     def create
+!!     @user = User.find_by_email(params[:email])
+!!     if @user
+!!       spawn do
+!!         @user.deliver_password_reset_instructions!
+!!       end
+!!       flash[:notice] = "Instructions to reset your password have been emailed to you. " +
+!!         "Please check your email."
+!!       redirect_to root_url
+!!     else
+!!       flash[:notice] = "No user was found with that email address"
+!!       render :action => :new
+!!     end
+!!   end
+     
+     def edit
+!!     render
+!!   end
+   
+     def update
+!!     @user.password = params[:user][:password]
+!!     @user.password_confirmation = params[:user][:password_confirmation]
+!!     if @user.save
+!!       flash[:notice] = "Password successfully updated"
+!!       redirect_to tasks_url
+!!     else
+!!       render :action => :edit
+!!     end
+!!   end
+   
+     private
+       def load_user_using_perishable_token
+!!       @user = User.find_using_perishable_token(params[:id])
+!!       unless @user
+!!         flash[:notice] = "We're sorry, but we could not locate your account. " +
+!!           "If you are having issues try copying and pasting the URL " +
+!!           "from your email into your browser or restarting the " +
+!!           "reset password process."
+!!         redirect_to root_url
+!!       end
+!!     end
+!! end
+================================================================================
+app/controllers/user_sessions_controller.rb
+================================================================================
+   class UserSessionsController < ApplicationController
+     before_filter :require_no_user, :only => [:new, :create]
+     before_filter :require_user, :only => :destroy
+   
+     def new
+!!     @user_session = UserSession.new
+!!     render :layout => "users"
+!!   end
+   
+     def create
+!!     @user_session = UserSession.new(params[:user_session])
+!!     if @user_session.save
+!!       flash[:notice] = "Login successful!"
+!!       redirect_to tasks_url
+!!     else
+!!       render :action => :new
+!!     end
+!!   end
+   
+     def destroy
+!!     current_user_session.destroy
+!!     flash[:notice] = "Logout successful!"
+!!     redirect_to tasks_url
+!!   end
+!! end
+================================================================================
+app/controllers/users_controller.rb
+================================================================================
+   class UsersController < ApplicationController
+     before_filter :require_no_user, :only => [:new, :create]
+     before_filter :require_user, :only => [:show, :edit, :update]
+     before_filter :set_login_to_email, :only => :create
+   
+     def new
+!!     @user = User.new
+!!   end
+   
+     def create
+!!     @user = User.new(params[:user])
+!!     if @user.save
+!!       flash[:notice] = "Account registered!"
+!!       redirect_to tasks_url
+!!     else
+!!       render :action => :new
+!!     end
+!!   end
+   
+     def show
+!!     @user = @current_user
+!!   end
+   
+     def edit
+!!     @user = @current_user
+!!   end
+   
+     def update
+!!     @user = @current_user # makes our views "cleaner" and more consistent
+!!     if @user.update_attributes(params[:user])
+!!       flash[:notice] = "Account updated!"
+!!       redirect_to tasks_url
+!!     else
+!!       render :action => :edit
+!!     end
+!!   end
+     
+     def set_login_to_email
+!!     params[:user].merge!('login' => params[:user][:email])
+!!   end
+!! end
+================================================================================
+app/controllers/application_controller.rb
+================================================================================
+   # Filters added to this controller apply to all controllers in the application.
+   # Likewise, all the methods added will be available for all controllers.
+   
+   class ApplicationController < ActionController::Base
+     helper :all # include all helpers, all the time
+   
+     # See ActionController::RequestForgeryProtection for details
+     # Uncomment the :secret if you're not using the cookie session store
+     protect_from_forgery # :secret => 'af9440df0c2e624d19f801fdfa832d83'
+     
+     # See ActionController::Base for details 
+     # Uncomment this to filter the contents of submitted sensitive data parameters
+     # from your application log (in this case, all fields with names like "password"). 
+     # filter_parameter_logging :password
+     
+     #----- Authlogic -----#
+       filter_parameter_logging :password, :password_confirmation
+       helper_method :current_user_session, :current_user
+     #----- * -----#
+   
+     #-----  localized  -----#
+       before_filter :set_user_language
+     #----- * -----#
+     
+       private
+     #----- Authlogic -----#
+         def current_user_session
+!!         return @current_user_session if defined?(@current_user_session)
+!!         @current_user_session = UserSession.find
+!!       end
+   
+         def current_user
+!!         return @current_user if defined?(@current_user)
+!!         @current_user = current_user_session && current_user_session.user
+!!       end
+   
+     	def require_user
+!!         unless current_user
+!!           store_location
+!!           flash[:notice] = "You must be logged in to access this page"
+!!           redirect_to new_user_session_url
+!!           return false
+!!         end
+!!       end
+   
+         def require_no_user
+!!         if current_user
+!!           store_location
+!!           flash[:notice] = "You must be logged out to access this page"
+!!           redirect_to account_url
+!!           return false
+!!         end
+!!       end
+   
+         def store_location
+!!         session[:return_to] = request.request_uri
+!!       end
+   
+         def redirect_back_or_default(default)
+!!         redirect_to(session[:return_to] || default)
+!!         session[:return_to] = nil
+!!       end
+     #----- * -----#
+     
+     #-----  localized  -----#
+       def set_user_language
+!!       if current_user
+!!         I18n.locale = current_user.language
+!!       else
+!!         I18n.locale = 'en'
+!!       end
+!!     end
+!!   #----- * -----#
+!!   
+!! 
+!! end
+================================================================================
+app/models/user.rb
+================================================================================
+   class User < ActiveRecord::Base
+     
+     named_scope :any_new_video, :conditions => {:new_video_notify => 'all'}
+     named_scope :custom_new_video, :conditions => {:new_video_notify => 'custom'}
+       
+       def before_save
+!!       if self.task_notify == false
+!!         self.notify_on = "None"
+!!       end
+!!     end
+       
+     #----- Authlogic -----#
+       acts_as_authentic
+       validates_presence_of :first_name, :last_name
+       
+       def deliver_password_reset_instructions!
+!!       reset_perishable_token!
+!!       Postoffice.deliver_password_reset_instructions(self)
+!!     end
+       
+     #----- * -----#
+     
+     def full_name
+!!     [first_name, last_name].join(' ')
+!!   end
+     
+       #----- LANGUAGES -----#
+         LANG = [  ]
+       #----- * -----#
+       
+       #----- NOTIFY -----#
+       def self.notify(urgent)
+!!       if urgent
+!!         users_urgent = find_all_by_notify_on("urgent").collect{ |user| user.email}
+!!         users_create = find_all_by_notify_on("create").collect{ |user| user.email}
+!!         users = users_urgent + users_create
+!!         users.uniq
+!!       else
+!!         users = find_all_by_notify_on("create").collect{ |user| user.email}
+!!       end
+!!     end
+       #----- * -----#
+       
+       #------ Video Archive -------#
+       def filtered_customers
+!!       if self.new_video_notify_filter != nil
+!!         customers = self.new_video_notify_filter.split(', ')
+!!       else
+!!         []
+!!       end
+!!     end
+!!     
+!!     
+!! 
+!! end
+================================================================================
+app/helpers/comments_helper.rb
+================================================================================
+   module CommentsHelper
+     def comment_details(comment)
+!!     user = User.find(comment.user_id)
+!!     "Posted by #{user.first_name} #{user.last_name} #{time_ago_in_words(comment.created_at)} ago"
+!!   end
+!!   
+!! end
+================================================================================
+app/models/customer.rb
+================================================================================
+   class Customer < ActiveRecord::Base
+     has_many :videos
+     
+     def customer_name
+!!     self.name if customer
+!!   end
+     
+     def customer_name=(name)
+!!     self.name = Customer.find_or_create_by_name(name) unless name.blank?
+!!   end
+     
+     def video_attributes=(video_attributes)
+!!     video_attributes.each do |attributes|
+!!       videos.build(attributes)
+!!     end
+!!   end
+!!   
+!! end
+================================================================================
+app/models/video.rb
+================================================================================
+   class Video < ActiveRecord::Base
+     before_validation :round_up_length
+     belongs_to :customer
+     validates_presence_of :title
+     validates_presence_of :length
+     validates_presence_of :source_media
+     validates_presence_of :customer_id
+     validates_format_of :title, :with => /^.+\.mpg|avi|wmv|MPG|AIV|WMV$/, :on => :create, :message => "is invalid"
+     validates_format_of :length, :with => /^\d+(.\d+|'\d+)?/, :on => :create, :message => "is invalid"
+     
+     SOURCES = ["film", "disc", "tape", "digital"]
+     
+     def customer_name
+!!     customer.name if customer
+!!   end
+     
+     def customer_name=(name)
+!!     name.chomp!(" ")
+!!     self.customer = Customer.find_or_create_by_name(name) unless name.blank?
+!!   end
+     
+     
+     def round_up_length
+!!     if self.length =~ /\d+'\d+/
+!!       self.length.gsub!("'", ".")
+!!     end
+!!     self.length = self.length.to_f.ceil
+!!   end
+     
+     def details=(video_attributes)
+     end
+     
+     def deliver_notification!(videos)
+!!     # collect all the users that would like to be notified
+!!     notify_users = user_notify_custom_list(self.customer.name) + User.any_new_video
+!! 
+!!     # put the email addresses into an array
+!!     notify_user_emails = notify_users.collect{ |i| i.email }
+!!     
+!!     if !notify_users.empty?
+!!       Postoffice.deliver_notification(self, notify_user_emails, videos)
+!!     end
+!!   end
+     
+     def user_notify_custom_list(customer)
+!!     users = User.custom_new_video
+!!     if !users.empty?
+!!       users.each do |user|
+!!        customers = user.new_video_notify_filter.split(', ')
+!!        if !customers.include?(customer)
+!!          users.delete(user)
+!!        end
+!!       end
+!!       users
+!!     else
+!!       []
+!!     end
+!!   end
+!! end
+================================================================================
+app/controllers/customers_controller.rb
+================================================================================
+   class CustomersController < ApplicationController
+     
+     def index
+!!     @customers = Customer.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+!!   end
+!! end
+================================================================================
+app/models/comment.rb
+================================================================================
+   class Comment < ActiveRecord::Base
+     belongs_to :task
+     
+     def full_name
+!!     User.find(user_id).full_name
+!!   end
+     
+     def first_name
+!!     User.find(user_id).first_name
+!!   end
+!!   
+!! end
+================================================================================
+app/models/task.rb
+================================================================================
+   class Task < ActiveRecord::Base
+     belongs_to :user
+     has_many :comments
+     named_scope :to_do, :conditions => {:status => 1}
+     named_scope :outstanding, :conditions => ['status >= ?', 0 ]
+     named_scope :marked_as_wip, :conditions => {:status => 0}
+     named_scope :frozen, :conditions => {:status => -2}
+     named_scope :finished, :conditions => {:status => -1}
+     named_scope :recently_completed, :conditions => {:status => -1}, :order => 'finished_at DESC', :limit => '6'
+     
+     def self.search(search)
+!!     if search
+         find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
+       else
+         outstanding
+       end
+     end
+     
+     def self.per_page
+       15
+     end
+     
+     def status_to_str
+       case status
+       when 1 : "To Do"
+       when 0 : "Being worked on"
+       when -1 : "Finished"
+       end
+     end
+     
+     def deliver_status_changed!
+       Postoffice.deliver_status_changed(self)
+     end
+     
+     def deliver_notify!
+       @notify_users = User.notify(self.urgent)
+       if @notify_users.length > 0
+         Postoffice.deliver_notify(@notify_users, self)
+       end
+     end
+     
+     def deliver_comment_notify!
+       user_id_list = [ self.user_id, self.assigned_to, self.finished_by ].uniq.compact
+       if user_id_list.include?(self.comments.last.user_id)
+         user_id_list = user_id_list - [self.comments.last.user_id]
+         exit if user_id_list == []
+       end
+       
+       unless user_id_list.include?(self.comments.last.user_id)
+         emails = user_id_list.collect{ |i| User.find(i).email }
+         Postoffice.deliver_comment_notify(self, emails)
+       end
+     end
+     
+     
+     def freezed?
+       status == -2
+     end
+     
+   end
+================================================================================
+app/helpers/password_resets_helper.rb
+================================================================================
+   module PasswordResetsHelper
+   end
+================================================================================
+app/models/user_session.rb
+================================================================================
+   class UserSession < Authlogic::Session::Base
+      # various configuration goes here, see AuthLogic::Session::Config for more details
+   end
+================================================================================
+app/helpers/user_sessions_helper.rb
+================================================================================
+   module UserSessionsHelper
+   end
+================================================================================
+app/helpers/users_helper.rb
+================================================================================
+   module UsersHelper
+   end

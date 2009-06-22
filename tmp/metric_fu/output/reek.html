@@ -1,0 +1,1965 @@
+<html>
+<head>
+	<title>Reek Results</title>
+	<style>
+	body {
+	background-color: #efefef;
+	margin: 20px;
+	padding: 0;
+	font: 12px verdana, arial, helvetica;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid #666;
+	background: #fff;
+	margin-bottom: 20px;	
+}
+
+	table tr.light {
+	 	background: #fff;
+	}
+
+	table tr.dark {
+		background: #f9f9f9;
+	}
+
+	table td, table th {
+		padding: 4px 10px;
+		font-size: 13px;
+	}
+	table th {
+		text-align: center;
+		color: #fc0;
+		background: #336;		
+		font-weight: bold;
+		border: #d0d0d0 1px solid;
+	}
+
+	table td {
+		border: #d0d0d0 1px solid;
+	}
+	
+		table td.score {
+			text-align: right;
+		}	
+
+.warning {
+	background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+	
+	</style>
+</head>
+
+<body>
+	<h1>Reek Results</h1>
+	<p><a href="http://reek.rubyforge.org/">Reek</a> detects common code smells in ruby code.</p>
+	<table>
+		<tr>
+		  <th>File Path</th>
+      <th>Method</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+    
+    
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/application_controller.rb</td>
+          <td>
+            ApplicationController#current_user
+          </td>
+          <td>
+            calls current_user_session multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/application_controller.rb</td>
+          <td>
+            ApplicationController#redirect_back_or_default
+          </td>
+          <td>
+            calls session multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/application_controller.rb</td>
+          <td>
+            ApplicationController#set_user_language
+          </td>
+          <td>
+            calls current_user multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/comments_controller.rb</td>
+          <td>
+            CommentsController#create
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/comments_controller.rb</td>
+          <td>
+            CommentsController#create
+          </td>
+          <td>
+            calls params[:comment] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/comments_controller.rb</td>
+          <td>
+            CommentsController#create
+          </td>
+          <td>
+            calls params[:comment][:body] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/comments_controller.rb</td>
+          <td>
+            CommentsController#create
+          </td>
+          <td>
+            has approx 12 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/comments_controller.rb</td>
+          <td>
+            CommentsController#create/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/password_resets_controller.rb</td>
+          <td>
+            PasswordResetsController#create
+          </td>
+          <td>
+            calls flash multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/password_resets_controller.rb</td>
+          <td>
+            PasswordResetsController#create
+          </td>
+          <td>
+            has approx 7 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/password_resets_controller.rb</td>
+          <td>
+            PasswordResetsController#update
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/password_resets_controller.rb</td>
+          <td>
+            PasswordResetsController#update
+          </td>
+          <td>
+            calls params[:user] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#archive/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#create
+          </td>
+          <td>
+            calls format.html multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#create
+          </td>
+          <td>
+            calls format.js multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#create
+          </td>
+          <td>
+            calls format.xml multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#create
+          </td>
+          <td>
+            has approx 10 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#create/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#destroy/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#index
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#index/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#new/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#search
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#search
+          </td>
+          <td>
+            calls params[:search] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#search/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show_query
+          </td>
+          <td>
+            calls Time.now multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show_query
+          </td>
+          <td>
+            calls current_user multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show_query
+          </td>
+          <td>
+            calls current_user.id multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show_query
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#show_query
+          </td>
+          <td>
+            calls params[:status] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update
+          </td>
+          <td>
+            calls format.html multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update
+          </td>
+          <td>
+            calls format.xml multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update
+          </td>
+          <td>
+            has approx 7 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_index_page
+          </td>
+          <td>
+            calls format.html multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_index_page
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_index_page
+          </td>
+          <td>
+            has approx 6 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_index_page/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_show_page
+          </td>
+          <td>
+            calls format.html multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/tasks_controller.rb</td>
+          <td>
+            TasksController#update_show_page/block/block
+          </td>
+          <td>
+            is nested
+    		  </td>
+    		  <td>
+            Nested Iterators
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/users_controller.rb</td>
+          <td>
+            UsersController#set_login_to_email
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/users_controller.rb</td>
+          <td>
+            UsersController#set_login_to_email
+          </td>
+          <td>
+            calls params[:user] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#create
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#create
+          </td>
+          <td>
+            calls params[:video] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#create
+          </td>
+          <td>
+            has approx 9 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#list
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#list
+          </td>
+          <td>
+            calls params[:query] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#list
+          </td>
+          <td>
+            has approx 6 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/controllers/videos_controller.rb</td>
+          <td>
+            VideosController#update
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/application_helper.rb</td>
+          <td>
+            ApplicationHelper::short_time_ago
+          </td>
+          <td>
+            has approx 6 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/application_helper.rb</td>
+          <td>
+            ApplicationHelper::short_time_ago
+          </td>
+          <td>
+            refers to string more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/comments_helper.rb</td>
+          <td>
+            CommentsHelper::comment_details
+          </td>
+          <td>
+            refers to comment more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/comments_helper.rb</td>
+          <td>
+            CommentsHelper::comment_details
+          </td>
+          <td>
+            refers to user more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::change_status_link
+          </td>
+          <td>
+            calls current_user multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::change_status_link
+          </td>
+          <td>
+            calls update_show_page_path(@task, :status => "assign_to_user") multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head
+          </td>
+          <td>
+            refers to splitted more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head
+          </td>
+          <td>
+            refers to string more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head_sidebar
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head_sidebar
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head_sidebar
+          </td>
+          <td>
+            refers to splitted more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::find_description_head_sidebar
+          </td>
+          <td>
+            refers to string more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::format_text
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::format_text
+          </td>
+          <td>
+            refers to text more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_status
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_status
+          </td>
+          <td>
+            has the variable name 's'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_status
+          </td>
+          <td>
+            refers to task more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_user_name
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_user_name
+          </td>
+          <td>
+            has the variable name 'n'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::get_user_name
+          </td>
+          <td>
+            refers to user more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::resubmitted
+          </td>
+          <td>
+            calls t("task.details.resubmitted") multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::resubmitted
+          </td>
+          <td>
+            calls task.resubmit multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::resubmitted
+          </td>
+          <td>
+            refers to task more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::show_date
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::show_date
+          </td>
+          <td>
+            is controlled by argument date
+    		  </td>
+    		  <td>
+            Control Couple
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::show_date
+          </td>
+          <td>
+            refers to date more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::show_description
+          </td>
+          <td>
+            has approx 10 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::user_full_name
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::user_full_name
+          </td>
+          <td>
+            has the variable name 'n'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::user_full_name
+          </td>
+          <td>
+            is controlled by argument n
+    		  </td>
+    		  <td>
+            Control Couple
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::user_full_name
+          </td>
+          <td>
+            refers to user more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls (task.resubmit > 0) multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls t("task.ago") multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls task.resubmit multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls time_ago_in_words(date) multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls user.first_name multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            calls user.first_name.capitalize multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/tasks_helper.rb</td>
+          <td>
+            TasksHelper::who_status_time
+          </td>
+          <td>
+            refers to task more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::pagination_links_remote
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::pagination_links_remote
+          </td>
+          <td>
+            calls params.merge(:page => (n)) multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::pagination_links_remote/block
+          </td>
+          <td>
+            has the variable name 'n'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::sort_link_helper
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::sort_link_helper
+          </td>
+          <td>
+            calls params.merge(:sort => (key), :page => (nil)) multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::sort_td_class_helper
+          </td>
+          <td>
+            calls params multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/videos_helper.rb</td>
+          <td>
+            VideosHelper::sort_td_class_helper
+          </td>
+          <td>
+            calls params[:sort] multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#comment_notify
+          </td>
+          <td>
+            calls body multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#comment_notify
+          </td>
+          <td>
+            calls task.comments multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#comment_notify
+          </td>
+          <td>
+            calls task.comments.last multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#comment_notify
+          </td>
+          <td>
+            has approx 9 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#notification
+          </td>
+          <td>
+            calls body multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#notification
+          </td>
+          <td>
+            calls video.customer multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#notification
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#notify
+          </td>
+          <td>
+            calls body multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#notify
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#status_changed
+          </td>
+          <td>
+            calls body multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#status_changed
+          </td>
+          <td>
+            has approx 9 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#subject_task
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#subject_task
+          </td>
+          <td>
+            has approx 8 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#subject_task
+          </td>
+          <td>
+            refers to splitted more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/postoffice.rb</td>
+          <td>
+            Postoffice#subject_task
+          </td>
+          <td>
+            refers to string more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!
+          </td>
+          <td>
+            calls self.comments multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!
+          </td>
+          <td>
+            calls self.comments.last multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!
+          </td>
+          <td>
+            calls self.comments.last.user_id multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!
+          </td>
+          <td>
+            calls user_id_list.include?(self.comments.last.user_id) multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!
+          </td>
+          <td>
+            has approx 7 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#deliver_comment_notify!/block
+          </td>
+          <td>
+            has the variable name 'i'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/task.rb</td>
+          <td>
+            Task#self.search
+          </td>
+          <td>
+            is controlled by argument search
+    		  </td>
+    		  <td>
+            Control Couple
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
+  		    <td>app/models/user.rb</td>
+          <td>
+            User#filtered_customers
+          </td>
+          <td>
+            calls self.new_video_notify_filter multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/user.rb</td>
+          <td>
+            User#self.notify
+          </td>
+          <td>
+            calls find_all_by_notify_on("create") multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/user.rb</td>
+          <td>
+            User#self.notify
+          </td>
+          <td>
+            calls find_all_by_notify_on("create").collect multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/user.rb</td>
+          <td>
+            User#self.notify
+          </td>
+          <td>
+            calls user.email multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/user.rb</td>
+          <td>
+            User#self.notify
+          </td>
+          <td>
+            is controlled by argument urgent
+    		  </td>
+    		  <td>
+            Control Couple
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='dark'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#customer_name
+          </td>
+          <td>
+            calls customer multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#customer_name=
+          </td>
+          <td>
+            refers to name more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#deliver_notification!/block
+          </td>
+          <td>
+            has the variable name 'i'
+    		  </td>
+    		  <td>
+            Uncommunicative Name
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#round_up_length
+          </td>
+          <td>
+            calls self.length multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#user_notify_custom_list
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#user_notify_custom_list
+          </td>
+          <td>
+            has approx 6 statements
+    		  </td>
+    		  <td>
+            Long Method
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/models/video.rb</td>
+          <td>
+            Video#user_notify_custom_list
+          </td>
+          <td>
+            refers to users more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+
+	</table>
+	<p>Generated on Sat Jun 20 13:19:29 +0200 2009</p>
+</body>
+</html>

@@ -1,0 +1,323 @@
+/* @override 
+	http://localhost:3000/stylesheets/users.css?1245661087
+	http://localhost:3000/stylesheets/users.css?1245671483
+*/
+
+/* @group CSS RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+li {
+	color: #807f83;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+
+/* @end */
+
+/* @group page_layout */
+
+hr {
+	border-right-style: none;
+	border-left-style: none;
+	border-top: 1px solid #cbcbcc;
+}
+
+hr.notify {
+	margin: 20px;
+}
+hr.notify_video {
+	margin: 20px 20px 10px 0;
+	border-top-color: #f2f2f2;
+}
+
+fieldset {
+	margin-top: 20px;
+	border: 1px solid #b4b4b4;
+	padding: 20px;
+}
+
+body {
+	background-color:#222;
+	font: 13.34px/17.34px helvetica,arial,clean,sans-serif;*font-size:small;
+
+}
+#page, #users_header {
+	width:868px;
+	margin:auto;
+	background-color:white;
+	border-left:solid 1px #454545;
+	border-right:solid 1px #454545;
+}
+#user_content {
+	padding-left:20px;
+	padding-top: 1px;
+	background-repeat:no-repeat;
+	padding-right: 20px;
+}
+
+
+#users_header{
+	height: 90px;
+	width: 768px;
+	padding-left: 100px;
+	background: white url(../images/user.png) no-repeat 10px;
+}
+
+#users_header h1 {
+	font-size: 24px;
+	padding-top: 67px;
+}
+
+/* @end */
+
+/* @group login */
+
+legend {
+	font-size: 20px;
+	margin-left: 20px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+
+#login label {
+	width: 120px;
+	float: left;
+	text-align: right;
+	margin-right: 10px;
+	padding-top: 18px;
+}
+
+#login label#language_select {
+	padding-top: 8px;
+}
+#login input, input#video_customer_name {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	width: 300px;
+	border: 3px solid #b4b4b4;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	padding-left: 3px;
+	line-height: 26px;
+	color: #000000;
+}
+input#video_customer_name.disabled {
+		border: 3px solid #e1e1e1;
+	color: #dcdcdc;
+}
+
+
+select {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	border: 3px solid #b4b4b4;
+	margin-top: 3px;
+	line-height: 1.5em;
+	color: #000000;
+}
+#login select{
+	margin-top: 5px;
+}
+
+
+/* @end */
+
+/* @group notify */
+
+#notify_techtado_content span, #notify_video_archive_content span {
+	padding-right: 5px;
+	padding-bottom: 20px;
+	float: left;
+}
+
+a#notify_techtado, a#notify_video_archive {
+	margin-left: 65px;
+	font-size: 20px;
+	color: #000;
+	text-decoration: none;
+	padding-left: 65px;
+	background-repeat: no-repeat;
+	background-image: url(../images/tog_off.gif);	
+}
+
+a#notify_techtado.tog_on, a#notify_video_archive.tog_on {
+	background-image: url(../images/tog_on.gif);
+}
+
+
+input#user_task_notify,input#user_video_archive_notify {
+	display: none;
+}
+
+#notify_techtado_content, #notify_video_archive_content {
+	margin-top: 7px;
+	margin-left: 133px;
+	font-size: 14px;
+}
+.disabled {
+	color: #969696;
+}
+
+
+
+/* @end */
+
+/* @group notify_video_archive */
+
+div#customers {
+	padding-top: 5px;
+	padding-left: 10px;
+	margin-right: 20px;
+	padding-bottom: 10px;
+	border-left: 1px solid #f2f2f2;
+}
+
+div#add_customer {
+	margin-top: 20px;
+	width: 55%;
+	float: left;
+}
+
+div#my_customer_list {
+	width: 45%;
+	float: right;
+	min-height: 80px;
+}
+
+#add_customer p {
+	width: 300px;
+	color: #b4b4b4;
+	font-size: 11px;
+}
+
+
+#my_customer_list h2 {
+	text-align: center;
+	font-size: 14px;
+	padding: 5px;
+	margin-right: 20px;
+	-webkit-border-top-left-radius: 12px;
+	-webkit-border-top-right-radius: 12px;
+	-moz-border-radius-topleft: 12px;
+	-moz-border-radius-topright: 12px;
+	background-color: #f2f2f2;
+	color: #989898;
+}
+
+input#user_submit {
+	float: right;
+	margin-left: 20px;
+}
+
+#user_submit a {
+	float: right;
+	text-decoration: none;
+	padding-top: 3px;
+	color: #1175e0;
+}
+
+div#user_submit {
+	padding-top: 20px;
+	padding-right: 20px;
+	display: block;
+	margin-top: 20px;
+	height: 50px;
+	background-color: #f2f2f2;
+	border-top: 1px solid #dcdcdc;
+}
+
+
+#customers p.filtered_customer a {
+	font-size: 11px;
+	color: #106ed3;
+	text-decoration: none;
+	margin-left: 10px;
+}
+#customers.remove p.filtered_customer a {
+	display: none;
+}
+
+
+
+#add_customer a {
+	text-decoration: none;
+	color: #31c85d;
+	margin-left: 5px;
+}
+#add_customer.remove a{
+	display: none;
+}
+
+p.filtered_customer {
+padding-bottom: 5px;
+}
+
+
+
+/* @end */
+
+/* @group errors */
+
+
+div.fieldWithErrors {
+	margin-bottom: -17px;
+}
+
+div.fieldWithErrors input#user_first_name,
+div.fieldWithErrors input#user_last_name,
+div.fieldWithErrors input#user_email,
+div.fieldWithErrors input#user_password,
+div.fieldWithErrors input#user_confirm_password{
+	border: 3px solid #ff0080;
+}
+
+
+
+/* @end */

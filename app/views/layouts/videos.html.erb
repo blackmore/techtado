@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Video Archive</title>
+  <%= stylesheet_link_tag 'video_archive' %>
+  <%= javascript_include_tag :all %>
+</head>
+<body>
+	<div id="header">
+		<div id="login_status">
+			<% if !current_user -%>
+				<%= t 'tasks.logged_out' %> (<%= link_to t('tasks.login'), new_user_session_path %>)
+			<% else -%>
+				<%= t 'tasks.logged_in_as' %> <%= link_to current_user.first_name, edit_user_path(current_user) %>
+			<span id="log_link">( <%= link_to t('tasks.logout'), user_session_path, :method => :delete, :confirm => "Are you sure you want to logout?" %> )</span>
+			<% end -%>
+		</div>
+	</div>
+	<div id="page">
+		<% if current_page?(:action => 'list') %>
+		<div id="filter">
+			<form id = "video_filter", name="sform" action="" style="display:inline;">
+			Filter by <%= select_tag "filter_on", options_for_select( [ ["title", 1], ["customer", 2] ])  %> : <%= text_field_tag("query", params['query'], :size => 25 ) %>
+			</form>
+			<%= observe_form 'video_filter',
+						:frequency => 0.5,
+			         	:update => 'table',
+			         	:before => "Element.show('spinner')",
+			         	:success => "Element.hide('spinner')",
+			         	:url => {:action => 'list'} %>
+			<span id="add_video">
+				
+				<%= link_to("Add New Video", new_video_path, :id => "add_new_video")%>
+			</span>
+		</div>
+		<% end %>
+		<div id="content">
+			<%- flash.each do |name, msg| -%>
+	        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+	      	<%- end -%>
+			<%= yield %>
+			<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+		</div>
+	</div>
+</body>
+</html>

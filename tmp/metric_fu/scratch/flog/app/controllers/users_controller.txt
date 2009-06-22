@@ -1,0 +1,37 @@
+    38.2: flog total
+     5.5: flog/method average
+
+    11.5: UsersController#create
+     2.6: assignment
+     1.6: tasks_url
+     1.6: params
+     1.4: flash
+     1.4: redirect_to
+     1.4: []
+     1.3: render
+     1.2: new
+     1.2: save
+     1.2: branch
+    10.3: UsersController#update
+     2.6: assignment
+     1.6: tasks_url
+     1.6: params
+     1.4: flash
+     1.4: redirect_to
+     1.4: []
+     1.3: render
+     1.2: update_attributes
+     1.2: branch
+     9.0: UsersController#set_login_to_email
+     4.4: []
+     3.4: params
+     1.2: merge!
+     3.3: UsersController#none
+     3.3: before_filter
+     1.7: UsersController#new
+     1.2: assignment
+     1.2: new
+     1.2: UsersController#edit
+     1.2: assignment
+     1.2: UsersController#show
+     1.2: assignment

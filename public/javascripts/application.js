@@ -42,3 +42,31 @@ var task_button = $('task_submit');
     task_button.disabled = ($F(required_field_1) === '');
     });
 });
+
+function displaymessage() {
+	if ($F('video_customer_name') != "") {
+		$('customers').insert( { bottom : "<p class='filtered_customer'>" + $F('video_customer_name') + "<a href='#' onclick=\"$(this).up('.filtered_customer').remove(); filter_names(); return false;\">remove</a></p>"});
+		$('video_customer_name').clear();
+		$('video_customer_name').focus();
+		filter_names();
+	}else{
+		$('video_customer_name').focus();
+	};
+};
+
+function filter_names() {
+	var customer_array;
+	var complete_string = "";
+	customer_array = $('customers').childElements();
+	customer_array.each(function(s) {
+	
+	var string = s.innerHTML.sub(/<.+/, '');
+		if (complete_string == "") {
+			complete_string =  string;
+		}else{
+			complete_string =  complete_string + ", " + string;	
+		};
+	});
+	$('user_new_video_notify_filter').value = complete_string;
+};
+

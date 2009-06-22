@@ -10,11 +10,6 @@
 	<div id="videos">
 		<%= render :partial => 'video', :collection => @videos %>
 	</div>
-	<div id="add_another_video">
-			<%= link_to_function "add a video" do |page|
-			page.insert_html :bottom, :videos, :partial => 'video', :object => Video.new 
-		end %>
-	</div>
 
 </div>
 

@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  
+  named_scope :any_new_video, :conditions => {:new_video_notify => 'all'}
+  named_scope :custom_new_video, :conditions => {:new_video_notify => 'custom'}
     
     def before_save
       if self.task_notify == false

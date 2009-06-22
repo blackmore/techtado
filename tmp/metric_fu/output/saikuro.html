@@ -1,0 +1,2286 @@
+<html>
+<head>
+	<title>Saikuro Results</title>
+	<style>
+	body {
+	background-color: #efefef;
+	margin: 20px;
+	padding: 0;
+	font: 12px verdana, arial, helvetica;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid #666;
+	background: #fff;
+	margin-bottom: 20px;	
+}
+
+	table tr.light {
+	 	background: #fff;
+	}
+
+	table tr.dark {
+		background: #f9f9f9;
+	}
+
+	table td, table th {
+		padding: 4px 10px;
+		font-size: 13px;
+	}
+	table th {
+		text-align: center;
+		color: #fc0;
+		background: #336;		
+		font-weight: bold;
+		border: #d0d0d0 1px solid;
+	}
+
+	table td {
+		border: #d0d0d0 1px solid;
+	}
+	
+		table td.score {
+			text-align: right;
+		}	
+
+.warning {
+	background: yellow;
+}
+.rcov_code td {
+  border-bottom: 1px solid #ddd ;
+  padding: 0;
+  margin: 0;
+}
+.rcov_code tr {
+  border: 0px;
+  padding:0px;
+  margin: 0px;
+}
+.rcov_code pre {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+.rcov_run {}
+.rcov_not_run {
+  background-color: #d88;
+}
+	
+	</style>
+</head>
+
+<body>
+  <h1>Saikuro Results</h1>
+  <p><a href='http://saikuro.rubyforge.org/'>Saikuro</a> analyzes ruby code for cyclomatic complexity.</p>
+
+  <h2>Analyzed Methods</h2>
+    <table>
+      <tr>
+        <th>Method Name</th>
+        <th>Complexity</th>
+        <th># Lines</th>
+      </tr>
+      
+      <tr>
+        <td>VideosController#list</td>
+        <td>13</td>
+        <td>27</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#create</td>
+        <td>8</td>
+        <td>18</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#update_index_page</td>
+        <td>8</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#update_show_page</td>
+        <td>8</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#update</td>
+        <td>7</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#show_query</td>
+        <td>6</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#who_status_time</td>
+        <td>6</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#create</td>
+        <td>6</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>CommentsController#create</td>
+        <td>6</td>
+        <td>19</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#resubmitted</td>
+        <td>5</td>
+        <td>10</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#show</td>
+        <td>5</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>Task#deliver_comment_notify!</td>
+        <td>5</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#change_status_link</td>
+        <td>5</td>
+        <td>17</td>
+      </tr>
+      
+      <tr>
+        <td>User#self.notify</td>
+        <td>5</td>
+        <td>9</td>
+      </tr>
+      
+      <tr>
+        <td>Video#user_notify_custom_list</td>
+        <td>4</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#destroy</td>
+        <td>4</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#comments</td>
+        <td>4</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#search</td>
+        <td>4</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#get_status</td>
+        <td>4</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#archive</td>
+        <td>4</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>Task#status_to_str</td>
+        <td>4</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>VideosHelper#sort_td_class_helper</td>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#find_description_head</td>
+        <td>3</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#show_description</td>
+        <td>3</td>
+        <td>15</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#subject_task</td>
+        <td>3</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#find_description_head_sidebar</td>
+        <td>3</td>
+        <td>16</td>
+      </tr>
+      
+      <tr>
+        <td>Video#deliver_notification!</td>
+        <td>3</td>
+        <td>10</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#new</td>
+        <td>3</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController#create</td>
+        <td>3</td>
+        <td>13</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#index</td>
+        <td>3</td>
+        <td>10</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#current_user_session</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController#load_user_using_perishable_token</td>
+        <td>2</td>
+        <td>9</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#user_full_name</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>User#filtered_customers</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#create</td>
+        <td>2</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#show_date</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#description_heading_sidebar</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>User#before_save</td>
+        <td>2</td>
+        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#set_user_language</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#update</td>
+        <td>2</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#description_heading</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#require_no_user</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#require_user</td>
+        <td>2</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#current_user</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController#update</td>
+        <td>2</td>
+        <td>9</td>
+      </tr>
+      
+      <tr>
+        <td>VideosHelper#pagination_links_remote</td>
+        <td>2</td>
+        <td>12</td>
+      </tr>
+      
+      <tr>
+        <td>VideosHelper#sort_link_helper</td>
+        <td>2</td>
+        <td>14</td>
+      </tr>
+      
+      <tr>
+        <td>Customer#customer_name</td>
+        <td>2</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Video#round_up_length</td>
+        <td>2</td>
+        <td>5</td>
+      </tr>
+      
+      <tr>
+        <td>Video#customer_name=</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>Video#customer_name</td>
+        <td>2</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#belongs_to_user</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>Customer#customer_name=</td>
+        <td>2</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Task#deliver_notify!</td>
+        <td>2</td>
+        <td>5</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#urgent?</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>Customer#video_attributes=</td>
+        <td>2</td>
+        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td>UserSessionsController#create</td>
+        <td>2</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>Task#self.search</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationHelper#is_active?</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#update</td>
+        <td>2</td>
+        <td>8</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#edit</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#edit</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Task#self.per_page</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#new</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#show</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#index</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Task#deliver_status_changed!</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Task#freezed?</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Video#details=</td>
+        <td>1</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#store_location</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController#redirect_back_or_default</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>User#deliver_password_reset_instructions!</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#format_text</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>User#full_name</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController#new</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController#edit</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper#get_user_name</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#new</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#show</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController#destroy</td>
+        <td>1</td>
+        <td>5</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController#set_login_to_email</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#status_changed</td>
+        <td>1</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#notify</td>
+        <td>1</td>
+        <td>9</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#created_by</td>
+        <td>1</td>
+        <td>5</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#comment_notify</td>
+        <td>1</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#password_reset_instructions</td>
+        <td>1</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice#notification</td>
+        <td>1</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>UserSessionsController#new</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>UserSessionsController#destroy</td>
+        <td>1</td>
+        <td>4</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationHelper#short_time_ago</td>
+        <td>1</td>
+        <td>7</td>
+      </tr>
+      
+      <tr>
+        <td>Comment#full_name</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>TasksController#edit</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>Comment#first_name</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td>CommentsHelper#comment_details</td>
+        <td>1</td>
+        <td>3</td>
+      </tr>
+      
+      <tr>
+        <td>CustomersController#index</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      
+    </table>
+
+
+
+  <h2>Analyzed Classes</h2>
+    <table>
+      <tr>
+        <th>Class Name</th>
+        <th>Complexity</th>
+        <th># Lines</th>
+      </tr>
+      
+      <tr>
+        <td>TasksController</td>
+        <td>62</td>
+        <td>173</td>
+      </tr>
+      
+      <tr>
+        <td>TasksHelper</td>
+        <td>47</td>
+        <td>200</td>
+      </tr>
+      
+      <tr>
+        <td>VideosController</td>
+        <td>26</td>
+        <td>88</td>
+      </tr>
+      
+      <tr>
+        <td>Task</td>
+        <td>16</td>
+        <td>59</td>
+      </tr>
+      
+      <tr>
+        <td>Video</td>
+        <td>14</td>
+        <td>58</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationController</td>
+        <td>12</td>
+        <td>72</td>
+      </tr>
+      
+      <tr>
+        <td>User</td>
+        <td>11</td>
+        <td>54</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsController</td>
+        <td>9</td>
+        <td>49</td>
+      </tr>
+      
+      <tr>
+        <td>UsersController</td>
+        <td>8</td>
+        <td>40</td>
+      </tr>
+      
+      <tr>
+        <td>Postoffice</td>
+        <td>8</td>
+        <td>82</td>
+      </tr>
+      
+      <tr>
+        <td>VideosHelper</td>
+        <td>7</td>
+        <td>37</td>
+      </tr>
+      
+      <tr>
+        <td>Customer</td>
+        <td>6</td>
+        <td>17</td>
+      </tr>
+      
+      <tr>
+        <td>CommentsController</td>
+        <td>6</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>UserSessionsController</td>
+        <td>4</td>
+        <td>24</td>
+      </tr>
+      
+      <tr>
+        <td>ApplicationHelper</td>
+        <td>3</td>
+        <td>22</td>
+      </tr>
+      
+      <tr>
+        <td>Comment</td>
+        <td>2</td>
+        <td>11</td>
+      </tr>
+      
+      <tr>
+        <td>CommentsHelper</td>
+        <td>1</td>
+        <td>6</td>
+      </tr>
+      
+      <tr>
+        <td>CustomersController</td>
+        <td>1</td>
+        <td>5</td>
+      </tr>
+      
+      <tr>
+        <td>UserSession</td>
+        <td>0</td>
+        <td>2</td>
+      </tr>
+      
+      <tr>
+        <td></td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td></td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>UserSessionsHelper</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>PasswordResetsHelper</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      
+      <tr>
+        <td>UsersHelper</td>
+        <td>0</td>
+        <td>1</td>
+      </tr>
+      
+    </table>
+
+
+  <h2>Analyzed Files</h2>
+  
+    
+        
+          <h3>tasks_controller.rb</h3>
+          <h4>Class : TasksController</h4>
+          <h5>Total complexity : 62</h5>
+          <h5>Total lines : 173</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#update_show_page
+                </td>
+                <td>
+                  8 
+                </td>
+                <td>
+                  15
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#create
+                </td>
+                <td>
+                  8 
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#update_index_page
+                </td>
+                <td>
+                  8 
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#update
+                </td>
+                <td>
+                  7 
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#show_query
+                </td>
+                <td>
+                  6 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#show
+                </td>
+                <td>
+                  5 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#destroy
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#archive
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#search
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#new
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#index
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#created_by
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksController#edit
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>tasks_helper.rb</h3>
+          <h4>Class : TasksHelper</h4>
+          <h5>Total complexity : 47</h5>
+          <h5>Total lines : 200</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#who_status_time
+                </td>
+                <td>
+                  6 
+                </td>
+                <td>
+                  14
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#resubmitted
+                </td>
+                <td>
+                  5 
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#change_status_link
+                </td>
+                <td>
+                  5 
+                </td>
+                <td>
+                  17
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#comments
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#get_status
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#find_description_head_sidebar
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#show_description
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  15
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#find_description_head
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#show_date
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#user_full_name
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#urgent?
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#description_heading
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#description_heading_sidebar
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#belongs_to_user
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#get_user_name
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  TasksHelper#format_text
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>videos_controller.rb</h3>
+          <h4>Class : VideosController</h4>
+          <h5>Total complexity : 26</h5>
+          <h5>Total lines : 88</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#list
+                </td>
+                <td>
+                  13 
+                </td>
+                <td>
+                  27
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#create
+                </td>
+                <td>
+                  6 
+                </td>
+                <td>
+                  24
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#update
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#edit
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#destroy
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#new
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#show
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosController#index
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>task.rb</h3>
+          <h4>Class : Task</h4>
+          <h5>Total complexity : 16</h5>
+          <h5>Total lines : 59</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#deliver_comment_notify!
+                </td>
+                <td>
+                  5 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#status_to_str
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#deliver_notify!
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#self.search
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#deliver_status_changed!
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#self.per_page
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Task#freezed?
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>video.rb</h3>
+          <h4>Class : Video</h4>
+          <h5>Total complexity : 14</h5>
+          <h5>Total lines : 58</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#user_notify_custom_list
+                </td>
+                <td>
+                  4 
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#deliver_notification!
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#customer_name=
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#round_up_length
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#customer_name
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Video#details=
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+    
+        
+          <h3>application_controller.rb</h3>
+          <h4>Class : ApplicationController</h4>
+          <h5>Total complexity : 12</h5>
+          <h5>Total lines : 72</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#set_user_language
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#current_user
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#current_user_session
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#require_user
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#require_no_user
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#redirect_back_or_default
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationController#store_location
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>user.rb</h3>
+          <h4>Class : User</h4>
+          <h5>Total complexity : 11</h5>
+          <h5>Total lines : 54</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  User#self.notify
+                </td>
+                <td>
+                  5 
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  User#filtered_customers
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  User#before_save
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  User#deliver_password_reset_instructions!
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  User#full_name
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>password_resets_controller.rb</h3>
+          <h4>Class : PasswordResetsController</h4>
+          <h5>Total complexity : 9</h5>
+          <h5>Total lines : 49</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  PasswordResetsController#create
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  PasswordResetsController#update
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  PasswordResetsController#load_user_using_perishable_token
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  PasswordResetsController#edit
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  PasswordResetsController#new
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>users_controller.rb</h3>
+          <h4>Class : UsersController</h4>
+          <h5>Total complexity : 8</h5>
+          <h5>Total lines : 40</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#create
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#update
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#edit
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#show
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#set_login_to_email
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UsersController#new
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>postoffice.rb</h3>
+          <h4>Class : Postoffice</h4>
+          <h5>Total complexity : 8</h5>
+          <h5>Total lines : 82</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#subject_task
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#password_reset_instructions
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#notification
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#comment_notify
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#notify
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Postoffice#status_changed
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>videos_helper.rb</h3>
+          <h4>Class : VideosHelper</h4>
+          <h5>Total complexity : 7</h5>
+          <h5>Total lines : 37</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosHelper#sort_td_class_helper
+                </td>
+                <td>
+                  3 
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosHelper#sort_link_helper
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  14
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  VideosHelper#pagination_links_remote
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>customer.rb</h3>
+          <h4>Class : Customer</h4>
+          <h5>Total complexity : 6</h5>
+          <h5>Total lines : 17</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  Customer#video_attributes=
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Customer#customer_name=
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Customer#customer_name
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>comments_controller.rb</h3>
+          <h4>Class : CommentsController</h4>
+          <h5>Total complexity : 6</h5>
+          <h5>Total lines : 22</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  CommentsController#create
+                </td>
+                <td>
+                  6 
+                </td>
+                <td>
+                  19
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>user_sessions_controller.rb</h3>
+          <h4>Class : UserSessionsController</h4>
+          <h5>Total complexity : 4</h5>
+          <h5>Total lines : 24</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  UserSessionsController#create
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UserSessionsController#destroy
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  UserSessionsController#new
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+    
+        
+          <h3>application_helper.rb</h3>
+          <h4>Class : ApplicationHelper</h4>
+          <h5>Total complexity : 3</h5>
+          <h5>Total lines : 22</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationHelper#is_active?
+                </td>
+                <td>
+                  2 
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  ApplicationHelper#short_time_ago
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>comment.rb</h3>
+          <h4>Class : Comment</h4>
+          <h5>Total complexity : 2</h5>
+          <h5>Total lines : 11</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  Comment#first_name
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+              <tr>
+                <td>
+                  Comment#full_name
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>comments_helper.rb</h3>
+          <h4>Class : CommentsHelper</h4>
+          <h5>Total complexity : 1</h5>
+          <h5>Total lines : 6</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  CommentsHelper#comment_details
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+          <h3>customers_controller.rb</h3>
+          <h4>Class : CustomersController</h4>
+          <h5>Total complexity : 1</h5>
+          <h5>Total lines : 5</h5>
+          <table>
+              <tr>
+                <th>Method</th>
+                <th>Complexity</th>
+                <th># Lines</th>
+              </tr>
+            
+              <tr>
+                <td>
+                  CustomersController#index
+                </td>
+                <td>
+                  1 
+                </td>
+                <td>
+                  2
+                </td>
+              </tr>
+            
+          </table> 
+        
+    
+ 
+    
+        
+    
+ 
+    
+        
+    
+ 
+    
+        
+    
+ 
+    
+        
+    
+ 
+
+	<p>Generated on Sat Jun 20 13:19:29 +0200 2009</p>	
+</body>
+</html>
+
