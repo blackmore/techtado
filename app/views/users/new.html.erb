@@ -1,14 +1,14 @@
 <% form_for @user, :url => account_path do |f| %>
-<%= f.error_messages %>
 <div id="register">
-	<h2>Register</h2>
 	<div id="register_form">
 		<%= render :partial => "form", :object => f %>
-		<hr>
-		<%= f.submit "Register & login" %>
+		<div id="user_submit">
+			<%= f.submit "Register & login" %><%= link_to "Cancel", :back %>
+		</div>
 	</div>
 </div>
 <% end %>
+
 
 
 

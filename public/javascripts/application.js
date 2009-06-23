@@ -70,3 +70,4 @@ function filter_names() {
 	$('user_new_video_notify_filter').value = complete_string;
 };
 
+

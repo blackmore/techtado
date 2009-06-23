@@ -1,6 +1,8 @@
 /* @override 
 	http://localhost:3000/stylesheets/users.css?1245661087
 	http://localhost:3000/stylesheets/users.css?1245671483
+	http://localhost:3000/stylesheets/users.css?1245673074
+	http://localhost:3000/stylesheets/users.css?1245679287
 */
 
 /* @group CSS RESET */
@@ -59,6 +61,10 @@ blockquote, q {
 /* @end */
 
 /* @group page_layout */
+
+input#user_session_remember_me {
+	margin-left: 100px;
+}
 
 hr {
 	border-right-style: none;
@@ -146,6 +152,22 @@ legend {
 	padding-left: 3px;
 	line-height: 26px;
 	color: #000000;
+}
+
+input#user_session_remember_me {
+	margin-left: 130px;
+	width: 20px;
+}
+
+#login legend a {
+	font-size: 14px;
+	color: #1175e0;
+	text-decoration: none;
+}
+
+#user_session_submit {
+	float: right;
+	margin-left: 20px;
 }
 input#video_customer_name.disabled {
 		border: 3px solid #e1e1e1;
@@ -316,6 +338,14 @@ div.fieldWithErrors input#user_email,
 div.fieldWithErrors input#user_password,
 div.fieldWithErrors input#user_confirm_password{
 	border: 3px solid #ff0080;
+}
+
+#login span {
+	margin-left: 320px;
+	position: relative;
+	z-index: 1;
+	top: -17px;
+	color: #ff0080;
 }
 
 

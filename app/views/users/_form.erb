@@ -1,27 +1,48 @@
-<div>
-	<%= form.label "First name" %><br />
-	<%= form.text_field :first_name, :size => 22 %>
-</div>
-<div>
-	<%= form.label "Last name" %><br />
-	<%= form.text_field :last_name, :size => 22 %>
-</div>
-<div>
-	<%= form.label "Email" %><br />
-	<%= form.text_field :email, :size => 22 %>
-</div>
-<div>
-	<%= form.label "Password" %><br />
-	<%= form.password_field :password, :size => 22 %>
-</div>
-<div>
-	<%= form.label "Confirm password" %><br />
-	<%= form.password_field :password_confirmation, :size => 22 %>
-</div>
-<div>
-	<%= form.label "Language" %>
-	 <%= form.select(:language, {"English" => "en", "Deutsch" => "de"}) %>
-</div>
+<fieldset id="login">
+  <legend>Login</legend>
+  <%= form.label "First Name:" %> <%= form.text_field :first_name, :size => 22 %><span><%= @user.errors.on :first_name %></span><br />
+  <%= form.label "Last Name:" %> <%= form.text_field :last_name, :size => 22 %><span><%= @user.errors.on :last_name %></span><br />
+  <%= form.label "Email:" %> <%= form.text_field :email, :size => 22 %><span><%= @user.errors.on :email %></span><br />
+  <%= form.label "Password:" %>	<%= form.password_field :password, :size => 22 %><span><%= @user.errors.on :password %></span><br />
+  <%= form.label "Confirm password:" %> <%= form.password_field :password_confirmation, :size => 22 %><span><%= @user.errors.on :password_confirmation %></span><br />
+  <%= form.label "Language:", "", :id => "language_select"%> <%= form.select(:language, {"English" => "en", "Deutsch" => "de"}) %>
+</fieldset>
 
-
-
+<fieldset id="notify">
+  <legend>Notification</legend>
+  <%= link_to_function "Techtado", "$(this).toggleClassName('tog_on'); notify_task()", :id => "notify_techtado" %>
+  <%= form.check_box :task_notify  %>
+	<div id="notify_techtado_content">
+		<span>Notify me: </span><label for="user_notify_on_create"><%= radio_button :user, :notify_on, "create" %>about any new task</label><br />
+		<label for="user_notify_on_urgent"><%= radio_button :user, :notify_on, "urgent" %>only if the new task is URGENT!</label>
+	</div>
+	<hr class="notify"/>
+	<%= link_to_function "Video Archive", "$(this).toggleClassName('tog_on'); notify_video_archive()", :id => "notify_video_archive" %>
+	  <%= form.check_box :video_archive_notify %>
+	<div id="notify_video_archive_content">
+		<span>Notify me: </span><label for="user_new_video_notify_all"><%= radio_button :user, :new_video_notify, "all" %> about any new video</label><br />
+		<label for="user_new_video_notify_custom"><%= radio_button :user, :new_video_notify, "custom" %>only if the new video belongs to a customer on my "My Customers" list</label>
+		<%= form.hidden_field :new_video_notify_filter, :value => "#{hidden_video_filter(@user)}" %>
+		<%= observe_field("user_new_video_notify_custom", :frequency => 1, :function => "do_something()") %>
+		<hr class="notify_video"/>
+		<div id="my_customers">
+			<div id="add_customer">
+				<%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+				<%= link_to_function "add", "displaymessage()" %>
+				<p>To add a name to your “My Customer” list, type the customers name in the text field and click add.</p>
+			</div>
+			<div id="my_customer_list">
+				<h2>My Customers</h2>
+				<div id="customers">
+					<% if !@user.filtered_customers.empty? %>
+						<% for customer in @user.filtered_customers %>
+							<p class="filtered_customer"><%= customer %><a href='#' onclick="$(this).up('.filtered_customer').remove(); filter_names(); return false;">remove</a></p>
+						<% end %>
+					<% end %>
+					<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+				</div>
+			</div>
+			<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+		</div>
+	</div>
+</fieldset>
