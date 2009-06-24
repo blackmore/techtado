@@ -128,7 +128,7 @@ class TasksController < ApplicationController
             end
           end
           format.html {redirect_to(tasks_path)}
-          format.js { render :partial => 'update_index.rjs'}
+          format.js { render :partial => 'update_index'}
         else
           format.html {render :action => "index"}
         end
@@ -145,7 +145,7 @@ class TasksController < ApplicationController
             end
           end
           format.html {redirect_to(tasks_path)}
-          format.js { render :partial => 'show.rjs'}
+          format.js { render :partial => 'update_show_page'}
         else
           format.html {render :action => "index"}
         end
