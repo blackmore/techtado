@@ -361,7 +361,7 @@ table {
             TasksController#index
           </td>
           <td>
-            has approx 8 statements
+            has approx 9 statements
     		  </td>
     		  <td>
             Long Method
@@ -743,7 +743,7 @@ table {
             VideosController#create
           </td>
           <td>
-            has approx 9 statements
+            has approx 11 statements
     		  </td>
     		  <td>
             Long Method
@@ -785,7 +785,7 @@ table {
             VideosController#list
           </td>
           <td>
-            has approx 6 statements
+            has approx 7 statements
     		  </td>
     		  <td>
             Long Method
@@ -1376,6 +1376,50 @@ table {
     
       
   		  <tr class='dark'>
+  		    <td>app/helpers/users_helper.rb</td>
+          <td>
+            UsersHelper::hidden_video_filter
+          </td>
+          <td>
+            calls user.filtered_customers multiple times
+    		  </td>
+    		  <td>
+            Duplication
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='light'>
+  		    <td>app/helpers/users_helper.rb</td>
+          <td>
+            UsersHelper::hidden_video_filter
+          </td>
+          <td>
+            doesn't depend on instance state
+    		  </td>
+    		  <td>
+            Utility Function
+    		  </td>
+        </tr>
+        
+      
+  		  <tr class='dark'>
+  		    <td>app/helpers/users_helper.rb</td>
+          <td>
+            UsersHelper::hidden_video_filter
+          </td>
+          <td>
+            refers to user more than self
+    		  </td>
+    		  <td>
+            Feature Envy
+    		  </td>
+        </tr>
+        
+      
+    
+      
+  		  <tr class='light'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::pagination_links_remote
@@ -1389,7 +1433,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::pagination_links_remote
@@ -1403,7 +1447,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::pagination_links_remote/block
@@ -1417,7 +1461,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::sort_link_helper
@@ -1431,7 +1475,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::sort_link_helper
@@ -1445,7 +1489,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::sort_td_class_helper
@@ -1459,7 +1503,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/helpers/videos_helper.rb</td>
           <td>
             VideosHelper::sort_td_class_helper
@@ -1475,7 +1519,7 @@ table {
       
     
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#comment_notify
@@ -1489,7 +1533,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#comment_notify
@@ -1503,7 +1547,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#comment_notify
@@ -1517,7 +1561,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#comment_notify
@@ -1531,7 +1575,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#notification
@@ -1545,7 +1589,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#notification
@@ -1559,7 +1603,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#notification
@@ -1573,7 +1617,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#notify
@@ -1587,7 +1631,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#notify
@@ -1601,7 +1645,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#status_changed
@@ -1615,7 +1659,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#status_changed
@@ -1629,7 +1673,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#subject_task
@@ -1643,7 +1687,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#subject_task
@@ -1657,7 +1701,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#subject_task
@@ -1671,7 +1715,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/postoffice.rb</td>
           <td>
             Postoffice#subject_task
@@ -1687,7 +1731,7 @@ table {
       
     
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!
@@ -1701,7 +1745,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!
@@ -1715,7 +1759,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!
@@ -1729,7 +1773,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!
@@ -1743,7 +1787,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!
@@ -1757,7 +1801,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#deliver_comment_notify!/block
@@ -1771,7 +1815,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/task.rb</td>
           <td>
             Task#self.search
@@ -1787,7 +1831,7 @@ table {
       
     
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/user.rb</td>
           <td>
             User#filtered_customers
@@ -1801,7 +1845,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/user.rb</td>
           <td>
             User#self.notify
@@ -1815,7 +1859,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/user.rb</td>
           <td>
             User#self.notify
@@ -1829,7 +1873,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/user.rb</td>
           <td>
             User#self.notify
@@ -1843,7 +1887,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/user.rb</td>
           <td>
             User#self.notify
@@ -1859,7 +1903,7 @@ table {
       
     
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#customer_name
@@ -1873,7 +1917,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#customer_name=
@@ -1887,7 +1931,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#deliver_notification!/block
@@ -1901,7 +1945,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#round_up_length
@@ -1915,7 +1959,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#user_notify_custom_list
@@ -1929,7 +1973,7 @@ table {
         </tr>
         
       
-  		  <tr class='light'>
+  		  <tr class='dark'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#user_notify_custom_list
@@ -1943,7 +1987,7 @@ table {
         </tr>
         
       
-  		  <tr class='dark'>
+  		  <tr class='light'>
   		    <td>app/models/video.rb</td>
           <td>
             Video#user_notify_custom_list
@@ -1960,6 +2004,6 @@ table {
     
 
 	</table>
-	<p>Generated on Sat Jun 20 13:19:29 +0200 2009</p>
+	<p>Generated on Tue Jun 23 12:53:39 +0200 2009</p>
 </body>
 </html>

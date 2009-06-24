@@ -1,12 +1,12 @@
-/* @override http://localhost:3000/stylesheets/master.css?1244034831 */
-
-/* @override http://localhost:3000/stylesheets/master.css?1244034831 */
-
-/* @override http://localhost:3000/stylesheets/master.css?1243605540 */
-
-/* @override http://localhost:3000/stylesheets/master.css?1243523910 */
-
-/* @override http://localhost:3000/stylesheets/master.css?1243509306 */
+/* @override 
+	http://localhost:3000/stylesheets/master.css?1244034831
+	http://localhost:3000/stylesheets/master.css?1244034831
+	http://localhost:3000/stylesheets/master.css?1243605540
+	http://localhost:3000/stylesheets/master.css?1243523910
+	http://localhost:3000/stylesheets/master.css?1243509306
+	http://0.0.0.0:3000/stylesheets/master.css?1234300968
+	http://localhost:3000/stylesheets/video_archive.css?1245155895
+*/
 
 /* @group CSS RESET */
 html, body, div, span, applet, object, iframe,
@@ -89,13 +89,28 @@ blockquote, q {
 
 /* @end */
 
-/* @override http://0.0.0.0:3000/stylesheets/master.css?1234300968 */
-
 body {
 	background-color:#222;
 	font: 13.34px/17.34px helvetica,arial,clean,sans-serif;*font-size:small;
 
 }
+
+
+div#login_status {
+	text-align: right;
+	margin-right: 20px;
+	padding-top: 10px;
+	color: #142a00;
+}
+
+#login_status a, #login_status a:visited {
+	color: #193400;
+}
+#login_status a:hover {
+	color: #fff;
+}
+
+
 
 label {
 	font-size: 14px;

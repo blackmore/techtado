@@ -3,6 +3,7 @@
 	http://localhost:3000/stylesheets/users.css?1245671483
 	http://localhost:3000/stylesheets/users.css?1245673074
 	http://localhost:3000/stylesheets/users.css?1245679287
+	http://localhost:3000/stylesheets/users.css?1245682948
 */
 
 /* @group CSS RESET */
@@ -61,6 +62,10 @@ blockquote, q {
 /* @end */
 
 /* @group page_layout */
+
+div#user_session_header {
+	height: 90px;
+}
 
 input#user_session_remember_me {
 	margin-left: 100px;

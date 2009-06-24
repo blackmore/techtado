@@ -4,7 +4,6 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Video Archive</title>
   <%= stylesheet_link_tag 'video_archive' %>
-  <%= stylesheet_link_tag 'boxy' %>
   <%= javascript_include_tag :all %>
 </head>
 <body>
@@ -27,8 +26,6 @@
 			<%= observe_form 'video_filter',
 						:frequency => 0.5,
 			         	:update => 'table',
-			         	:before => "Element.show('spinner')",
-			         	:success => "Element.hide('spinner')",
 			         	:url => {:action => 'list'} %>
 			<span id="add_video">
 				

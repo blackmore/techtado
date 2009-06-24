@@ -59,6 +59,7 @@ class VideosController < ApplicationController
   end
   
   def list
+      store_location
       @video = Video.new
       
       filter_on = case params[:filter_on].to_i

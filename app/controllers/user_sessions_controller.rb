@@ -4,13 +4,14 @@ class UserSessionsController < ApplicationController
 
   def new
     @user_session = UserSession.new
+    @path = request.request_uri
   end
 
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Login successful!"
-      redirect_to tasks_url
+      redirect_to session[:return_to]
     else
       render :action => :new
     end

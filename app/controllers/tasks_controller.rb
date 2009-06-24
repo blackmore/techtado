@@ -6,6 +6,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
+    store_location
     @tasks = Task.outstanding.paginate :page => params[:page]
     @task = Task.new
     @recently_completed_tasks = Task.recently_completed
@@ -20,6 +21,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.xml
   def show
+    store_location
     @task = Task.find(params[:id])
     if params[:status]
     

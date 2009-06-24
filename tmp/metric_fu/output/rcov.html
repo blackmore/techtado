@@ -73,7 +73,7 @@ table {
 <body>
 	<h1>Rcov Code Coverage Results</h1>
 	<p>C0 code coverage information.</p>
-  <p>Total Coverage: 35.3% </p>
+  <p>Total Coverage: 35.0% </p>
 	<table>
     <tr>
       <th>File Path</th>
@@ -143,18 +143,18 @@ table {
 		
       <tr>
         <td>app/controllers/videos_controller.rb</td>
-        <td>18</td>
-      </tr>
-      
-		
-      <tr>
-        <td>app/models/user_session.rb</td>
-        <td>100</td>
+        <td>17</td>
       </tr>
       
 		
       <tr>
         <td>app/helpers/users_helper.rb</td>
+        <td>29</td>
+      </tr>
+      
+		
+      <tr>
+        <td>app/models/user_session.rb</td>
         <td>100</td>
       </tr>
       
@@ -261,6 +261,11 @@ table {
     
       <tr>
         
+        <td class="rcov_not_run"><pre>       store_location</pre></td>
+      </tr>
+    
+      <tr>
+        
         <td class="rcov_not_run"><pre>       @tasks = Task.outstanding.paginate :page => params[:page]</pre></td>
       </tr>
     
@@ -327,6 +332,11 @@ table {
       <tr>
         
         <td class="rcov_run"><pre>     def show</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>       store_location</pre></td>
       </tr>
     
       <tr>
@@ -1336,7 +1346,7 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>       render :layout => "users"</pre></td>
+        <td class="rcov_not_run"><pre>       @path = request.request_uri</pre></td>
       </tr>
     
       <tr>
@@ -1371,7 +1381,7 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>         redirect_to tasks_url</pre></td>
+        <td class="rcov_not_run"><pre>         redirect_to session[:return_to]</pre></td>
       </tr>
     
       <tr>
@@ -2436,6 +2446,16 @@ table {
     
       <tr>
         
+        <td class="rcov_not_run"><pre>       an_array_of_videos = params[:video][:details]</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>       video_hash = params[:video]</pre></td>
+      </tr>
+    
+      <tr>
+        
         <td class="rcov_not_run"><pre>       @videos = []</pre></td>
       </tr>
     
@@ -2446,12 +2466,12 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>       for video in params[:video][:details]</pre></td>
+        <td class="rcov_not_run"><pre>       for video in an_array_of_videos</pre></td>
       </tr>
     
       <tr>
         
-        <td class="rcov_not_run"><pre>         @video = Video.new(video.merge(params[:video]))</pre></td>
+        <td class="rcov_not_run"><pre>         @video = Video.new(video.merge(video_hash))</pre></td>
       </tr>
     
       <tr>
@@ -2671,6 +2691,11 @@ table {
     
       <tr>
         
+        <td class="rcov_not_run"><pre>         store_location</pre></td>
+      </tr>
+    
+      <tr>
+        
         <td class="rcov_not_run"><pre>         @video = Video.new</pre></td>
       </tr>
     
@@ -2811,6 +2836,46 @@ table {
     
     </table>
   
+    <h2> app/helpers/users_helper.rb</h2>
+    <table class="rcov_code">
+    
+      <tr>
+        
+        <td class="rcov_run"><pre>   module UsersHelper</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_run"><pre>     def hidden_video_filter(user)</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>       if !user.filtered_customers.empty?</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>         user.filtered_customers</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>       end</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>     end</pre></td>
+      </tr>
+    
+      <tr>
+        
+        <td class="rcov_not_run"><pre>   end</pre></td>
+      </tr>
+    
+    </table>
+  
     <h2> app/models/user_session.rb</h2>
     <table class="rcov_code">
     
@@ -2822,21 +2887,6 @@ table {
       <tr>
         
         <td class="rcov_run"><pre>      # various configuration goes here, see AuthLogic::Session::Config for more details</pre></td>
-      </tr>
-    
-      <tr>
-        
-        <td class="rcov_run"><pre>   end</pre></td>
-      </tr>
-    
-    </table>
-  
-    <h2> app/helpers/users_helper.rb</h2>
-    <table class="rcov_code">
-    
-      <tr>
-        
-        <td class="rcov_run"><pre>   module UsersHelper</pre></td>
       </tr>
     
       <tr>
@@ -5576,7 +5626,7 @@ table {
     
     </table>
   
-	<p>Generated on Sat Jun 20 13:19:29 +0200 2009</p>	
+	<p>Generated on Tue Jun 23 12:53:39 +0200 2009</p>	
 </body>
 </html>
 
