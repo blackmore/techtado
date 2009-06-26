@@ -4,7 +4,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Tasks: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'users' %>
-  <%= javascript_include_tag :all %>
+  <%= javascript_include_tag 'prototype', 'effects','user', 'application', 'controls' %>
 </head>
 <body>
 	<div id="users_header">
@@ -12,11 +12,14 @@
 	</div>
 	<div id="page">
 		<div id="user_content">
-			<% if flash[:notice] %><div class="notice"><%= flash[:notice] %></div><% end %>
+			<% if flash[:notice] %>
+			<div class="notice">
+				<%= flash[:notice] %>
+			</div>
+			<% end %>
 			<%= yield  %>
 		</div>
 		<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
-		</div>
 	</div>
 </body>
 </html>

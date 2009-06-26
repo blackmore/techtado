@@ -1,13 +1,27 @@
 document.observe('dom:loaded', function (event) {
-//  // Find the button that we want to disable
-var task_button = $('task_submit');
-//  // Disable it!
-  task_button.disabled = true;
-// Find the field that is required:
-  var required_field_1 = $('task_description');
-  // Set up an observer to monitor this field
-  new Field.Observer(required_field_1, 0.3, function() {
-    //If field == '' then task_button disabled = true
-    task_button.disabled = ($F(required_field_1) === '');
-    });
+	// Check to see if a user is logged in
+	if ($('task_description')) {
+	  // Find the button that we want to disable
+	  var button_array = [$('task_send_email'), $('task_urgent'), $('task_submit')]
+	  disable_elements(button_array, $('task_description'))
+	  // Disable it!
+	};
+	if ($('comment_body')) {
+	  // Find the button that we want to disable
+	  var button_array = [$('freeze'), $('comment_submit')]
+	  disable_elements(button_array, $('comment_body'))
+	  // Disable it!
+	};
+	
 });
+
+function disable_elements(button_array, trigger){
+  button_array.each(function(s){s.disabled = true});
+
+  // Set up an observer to monitor this field
+  new Field.Observer(trigger, 0.3, function() {
+	button_array.each(function(s){
+	  s.disabled = $F(trigger) === ''}
+	);
+  });
+};

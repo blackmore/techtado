@@ -1,6 +1,6 @@
 
 
-Finished in 0.003978 seconds
+Finished in 0.004 seconds
 
 0 examples, 0 failures
 ================================================================================
@@ -87,12 +87,10 @@ app/controllers/videos_controller.rb
 !!   end
      
      def create
-!!     an_array_of_videos = params[:video][:details]
-!!     video_hash = params[:video]
 !!     @videos = []
 !!     @videos_saved = []
-!!     for video in an_array_of_videos
-!!       @video = Video.new(video.merge(video_hash))
+!!     for video in params[:video][:details]
+!!       @video = Video.new(video.merge(params[:video]))
 !!       unless @video.save
 !!         @videos << @video
 !!       else
@@ -298,7 +296,7 @@ app/controllers/tasks_controller.rb
 !!             end
 !!           end
 !!           format.html {redirect_to(tasks_path)}
-!!           format.js { render :partial => 'update_index.rjs'}
+!!           format.js { render :partial => 'update_index'}
 !!         else
 !!           format.html {render :action => "index"}
 !!         end
@@ -315,7 +313,7 @@ app/controllers/tasks_controller.rb
 !!             end
 !!           end
 !!           format.html {redirect_to(tasks_path)}
-!!           format.js { render :partial => 'show.rjs'}
+!!           format.js { render :partial => 'update_show_page'}
 !!         else
 !!           format.html {render :action => "index"}
 !!         end

@@ -264,7 +264,7 @@
     - :was_run: false
       :content: "             format.html {redirect_to(tasks_path)}"
     - :was_run: false
-      :content: "             format.js { render :partial => 'update_index.rjs'}"
+      :content: "             format.js { render :partial => 'update_index'}"
     - :was_run: false
       :content: "           else"
     - :was_run: false
@@ -298,7 +298,7 @@
     - :was_run: false
       :content: "             format.html {redirect_to(tasks_path)}"
     - :was_run: false
-      :content: "             format.js { render :partial => 'show.rjs'}"
+      :content: "             format.js { render :partial => 'update_show_page'}"
     - :was_run: false
       :content: "           else"
     - :was_run: false
@@ -873,7 +873,7 @@
     - :was_run: false
       :content: "   end"
   app/controllers/videos_controller.rb: 
-    :percent_run: 17
+    :percent_run: 18
     :lines: 
     - :was_run: true
       :content: "   class VideosController < ApplicationController"
@@ -904,17 +904,13 @@
     - :was_run: true
       :content: "     def create"
     - :was_run: false
-      :content: "       an_array_of_videos = params[:video][:details]"
-    - :was_run: false
-      :content: "       video_hash = params[:video]"
-    - :was_run: false
       :content: "       @videos = []"
     - :was_run: false
       :content: "       @videos_saved = []"
     - :was_run: false
-      :content: "       for video in an_array_of_videos"
+      :content: "       for video in params[:video][:details]"
     - :was_run: false
-      :content: "         @video = Video.new(video.merge(video_hash))"
+      :content: "         @video = Video.new(video.merge(params[:video]))"
     - :was_run: false
       :content: "         unless @video.save"
     - :was_run: false
@@ -1085,7 +1081,7 @@
       :content: "      # various configuration goes here, see AuthLogic::Session::Config for more details"
     - :was_run: true
       :content: "   end"
-  :global_percent_run: 35.0
+  :global_percent_run: 35.1
   app/controllers/application_controller.rb: 
     :percent_run: 54
     :lines: 
@@ -2952,29 +2948,29 @@
       - :score: 1.3
         :operator: render
       - :score: 1.2
-        :operator: to_i
-      - :score: 1.2
         :operator: xml_http_request?
       - :score: 1.2
-        :operator: nil?
+        :operator: store_location
       - :score: 1.2
         :operator: new
       - :score: 1.2
+        :operator: nil?
+      - :score: 1.2
         :operator: find
       - :score: 1.2
-        :operator: store_location
+        :operator: to_i
       - :score: 0.7
         :operator: lit_fixnum
-    - :score: 26.5
+    - :score: 26.7
       :name: VideosController#create
       :operators: 
-      - :score: 8.7
+      - :score: 6.3
         :operator: assignment
       - :score: 5.0
         :operator: branch
-      - :score: 3.8
+      - :score: 4.3
         :operator: "[]"
-      - :score: 3.0
+      - :score: 3.5
         :operator: params
       - :score: 2.8
         :operator: "<<"
@@ -2985,19 +2981,19 @@
       - :score: 1.5
         :operator: merge
       - :score: 1.4
+        :operator: deliver_notification!
+      - :score: 1.4
         :operator: flash
       - :score: 1.4
         :operator: redirect_to
-      - :score: 1.4
-        :operator: deliver_notification!
-      - :score: 1.3
-        :operator: new
-      - :score: 1.3
-        :operator: save
       - :score: 1.3
         :operator: render
       - :score: 1.3
+        :operator: new
+      - :score: 1.3
         :operator: spawn
+      - :score: 1.3
+        :operator: save
     - :score: 14.4
       :name: VideosController#update
       :operators: 
@@ -3010,17 +3006,17 @@
       - :score: 1.6
         :operator: list_path
       - :score: 1.4
-        :operator: flash
-      - :score: 1.4
         :operator: redirect_to
+      - :score: 1.4
+        :operator: flash
       - :score: 1.3
         :operator: render
       - :score: 1.2
         :operator: find
       - :score: 1.2
-        :operator: update_attributes
-      - :score: 1.2
         :operator: branch
+      - :score: 1.2
+        :operator: update_attributes
     - :score: 9.5
       :name: VideosController#destroy
       :operators: 
@@ -3029,9 +3025,9 @@
       - :score: 1.6
         :operator: params
       - :score: 1.4
-        :operator: list_path
-      - :score: 1.4
         :operator: "[]"
+      - :score: 1.4
+        :operator: list_path
       - :score: 1.2
         :operator: redirect_to
       - :score: 1.2
@@ -3076,7 +3072,7 @@
         :operator: assignment
       - :score: 1.2
         :operator: all
-    :score: 92.0
+    :score: 92.3
     :average_score: 11.5
   - :highest_score: 35.9
     :path: /app/models/task.rb
@@ -3946,7 +3942,7 @@
         :operator: empty?
     :score: 3.8
     :average_score: 3.8
-  :total: 1064.9
+  :total: 1065.2
   :average: 10.0
 :flay: 
   :matches: 
@@ -4155,7 +4151,7 @@
       :message: calls params[:video] multiple times
     - :type: Long Method
       :method: VideosController#create
-      :message: has approx 11 statements
+      :message: has approx 9 statements
     - :type: Duplication
       :method: VideosController#list
       :message: calls params multiple times
@@ -4444,7 +4440,7 @@
   :problems: 
   - :problem: Method name "list" cyclomatic complexity is 15.  It should be 8 or less.
     :file: app/controllers/videos_controller.rb
-    :line: "63"
+    :line: "61"
   - :problem: Method name "who_status_time" cyclomatic complexity is 9.  It should be 8 or less.
     :file: app/helpers/tasks_helper.rb
     :line: "105"
@@ -4453,19 +4449,19 @@
     :line: "168"
   - :problem: Case statement is missing an else clause.
     :file: app/controllers/videos_controller.rb
-    :line: "67"
+    :line: "65"
   - :problem: Case statement is missing an else clause.
     :file: app/models/task.rb
     :line: "25"
-  - :problem: Method "create" has 25 lines.  It should have 20 or less.
+  - :problem: Method "create" has 23 lines.  It should have 20 or less.
     :file: app/controllers/videos_controller.rb
     :line: "14"
   - :problem: Method "list" has 27 lines.  It should have 20 or less.
     :file: app/controllers/videos_controller.rb
-    :line: "63"
+    :line: "61"
   - :problem: Don't use 'for' loops. Use Enumerable.each instead.
     :file: app/controllers/videos_controller.rb
-    :line: "19"
+    :line: "17"
 :saikuro: 
   :files: 
   - :filename: tasks_controller.rb
@@ -4575,7 +4571,7 @@
         :lines: 28
       - :complexity: 6
         :name: VideosController#create
-        :lines: 26
+        :lines: 24
       - :complexity: 2
         :name: VideosController#update
         :lines: 8
@@ -4596,7 +4592,7 @@
         :lines: 2
       :complexity: 26
       :class_name: VideosController
-      :lines: 91
+      :lines: 89
   - :filename: task.rb
     :classes: 
     - :methods: 
@@ -4928,7 +4924,7 @@
     :lines: 14
   - :complexity: 6
     :name: VideosController#create
-    :lines: 26
+    :lines: 24
   - :complexity: 5
     :name: User#self.notify
     :lines: 9
@@ -5288,7 +5284,7 @@
       :lines: 6
   - :complexity: 26
     :name: VideosController
-    :lines: 91
+    :lines: 89
     :defs: 
     - :complexity: 1
       :name: VideosController#index
@@ -5301,7 +5297,7 @@
       :lines: 2
     - :complexity: 6
       :name: VideosController#create
-      :lines: 26
+      :lines: 24
     - :complexity: 1
       :name: VideosController#edit
       :lines: 2
@@ -5571,15 +5567,15 @@
     :name: UserSession
     :lines: 2
 :stats: 
-  :codeLOC: 857
+  :codeLOC: 855
   :testLOC: 0
   :lines: 
-  - :loc: 396
+  - :loc: 394
     :methods_per_class: 5
     :methods: 44
-    :loc_per_method: 7
+    :loc_per_method: 6
     :name: Controllers
-    :lines: 489
+    :lines: 487
     :classes: 8
   - :loc: 234
     :methods_per_class: 0
@@ -5595,12 +5591,12 @@
     :name: Models
     :lines: 290
     :classes: 7
-  - :loc: 857
+  - :loc: 855
     :methods_per_class: 6
     :methods: 97
     :loc_per_method: 6
     :name: Total
-    :lines: 1060
+    :lines: 1058
     :classes: 15
   :code_to_test_ratio: 0.0
 :churn: 
@@ -5609,37 +5605,37 @@
     :times_changed: 12
   - :file_path: app/helpers/tasks_helper.rb
     :times_changed: 10
+  - :file_path: app/controllers/tasks_controller.rb
+    :times_changed: 9
   - :file_path: app/models/postoffice.rb
-    :times_changed: 8
-  - :file_path: README
     :times_changed: 8
   - :file_path: app/views/tasks/_task.html.erb
     :times_changed: 8
-  - :file_path: app/controllers/tasks_controller.rb
+  - :file_path: README
+    :times_changed: 8
+  - :file_path: public/javascripts/application.js
     :times_changed: 7
   - :file_path: app/views/tasks/_no_action_task.html.erb
+    :times_changed: 7
+  - :file_path: app/views/layouts/tasks.html.erb
     :times_changed: 7
   - :file_path: app/models/task.rb
     :times_changed: 6
   - :file_path: app/views/tasks/_show.html.erb
     :times_changed: 6
-  - :file_path: app/views/users/edit.html.erb
-    :times_changed: 6
   - :file_path: config/environment.rb
     :times_changed: 6
-  - :file_path: app/views/layouts/tasks.html.erb
+  - :file_path: app/views/users/edit.html.erb
     :times_changed: 6
   - :file_path: config/locales/de.yml
     :times_changed: 5
-  - :file_path: app/views/tasks/index.html.erb
-    :times_changed: 5
   - :file_path: app/models/user.rb
-    :times_changed: 5
-  - :file_path: public/javascripts/application.js
     :times_changed: 5
   - :file_path: db/schema.rb
     :times_changed: 5
   - :file_path: config/deploy.rb
     :times_changed: 5
   - :file_path: config/locales/en.yml
+    :times_changed: 5
+  - :file_path: app/views/tasks/index.html.erb
     :times_changed: 5

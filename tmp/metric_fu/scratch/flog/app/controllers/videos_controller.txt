@@ -1,4 +1,4 @@
-    92.0: flog total
+    92.3: flog total
     11.5: flog/method average
 
     29.5: VideosController#list
@@ -8,45 +8,45 @@
      5.3: []
      1.4: request
      1.3: render
-     1.2: to_i
      1.2: xml_http_request?
-     1.2: nil?
-     1.2: new
-     1.2: find
      1.2: store_location
+     1.2: new
+     1.2: nil?
+     1.2: find
+     1.2: to_i
      0.7: lit_fixnum
-    26.5: VideosController#create
-     8.7: assignment
+    26.7: VideosController#create
+     6.3: assignment
      5.0: branch
-     3.8: []
-     3.0: params
+     4.3: []
+     3.5: params
      2.8: <<
      2.4: empty?
      1.6: list_path
      1.5: merge
+     1.4: deliver_notification!
      1.4: flash
      1.4: redirect_to
-     1.4: deliver_notification!
-     1.3: new
-     1.3: save
      1.3: render
+     1.3: new
      1.3: spawn
+     1.3: save
     14.4: VideosController#update
      3.2: params
      2.8: []
      2.6: assignment
      1.6: list_path
-     1.4: flash
      1.4: redirect_to
+     1.4: flash
      1.3: render
      1.2: find
-     1.2: update_attributes
      1.2: branch
+     1.2: update_attributes
      9.5: VideosController#destroy
      2.4: assignment
      1.6: params
-     1.4: list_path
      1.4: []
+     1.4: list_path
      1.2: redirect_to
      1.2: destroy
      1.2: find

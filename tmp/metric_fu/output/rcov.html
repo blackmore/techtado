@@ -73,7 +73,7 @@ table {
 <body>
 	<h1>Rcov Code Coverage Results</h1>
 	<p>C0 code coverage information.</p>
-  <p>Total Coverage: 35.0% </p>
+  <p>Total Coverage: 35.1% </p>
 	<table>
     <tr>
       <th>File Path</th>
@@ -143,7 +143,7 @@ table {
 		
       <tr>
         <td>app/controllers/videos_controller.rb</td>
-        <td>17</td>
+        <td>18</td>
       </tr>
       
 		
@@ -871,7 +871,7 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>             format.js { render :partial => 'update_index.rjs'}</pre></td>
+        <td class="rcov_not_run"><pre>             format.js { render :partial => 'update_index'}</pre></td>
       </tr>
     
       <tr>
@@ -956,7 +956,7 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>             format.js { render :partial => 'show.rjs'}</pre></td>
+        <td class="rcov_not_run"><pre>             format.js { render :partial => 'update_show_page'}</pre></td>
       </tr>
     
       <tr>
@@ -2446,16 +2446,6 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>       an_array_of_videos = params[:video][:details]</pre></td>
-      </tr>
-    
-      <tr>
-        
-        <td class="rcov_not_run"><pre>       video_hash = params[:video]</pre></td>
-      </tr>
-    
-      <tr>
-        
         <td class="rcov_not_run"><pre>       @videos = []</pre></td>
       </tr>
     
@@ -2466,12 +2456,12 @@ table {
     
       <tr>
         
-        <td class="rcov_not_run"><pre>       for video in an_array_of_videos</pre></td>
+        <td class="rcov_not_run"><pre>       for video in params[:video][:details]</pre></td>
       </tr>
     
       <tr>
         
-        <td class="rcov_not_run"><pre>         @video = Video.new(video.merge(video_hash))</pre></td>
+        <td class="rcov_not_run"><pre>         @video = Video.new(video.merge(params[:video]))</pre></td>
       </tr>
     
       <tr>
@@ -5626,7 +5616,7 @@ table {
     
     </table>
   
-	<p>Generated on Tue Jun 23 12:53:39 +0200 2009</p>	
+	<p>Generated on Thu Jun 25 11:59:24 +0200 2009</p>	
 </body>
 </html>
 

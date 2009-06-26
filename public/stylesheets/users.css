@@ -1,9 +1,6 @@
 /* @override 
-	http://localhost:3000/stylesheets/users.css?1245661087
-	http://localhost:3000/stylesheets/users.css?1245671483
-	http://localhost:3000/stylesheets/users.css?1245673074
-	http://localhost:3000/stylesheets/users.css?1245679287
-	http://localhost:3000/stylesheets/users.css?1245682948
+	http://localhost:3000/stylesheets/users.css?1245845960
+	http://localhost:3000/stylesheets/users.css?1245961123
 */
 
 /* @group CSS RESET */
@@ -81,7 +78,7 @@ hr.notify {
 	margin: 20px;
 }
 hr.notify_video {
-	margin: 20px 20px 10px 0;
+	margin: 20px 20px 10px 65px;
 	border-top-color: #f2f2f2;
 }
 
@@ -146,7 +143,7 @@ legend {
 #login label#language_select {
 	padding-top: 8px;
 }
-#login input, input#video_customer_name {
+#login input {
 	margin: 0;
 	padding: 0;
 	font-size: 16px;
@@ -238,18 +235,80 @@ input#user_task_notify,input#user_video_archive_notify {
 
 /* @group notify_video_archive */
 
+/* @group my_customers */
+
+div#my_customers {
+	color: #777;
+}
+
+div#my_customers input#video_customer_name{
+		border: 3px solid #b4b4b4;
+}
+
+div#my_customers #my_customer_list h2{
+	color: #777;
+	border: 1px solid #b4b4b4;
+	background-color: #dcdcdc;
+}
+div#my_customers div#customers{
+	border-right: 1px solid #b4b4b4;
+	border-left: 1px solid #b4b4b4;
+}
+div#my_customers #add_customer a{
+	color: #1175e0;
+}
+
+/* @end */
+
+/* @group my_customers_GRAY */
+
+div#my_customers.gray {
+	color: #cbcbcc;
+}
+
+div#my_customers.gray input#video_customer_name{
+		border: 3px solid #eee;
+}
+
+div#my_customers.gray #my_customer_list h2{
+	color: #cbcbcc;
+	border: 1px solid #cbcbcc;
+	background-color: #f2f2f2;
+}
+div#my_customers.gray div#customers{
+	border-right: 1px solid #cbcbcc;
+	border-left: 1px solid #cbcbcc;
+}
+div#my_customers.gray #add_customer a{
+	color: #1175e0;
+}
+
+
+
+
+/* @end */
+input#video_customer_name {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	width: 300px;
+	margin-top: 3px;
+	margin-bottom: 10px;
+	padding-left: 3px;
+	line-height: 26px;
+}
+
 div#customers {
 	padding-top: 5px;
 	padding-left: 10px;
 	margin-right: 20px;
 	padding-bottom: 10px;
-	border-left: 1px solid #f2f2f2;
 }
 
 div#add_customer {
 	margin-top: 20px;
-	width: 55%;
 	float: left;
+	margin-left: 65px;
 }
 
 div#my_customer_list {
@@ -260,7 +319,6 @@ div#my_customer_list {
 
 #add_customer p {
 	width: 300px;
-	color: #b4b4b4;
 	font-size: 11px;
 }
 
@@ -274,8 +332,6 @@ div#my_customer_list {
 	-webkit-border-top-right-radius: 12px;
 	-moz-border-radius-topleft: 12px;
 	-moz-border-radius-topright: 12px;
-	background-color: #f2f2f2;
-	color: #989898;
 }
 
 input#user_submit {
@@ -307,18 +363,18 @@ div#user_submit {
 	text-decoration: none;
 	margin-left: 10px;
 }
-#customers.remove p.filtered_customer a {
+#customers.hide p.filtered_customer a {
 	display: none;
 }
 
 
 
+
 #add_customer a {
 	text-decoration: none;
-	color: #31c85d;
 	margin-left: 5px;
 }
-#add_customer.remove a{
+#add_customer.hide a{
 	display: none;
 }
 
