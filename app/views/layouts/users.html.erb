@@ -12,11 +12,6 @@
 	</div>
 	<div id="page">
 		<div id="user_content">
-			<% if flash[:notice] %>
-			<div class="notice">
-				<%= flash[:notice] %>
-			</div>
-			<% end %>
 			<%= yield  %>
 		</div>
 		<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>

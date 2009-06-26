@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090622095046) do
+ActiveRecord::Schema.define(:version => 20090626111934) do
 
   create_table "comments", :force => true do |t|
     t.integer  "task_id"
@@ -55,18 +55,18 @@ ActiveRecord::Schema.define(:version => 20090622095046) do
     t.string   "current_login_ip"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "perishable_token",        :default => "",      :null => false
-    t.string   "email",                   :default => "",      :null => false
+    t.string   "perishable_token",        :default => "",       :null => false
+    t.string   "email",                   :default => "",       :null => false
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "notify_on",               :default => "None"
     t.string   "notify_method",           :default => "email"
-    t.string   "jabber_address",          :default => "",      :null => false
+    t.string   "jabber_address",          :default => "",       :null => false
     t.boolean  "task_notify",             :default => false
     t.string   "new_video_notify_filter"
-    t.string   "new_video_notify"
     t.boolean  "video_archive_notify",    :default => false
+    t.string   "notify_on",               :default => "create"
+    t.string   "new_video_notify",        :default => "all"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

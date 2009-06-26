@@ -1,6 +1,12 @@
-<% form_for :video, :url => videos_path  do |f| %>
 
-<%= f.error_messages %>
+
+<%= form.error_messages %>
+
+<fieldset>
+	<legend>Customer</legend>
+	<%= f.label "Name:" %> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+</fieldset>
+
 
 <div id="customer_wrapper">
   <div id="customer">
@@ -20,6 +26,3 @@
   </div>
 </div>
 
-<div id="video_submit">
-	<%= image_submit_tag("submit_video.png") %>
-<% end %>

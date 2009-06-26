@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
     
     def before_save
       if self.task_notify == false
-        self.notify_on = "None"
+        self.notify_on = "create"
       end
     end
     
@@ -43,11 +43,11 @@ class User < ActiveRecord::Base
     
     #------ Video Archive -------#
     def filtered_customers
+      arr = [  ]
       if self.new_video_notify_filter != nil
-        customers = self.new_video_notify_filter.split(', ')
-      else
-        []
+        arr = self.new_video_notify_filter.split(', ')
       end
+      return arr
     end
     
     

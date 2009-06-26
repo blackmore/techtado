@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
-      redirect_to tasks_url
+      redirect_to session[:return_to]
     else
       render :action => :new
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @user = @current_user # makes our views "cleaner" and more consistent
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
-      redirect_to tasks_url
+      redirect_to session[:return_to]
     else
       render :action => :edit
     end
