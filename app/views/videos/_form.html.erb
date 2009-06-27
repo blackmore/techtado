@@ -1,28 +1,28 @@
-
-
 <%= form.error_messages %>
 
-<fieldset>
+<fieldset id="customer">
 	<legend>Customer</legend>
-	<%= f.label "Name:" %> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+	<%= form.label "Name:" %> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
 </fieldset>
-
-
-<div id="customer_wrapper">
-  <div id="customer">
-    <span>1. Enter customers name:</span> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
-  </div>
+<div id="new_video_comments">
+	<p>With each submit you may add as many videos as you like as long as they all have the same customer.</p>
 </div>
-
-<div id="video_wrapper">
-  <h4>2. Fill out the video/videos details</h4>
-  <div id="videos">
-    <%= render :partial => 'video', :collection => @videos %>
-  </div>
+<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+<hr />
+<fieldset>
+	<legend>Video Details</legend>
+	<div id="videos_header">
+		<div id="videos_header_title">Title</div>
+		<div id="videos_header_length">Length <span>(mins)</span></div>
+		<span id="video_header_source">Source</span>
+	</div>
+	<div id="videos">
+      <%= render :partial => 'video', :collection => @videos %>
+    </div>
   <div id="add_another_video">
 	<%= link_to_function "add a video" do |page|
 		page.insert_html :bottom, :videos, :partial => 'video', :object => Video.new 
 		end %>
   </div>
-</div>
+</fieldset>
 

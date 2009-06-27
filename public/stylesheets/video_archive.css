@@ -1,11 +1,8 @@
 /* @override 
-	http://localhost:3000/stylesheets/master.css?1244034831
-	http://localhost:3000/stylesheets/master.css?1244034831
-	http://localhost:3000/stylesheets/master.css?1243605540
-	http://localhost:3000/stylesheets/master.css?1243523910
-	http://localhost:3000/stylesheets/master.css?1243509306
-	http://0.0.0.0:3000/stylesheets/master.css?1234300968
-	http://localhost:3000/stylesheets/video_archive.css?1245155895
+	http://localhost:3000/stylesheets/video_archive.css?1245845960
+	http://localhost:3000/stylesheets/video_archive.css?1246025124
+	http://localhost:3000/stylesheets/video_archive.css?1246045093
+	http://localhost:3000/stylesheets/video_archive.css?1246047320
 */
 
 /* @group CSS RESET */
@@ -56,15 +53,17 @@ ol, ul {
 	list-style: none;
 }
 input {
-		margin: 0;
+	margin: 0;
 	padding: 0;
-	font-size: 14px;
-	border: 3px solid #b4b4b4;
-	margin-top: 3px;
+	font-size: 16px;
+	border: 2px solid #b4b4b4;
 	margin-bottom: 10px;
-	line-height: 1.5em;
+	padding-left: 3px;
+	line-height: 26px;
 	color: #000000;
 }
+
+
 
 /* tables still need 'cellspacing="0"' in the markup */
 table {
@@ -109,15 +108,38 @@ div#login_status {
 #login_status a:hover {
 	color: #fff;
 }
+legend {
+	font-size: 20px;
+}
 
+#new_video hr {
+	margin-left: 20px;
+	margin-right: 20px;
+	border-style: none;
+	border-top: 1px solid #dcdcdc;
+}
+fieldset {
+	margin-top: 20px;
+	padding: 20px;
+}
+
+#new_video_comments p {
+	width: 240px;
+	float: right;
+	margin-right: 80px;
+	margin-top: 40px;
+	line-height: 20px;
+	color: #777;
+}
 
 
 label {
-	font-size: 14px;
-	font-weight: bold;
-	color: #777;
-	margin: 0;
+	float: left;
+	text-align: right;
+	margin-right: 10px;
+	padding-top: 18px;
 }
+
 
 a, a:visited {
 	color: #0e61b9;
@@ -149,6 +171,8 @@ a:hover{
 	padding-top:20px;
 	background-repeat:no-repeat;
 }
+
+/* @group list_table */
 
 #table table tbody {
 	border-left-style: solid;
@@ -283,7 +307,58 @@ span#add_video{
 	margin-top: -12px;
 }
 
+
+
+/* @end */
+
 /* @group errors */
+
+/* @group new_new_page */
+
+div#videos_header_title {
+	padding-top: 5px;
+	padding-left: 20px;
+	width: 450px;
+	float: left;
+}
+
+#videos_header_length {
+	padding-left: 20px;
+	padding-top: 5px;
+	height: 23px;
+	width: 100px;
+	float: left;
+	border-left: 1px solid #b4b4b4;
+	border-right: 1px solid #b4b4b4;
+}
+
+#videos_header {
+	height: 28px;
+	font-size: 14px;
+	-webkit-border-top-left-radius: 12px;
+	-webkit-border-top-right-radius: 12px;
+	-moz-border-radius-topleft: 12px;
+	-moz-border-radius-topright: 12px;
+	color: #777;
+	border: 1px solid #b4b4b4;
+	background-color: #dcdcdc;
+}
+
+#videos_header_length span {
+	font-size: 11px;
+	color: #fff;
+}
+
+#video_header_source {
+	padding-left: 20px;
+	float: left;
+	padding-top: 5px;
+}
+
+
+
+
+/* @end */
 
 /* @group new_video */
 
@@ -293,15 +368,33 @@ h4 {
 	font-weight: bold;
 }
 
-div#videos, div#add_another_video{
-	margin-top: 10px;
-	margin-left: 25px;
+
+div.video_title_field, div.video_length_field,div.video_source_field {
+	float: left;
+	width: 471px;
+	padding-top: 10px;
 }
 
-div.video_length_field, div.video_source_field, div.video_title_field {
-	float: left;
-	margin-right: 20px;
-	margin-top: 5px;
+div.video_length_field {
+	width: 120px;
+	border-right: 1px solid #b4b4b4;
+	border-left: 1px solid #b4b4b4;
+}
+
+div.video_source_field {
+	padding-top: 2;
+	width: 100px;
+	margin-left: 20px;
+}
+
+input#video_details__title {
+	width: 426px;
+	margin-left: 20px;
+}
+
+input#video_details__length {
+	width: 74px;
+	margin-left: 20px;
 }
 
 select#video_details__source_id, select#video_source_id {
@@ -328,11 +421,40 @@ select#filter_on {
 	color: #000000;
 }
 
+select#video_details__source_media {
+	font-size: 14px;
+	border: 2px solid #b4b4b4;
+	line-height: 1.5em;
+	color: #000000;
+}
 
+#videos div.video div.video_source_field span a {
+	float: right;
+}
 
 #videos div.video div.remove_video{
-	padding-top: 25px;
+	height: 100%;
+	display: block;
+	float: left;
+	margin-top: 18px;
 }
+
+fieldset#customer {
+	width: 380px;
+	float: left;
+}
+
+div#add_another_video a{
+	margin-left: 20px;
+	text-decoration: none;
+	color: #106ed3;
+}
+
+#videos div.video div.remove_video a {
+	text-decoration: none;
+	color: #106ed3;
+}
+
 
 div.fieldWithErrors {
 	margin-top: -5px;

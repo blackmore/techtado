@@ -1,15 +1,12 @@
 <div class="video">
 <% fields_for "video[details][]", video do |video_details| %>
 	<div class="video_title_field">
-		<%= video_details.label :title %><br />
-		<%= video_details.text_field :title, :size => 50 %>
+		<%= video_details.text_field :title, :size => 40 %>
 	</div>
 	<div class="video_length_field">
-		<%= video_details.label :length %><br />
 		<%= video_details.text_field :length, :size => 7 %>
 	</div>
 	<div class="video_source_field">
-		<%= video_details.label :source_media, "Source", :class => "video_source_label" %><br />
 		<%= video_details.select(:source_media, Video::SOURCES, :include_blank => true) %>
 	</div>
 	<div class="remove_video">
