@@ -1,4 +1,7 @@
-/* @override http://localhost:3000/stylesheets/video_archive.css?1246194697 */
+/* @override 
+	http://localhost:3000/stylesheets/video_archive.css?1246194697
+	http://localhost:3000/stylesheets/video_archive.css?1246268413
+*/
 
 /* @group CSS RESET */
 html, body, div, span, applet, object, iframe,
@@ -169,6 +172,7 @@ a:hover{
 	padding-right: 25px;
 	padding-top:20px;
 	background-repeat:no-repeat;
+	min-height: 400px;
 }
 
 /* @group list_table */
