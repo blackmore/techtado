@@ -20,16 +20,18 @@
 	<div id="page">
 		<% if current_page?(:action => 'list') %>
 		<div id="filter">
-			<form id = "video_filter", name="sform" action="" style="display:inline;">
+			<div id="add_video">
+				<%= link_to("Add New Video", new_video_path, :id => "add_new_video")%>
+			</div>
+			<div id="filter_form">
+				<form id = "video_filter", name="sform" action="" style="display:inline;">
 			Filter by <%= select_tag "filter_on", options_for_select( [ ["title", 1], ["customer", 2] ])  %> : <%= text_field_tag("query", params['query'], :size => 25 ) %>
-			</form>
+				</form>
+			</div>
 			<%= observe_form 'video_filter',
 						:frequency => 0.5,
 			         	:update => 'table',
 			         	:url => {:action => 'list'} %>
-			<span id="add_video">
-				<%= link_to("Add New Video", new_video_path, :id => "add_new_video")%>
-			</span>
 			<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
 		</div>
 		<% end %>

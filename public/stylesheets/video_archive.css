@@ -1,6 +1,7 @@
 /* @override 
 	http://localhost:3000/stylesheets/video_archive.css?1246194697
 	http://localhost:3000/stylesheets/video_archive.css?1246268413
+	http://localhost:3000/stylesheets/video_archive.css?1246270681
 */
 
 /* @group CSS RESET */
@@ -22,18 +23,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-family: inherit;
 	vertical-align: baseline;
 }
-a#add_new_video{
-	margin-top: 5px;
-	display: block;
-	width: 144px;
-	height: 45px;
-	text-indent: -3000px;
-	background: url(../images/add_new_video.png) no-repeat;
-}
 
-a#add_new_video:hover {
-	background: url(../images/add_new_video_down.png) no-repeat;
-}
 
 li {
 	color: #807f83;
@@ -289,11 +279,13 @@ th#video_created_at.sortdown {
 
 
 div#filter {
-	height: 40px;
+	display: block;
+	height: 50px;
 	border-bottom: 1px solid #a3a2a6;
 	padding-left: 25px;
 	background: #dcdcdc;
-	padding-top: 10px;
+	padding-top: 7px;
+	padding-right: 20px;
 }
 
 
@@ -304,10 +296,22 @@ form#video_filter {
 	font-weight: bold;
 }
 
-span#add_video{
+div#add_video{
 	float: right;
-	margin-right: 25px;
-	margin-top: -12px;
+	display: block;
+}
+
+div#filter_form {
+	float: left;
+	padding-top: 7px;
+}
+
+a#add_new_video {
+	display: block;
+	width: 144px;
+	height: 45px;
+	text-indent: -3000px;
+	background: url(../images/add_new_video.png) no-repeat;
 }
 
 
