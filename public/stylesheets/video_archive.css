@@ -299,6 +299,8 @@ form#video_filter {
 div#add_video{
 	float: right;
 	display: block;
+	margin: 0;
+	padding: 0;
 }
 
 div#filter_form {
@@ -307,7 +309,7 @@ div#filter_form {
 }
 
 a#add_new_video {
-	display: block;
+	display: inline-table;
 	width: 144px;
 	height: 45px;
 	text-indent: -3000px;
