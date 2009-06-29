@@ -310,7 +310,11 @@ div#filter_form {
 }
 
 a#add_new_video {
-
+	display: inline-table;
+	width: 144px;
+	height: 45px;
+	text-indent: -3000px;
+	background: url(../images/add_new_video.png) no-repeat;
 }
 
 
