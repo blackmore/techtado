@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   before_validation :round_up_length
   belongs_to :customer
   validates_presence_of :title
-  validates_presence_of :length
+  #validates_presence_of :length
   validates_presence_of :source_media
   validates_presence_of :customer_id
   validates_format_of :title, :with => /^.+\.mpg|avi|wmv|MPG|AIV|WMV$/, :on => :create, :message => "is invalid"

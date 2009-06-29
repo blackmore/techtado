@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
     
     def before_save
       if self.task_notify == false
-        self.notify_on = "create"
+        self.notify_on = nil
+      end
+      
+      if self.video_archive_notify == false
+        self.new_video_notify = nil
       end
     end
     

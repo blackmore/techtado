@@ -13,14 +13,14 @@
   <%= link_to_function "Techtado", "$(this).toggleClassName('tog_on'); notify('notify_techtado')", :id => "notify_techtado" %>
   <%= form.check_box :task_notify  %>
 	<div id="notify_techtado_content">
-	  <span>Notify me: </span><label for="user_notify_on_create"><%= radio_button :user, :notify_on, "create" %>about any new task</label><br />
+	  <span>Notify me: </span><label for="user_notify_on_create"><%= radio_button :user, :notify_on, "create", :checked => true %>about any new task</label><br />
 	  <label for="user_notify_on_urgent"><%= radio_button :user, :notify_on, "urgent" %>only if the new task is URGENT!</label>
 	</div>
 	<hr class="notify"/>
 	<%= link_to_function "Video Archive", "$(this).toggleClassName('tog_on'); notify($(this))", :id => "notify_video_archive" %>
 	<%= form.check_box :video_archive_notify %>
 	<div id="notify_video_archive_content">
-	  <span>Notify me: </span><label for="user_new_video_notify_all"><%= radio_button :user, :new_video_notify, "all" %> about any new video</label><br />
+	  <span>Notify me: </span><label for="user_new_video_notify_all"><%= radio_button :user, :new_video_notify, "all", :checked => true %> about any new video</label><br />
 	  <label for="user_new_video_notify_custom"><%= radio_button :user, :new_video_notify, "custom" %> only if the new video belongs to a customer on my "My Customers" list</label>
 	  <%= form.hidden_field :new_video_notify_filter, :value => "#{hidden_video_filter(@user)}" %>
 	</div>

@@ -1,0 +1,31 @@
+<%= edit_form.error_messages %>
+<fieldset id="customer">
+	<legend>Customer</legend>
+	<%= edit_form.label "Name:" %> <%= text_field_with_auto_complete :video, :customer_name, {}, {:url => formatted_customers_path(:js), :method => :get, :with => "'search=' + element.value"}%>
+</fieldset>
+<div id="new_video_comments">
+</div>
+<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>
+<hr />
+<fieldset>
+	<legend>Video Details</legend>
+	<div id="videos_header">
+		<div id="videos_header_title">Title</div>
+		<div id="videos_header_length">Length <span>(mins)</span></div>
+		<span id="video_header_source">Source</span>
+	</div>
+	<div id="videos">
+      	<div class="video">
+			<div class="video_title_field">
+				<%= edit_form.text_field :title, :size => 40 %>
+			</div>
+			<div class="video_length_field">
+				<%= edit_form.text_field :length, :size => 7 %>
+			</div>
+			<div class="video_source_field">
+				<%= edit_form.select(:source_media, Video::SOURCES, :include_blank => true) %>
+			</div>
+		<p style="clear:both;text-align:center;position:relative;top:25px;padding:0px;margin:0px"></p>	
+		</div>
+    </div>
+</fieldset>

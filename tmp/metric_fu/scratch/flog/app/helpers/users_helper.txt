@@ -1,7 +1,0 @@
-     3.8: flog total
-     3.8: flog/method average
-
-     3.8: UsersHelper#hidden_video_filter
-     2.5: filtered_customers
-     1.1: branch
-     1.1: empty?

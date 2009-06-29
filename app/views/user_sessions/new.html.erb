@@ -3,12 +3,10 @@
   <legend>Login <%= link_to "(Signup)", new_account_path %></legend>
   <%= f.label "Email:" %> <%= f.text_field :login, :size => 22 %><span><%= @user_session.errors.on :login %></span><br />
   <%= f.label "Password:" %> <%= f.password_field :password, :size => 22 %><br />
-  <%= f.check_box :remember_me %> Remember me on this computer.
+  <%= f.check_box :remember_me %> Remember me on this computer.<br />
+  <%= link_to "(forgot password)",  new_password_reset_path, :id => "fogot_password" %><br />
 </fieldset>
 <div id="user_submit">
 	<%= f.submit "login" %><%= link_to "Cancel", :back %>
 </div>
 <% end %>
-
-
-

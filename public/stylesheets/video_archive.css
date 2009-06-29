@@ -1,9 +1,4 @@
-/* @override 
-	http://localhost:3000/stylesheets/video_archive.css?1245845960
-	http://localhost:3000/stylesheets/video_archive.css?1246025124
-	http://localhost:3000/stylesheets/video_archive.css?1246045093
-	http://localhost:3000/stylesheets/video_archive.css?1246047320
-*/
+/* @override http://localhost:3000/stylesheets/video_archive.css?1246194697 */
 
 /* @group CSS RESET */
 html, body, div, span, applet, object, iframe,
@@ -137,7 +132,11 @@ label {
 	float: left;
 	text-align: right;
 	margin-right: 10px;
-	padding-top: 18px;
+	padding-top: 15px;
+}
+
+select#video_source_media {
+	
 }
 
 
@@ -387,17 +386,23 @@ div.video_source_field {
 	margin-left: 20px;
 }
 
-input#video_details__title {
+input#video_details__title, input#video_title {
 	width: 426px;
 	margin-left: 20px;
 }
 
-input#video_details__length {
+input#video_details__length,input#video_length {
 	width: 74px;
 	margin-left: 20px;
 }
 
-select#video_details__source_id, select#video_source_id {
+input#video_title {
+	width: 426px;
+	margin-left: 20px;
+}
+
+
+select#video_details__source_id, select#video_source_id, select#video_source_media {
 	margin: 0;
 	padding: 0;
 	font-size: 14px;
@@ -407,6 +412,7 @@ select#video_details__source_id, select#video_source_id {
 	line-height: 1.5em;
 	color: #000000;
 }
+
 
 #content h1 {
 	color: #509707;
@@ -446,27 +452,13 @@ fieldset#customer {
 
 div#add_another_video a{
 	margin-left: 20px;
-	text-decoration: none;
 	color: #106ed3;
 }
 
 #videos div.video div.remove_video a {
-	text-decoration: none;
 	color: #106ed3;
 }
 
-
-div.fieldWithErrors {
-	margin-top: -5px;
-	margin-bottom: -10px;
-	padding: 0px;
-}
-
-div.fieldWithErrors input#video_details__title,
-div.fieldWithErrors input#video_details__length,
-div.fieldWithErrors select#video_details__source_id {
-	border: 2px solid #ff0080;
-}
 
 
 
@@ -512,19 +504,36 @@ div#customer_wrapper {
 
 
 div#errorExplanation.errorExplanation {
-	padding: 5px 10px;
-	border: 1px solid #ff0080;
-	background-color: #FFEBF5;
-	margin-right: auto;
-	font-size: 0.8em;
-	color: #de0049;
-	width: 70%;
 	margin-left: auto;
-	margin-bottom: 20px;
+	margin-right: auto;
+	width: 600px;
+	padding: 10px;
+	color: #de0049;
+	border: 1px solid #de0049;
+	background-color: #fdffc6;
+	margin-top: 10px;
+	margin-bottom: 40px;
 }
 
 #errorExplanation h2 {
-	margin: 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+#errorExplanation ul li {
+	color: #808164;
+}
+
+div.fieldWithErrors {
+	margin-bottom: -17px;
+}
+
+div.fieldWithErrors input#video_details__title,
+div.fieldWithErrors input#video_title,
+div.fieldWithErrors select#video_details__source_media,
+div.fieldWithErrors input#video_details__length,
+div.fieldWithErrors input#video_length {
+	border: 2px solid #ff0080;
 }
 
 
@@ -532,13 +541,10 @@ div#errorExplanation.errorExplanation {
 /* @end */
 
 a#cancel_video {
-	display: block;
-	width: 144px;
-	height: 45px;
-	text-indent: -3000px;
-	background: url(../images/cancel_video.png) no-repeat;
+	
 	float: right;
-	margin: 3px 20px 0 0;
+	margin: 25px 20px 0 0;
+	color: #106ed3;
 }
 
 div#video_submit {
