@@ -17,13 +17,3 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 #role :web, "your web-server here"
 #role :db,  "your db-server here", :primary => true
 
-# I may be able to run this with cap propagate_customer_db
-task :propagate_customer_db => :environment do
-  f = File.new("lib/customer.txt")
-  if User.count < 2
-    f.each do |customer|
-      customer.chomp!
-      Customer.create!(:name => customer)
-    end
-  end
-end
