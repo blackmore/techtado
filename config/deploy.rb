@@ -24,3 +24,18 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 #          run "rake :propagate_customer_db"
 #        end
 #end
+
+namespace :deploy do
+  task :start, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+
+  task :stop, :roles => :app do
+    # Do nothing.
+  end
+
+  desc "Restart Application"
+  task :restart, :roles => :app do
+    run "touch #{current_release}/tmp/restart.txt"
+  end
+end
