@@ -45,12 +45,13 @@ ActionController::Routing::Routes.draw do |map|
   #map.list 'video_archive', :controller => "videos", :action => "list"
   
   #-----  my task routes  -----#
+  map.techtado 'techtado', :controller => "tasks", :action => "index"
   map.resources :tasks, :has_many => :comments
   map.archive 'archive', :controller => "tasks", :action => "archive"
   map.update_show_page 'update_show_page/:id', :controller => "tasks", :action => "update_show_page"
   map.update_index_page 'update_index_page/:id', :controller => "tasks", :action => "update_index_page"
   map.search_tasks 'search_tasks', :controller => "tasks", :action => "search"
-  map.send_welcome_email 'send_welcome_email', :controller => "tasks", :action => "send_welcome_email"  
+  map.send_welcome_email 'send_welcome_email', :controller => "tasks", :action => "send_welcome_email"
   #----- * -----#
   
   #----- Authlogic -----#
