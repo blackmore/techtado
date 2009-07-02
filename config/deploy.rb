@@ -25,7 +25,7 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 #        end
 #end
 namespace :propagate do
-  task :customer_db => :environment do
+  task :customer_db do
     f = File.new("lib/customer.txt")
     if User.count < 2
       f.each do |customer|
