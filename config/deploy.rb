@@ -9,6 +9,7 @@ set :repository,  "git://github.com/blackmore/techtado.git"
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
+
 set :scm, :git
 set :runner, nil
 server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
@@ -17,13 +18,12 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 #role :web, "your web-server here"
 #role :db,  "your db-server here", :primary => true
 
-# if it works should move in into the Cap file
-#namespace :rake do
-#  desc 'Builds any native extensions for unpacked gems'
-#  task :customers_db_fill do
-#          run "rake :propagate_customer_db"
-#        end
-#end
+
+desc 'propagates the production MYSQL db with a lis of present customers'
+task :load_customers, :roles => :db, :only => { :primary => true } do
+    run "cd #{current_release} && " +
+    "#{rake} RAILS_ENV=#{rails_env} db:load_customer_db --trace" 
+end
 
 namespace :deploy do
   task :start, :roles => :app do
