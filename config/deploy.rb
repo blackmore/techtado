@@ -24,18 +24,6 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 #          run "rake :propagate_customer_db"
 #        end
 #end
-namespace :propagate do
-  task :customer_db do
-    f = File.new("lib/customer.txt")
-    if User.count < 2
-      f.each do |customer|
-        customer.chomp!
-        Customer.create!(:name => customer)
-      end
-    end
-  end
-end
-
 
 namespace :deploy do
   task :start, :roles => :app do
