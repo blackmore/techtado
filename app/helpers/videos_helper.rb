@@ -35,4 +35,26 @@ module VideosHelper
     }
     link_to_remote(text, options, html_options)
   end
+  
+  def crop_title(title, count = 50)
+    if title.length > count
+      length_of_string = title.length
+      title_start = title[0,37]
+      title_end = title[(length_of_string-8)..length_of_string]
+      return "#{title_start} ... #{title_end}"
+    else
+      title
+    end
+  end
+  
+  def crop_customer(name, count = 30)
+    if name.length > count
+      length_of_string = name.length
+      name_start = name[0,17]
+      name_end = name[(length_of_string-8)..length_of_string]
+      return "#{name_start} ... #{name_end}"
+    else
+      name
+    end
+  end
 end

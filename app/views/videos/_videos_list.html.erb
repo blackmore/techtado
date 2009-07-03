@@ -23,8 +23,8 @@
   <tbody>
     <% @videos.each do |video| %>
     <tr class="<%= cycle("even","odd") %>">
-      <td><%= video.title %></td>
-      <td><%= video.customer.name %></td>
+      <td><%= crop_title(video.title) %></td>
+      <td><%= crop_customer(video.customer.name) %></td>
       <td><%= video.source_media %></td>
 	  <td><%= video.customer.updated_at.strftime("%a %d/%m/%y") %></td>
       <td class="video_edit_link"><%= link_to "Edit", edit_video_path(video) %></td>
