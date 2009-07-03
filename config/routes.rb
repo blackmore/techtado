@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.list 'video_archive', :controller => "videos", :action => "list"
   
   #-----  my task routes  -----#
-  map.techtado 'techtado', :controller => "tasks", :action => "index"
+  #map.techtado 'techtado', :controller => "tasks", :action => "index"
   map.resources :tasks, :has_many => :comments
   map.archive 'archive', :controller => "tasks", :action => "archive"
   map.update_show_page 'update_show_page/:id', :controller => "tasks", :action => "update_show_page"
