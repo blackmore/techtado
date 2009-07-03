@@ -22,7 +22,7 @@ server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 desc 'propagates the production MYSQL db with a lis of present customers'
 task :load_customers, :roles => :db, :only => { :primary => true } do
     run "cd #{current_release} && " +
-    "#{rake} RAILS_ENV=#{rails_env} db:load_customer_db --trace" 
+    "rake RAILS_ENV=production db:load_customer_db --trace" 
 end
 
 namespace :deploy do
