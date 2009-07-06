@@ -1,6 +1,31 @@
+<style type="text/css" media="screen">
+	body {
+		font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+	table {
+		margin-bottom: 20px;
+		font: 20px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	}
+	a {
+		color: #106ed3;
+	}
+	p {
+		font-size: 11px;
+	}
+	td#title {
+		min-width: 150px;
+		padding-right: 20px;
+	}
+</style>
 <h2><%= @customer.name %></h2>
-<% for video in @videos %>
-	<%= video.title %> <%= video.length %>'<br />
-<% end %>
-<p>link</p>
+<table>
+	<% for video in @videos %>
+	<tr>
+		<td id="title"><%= video.title %></td>
+		<td><%= video.length %></td>
+	</tr>
+	<% end %>
+</table>
+
+<a href="http://10.1.1.211/video_archive">Goto Video Archive</a>
 <p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

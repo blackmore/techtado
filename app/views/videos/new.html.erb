@@ -1,4 +1,4 @@
-<% form_for @videos do |f| %>
+<% form_for :video, :url => { :action => "create" } do |f| %>
 	<%= render :partial => "form", :object => f %>
 	<div id="video_submit">
 		<%= image_submit_tag("submit_video.png") %>

@@ -57,4 +57,8 @@ module VideosHelper
       name
     end
   end
+  
+  def length(length)
+    "<span class='video_length'>(#{length})</span>"
+  end
 end

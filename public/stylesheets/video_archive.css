@@ -1,8 +1,4 @@
-/* @override 
-	http://localhost:3000/stylesheets/video_archive.css?1246194697
-	http://localhost:3000/stylesheets/video_archive.css?1246268413
-	http://localhost:3000/stylesheets/video_archive.css?1246270681
-*/
+/* @override http://localhost:3000/stylesheets/video_archive.css?1246800355 */
 
 /* @group CSS RESET */
 html, body, div, span, applet, object, iframe,
@@ -22,6 +18,10 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 	font-family: inherit;
 	vertical-align: baseline;
+}
+
+span.video_length {
+	color: #969696;
 }
 
 
@@ -134,10 +134,13 @@ select#video_source_media {
 
 
 a, a:visited {
-	color: #0e61b9;
+	color: #106ed3;
 }
+
+
+/* My Comment */
 a:hover{
-	color: #1175e0;
+	color: #106ed3;
 }
 
 
@@ -210,7 +213,7 @@ a:hover{
 	padding-top: 4px;
 	padding-bottom: 3px;
 	padding-left: 10px;
-	background-color: #d9fffd;
+	background-color: #EFF3F8;
 	border-bottom: 1px solid #e0e0e0;
 	border-right: 1px solid #e0e0e0;
 }
@@ -235,7 +238,7 @@ a:hover{
 }
 
 th#video_title {
-	width: 37%;
+	width: 40%;
 }
 th#video_title.sortup {
 	background: url(../images/pointer_up.png) no-repeat 98%;
@@ -266,11 +269,10 @@ th#video_customer.sortdown {
 }
 
 th#video_created_at {
-	width: 15%;
+	width: 12%;
 }
 th#video_created_at.sortup {
 	background: url(../images/pointer_up.png) no-repeat 95%;
-	border-bottom-color: #dcdcdc;
 }
 th#video_created_at.sortdown {
 	background: url(../images/pointer.png) no-repeat 95%;

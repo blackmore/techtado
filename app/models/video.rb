@@ -1,14 +1,22 @@
 class Video < ActiveRecord::Base
-  before_validation :round_up_length
   belongs_to :customer
   validates_presence_of :title
-  #validates_presence_of :length
+  validates_presence_of :length
   validates_presence_of :source_media
   validates_presence_of :customer_id
-  validates_format_of :title, :with => /^.+\.mpg|avi|wmv|MPG|AIV|WMV$/, :on => :create, :message => "is invalid"
-  validates_format_of :length, :with => /^\d+(.\d+|'\d+)?/, :on => :create, :message => "is invalid"
+  validates_format_of :title, :with => /^.+\.mpg|avi|wmv|MPG|AVI|WMV$/, :on => :create, :message => "is invalid"
+  validates_format_of :length, :with => /^\d+/, :on => :create, :message => "is invalid"
   
   SOURCES = ["film", "disc", "tape", "digital"]
+  
+  def after_validation
+    if self.length =~ /(\d+)[':.](\d*)/
+      self.length = "#{$1}'#{$2}"
+    elsif self.length =~ /(\d+)?/
+      self.length = "#{$1}'"
+    end
+    
+  end
   
   def customer_name
     customer.name if customer
@@ -17,14 +25,6 @@ class Video < ActiveRecord::Base
   def customer_name=(name)
     name.chomp!(" ")
     self.customer = Customer.find_or_create_by_name(name) unless name.blank?
-  end
-  
-  
-  def round_up_length
-    if self.length =~ /\d+'\d+/
-      self.length.gsub!("'", ".")
-    end
-    self.length = self.length.to_f.ceil
   end
   
   def details=(video_attributes)
