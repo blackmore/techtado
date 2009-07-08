@@ -71,12 +71,12 @@ class VideosController < ApplicationController
                         when "title"  then ["title", "title_down"]
                         when "source_media"   then ["source_media", "source_down"]
                         when "customer" then ["customers.name", "customers_down"]
-                        when "created"  then ["created_at", "created_down"]
+                        when "created"  then ["updated_at", "created_down"]
                         when "title_reverse"  then ["title DESC", "title_up"]
                         when "source_media_reverse"   then ["source_media DESC", "sources_up"]
                         when "customer_reverse" then ["customers.name DESC", "customers_up"]
-                        when "created_reverse"  then ["created_at DESC", "videos_up"]
-                        else "videos.created_at DESC"
+                        when "created_reverse"  then ["updated_at DESC", "videos_up"]
+                        else "videos.updated_at DESC"
                         end
 
       conditions = ["#{filter_on} LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
