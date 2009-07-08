@@ -26,7 +26,7 @@
       <td><%= crop_title(video.title) %> <%= length(video.length) %></td>
       <td><%= crop_customer(video.customer.name) %></td>
       <td><%= video.source_media %></td>
-	  <td><%= video.customer.updated_at.strftime("%d/%m/%y") %></td>
+	  <td><%= video.customer.created_at.strftime("%d/%m/%y") %></td>
       <td class="video_edit_link"><%= link_to "Edit", edit_video_path(video) %></td>
       <td class="video_destroy_link"><%= link_to "Destroy", video, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
