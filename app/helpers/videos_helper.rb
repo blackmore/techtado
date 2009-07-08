@@ -36,10 +36,10 @@ module VideosHelper
     link_to_remote(text, options, html_options)
   end
   
-  def crop_title(title, count = 40)
+  def crop_title(title, count = 37)
     if title.length > count
       length_of_string = title.length
-      title_start = title[0,27]
+      title_start = title[0,24]
       title_end = title[(length_of_string-8)..length_of_string]
       return "#{title_start} ... #{title_end}"
     else
