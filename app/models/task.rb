@@ -1,6 +1,7 @@
 class Task < ActiveRecord::Base
   belongs_to :user
   has_many :comments
+  has_many :assets, :dependent => :destroy
   named_scope :to_do, :conditions => {:status => 1}
   named_scope :outstanding, :conditions => ['status >= ?', 0 ]
   named_scope :marked_as_wip, :conditions => {:status => 0}

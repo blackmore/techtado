@@ -1,0 +1,24 @@
+---
+ignore:
+ text/plain:
+ - /^\(no subject\)$/i
+ multipart/mixed:
+ - "/^Attachment: /i"
+transform: 
+  text/plain: 
+  - - /\A(.*?)Sent via BlackBerry (from|by) .*$/im
+    - "\1"
+  - - /\A(.*?)Sent from my Verizon Wireless BlackBerry$/im
+    - "\1"  
+  - - /\A(.*?)Sent from (my|your) iPhone.?$/im
+    - "\1"
+  - - /\A(.*?)\s+image\/jpeg$/im
+    - "\1"
+device_types: 
+  headers: 
+    X-Mailer: 
+    - !ruby/regexp /^iPhone Mail/i
+    - :iphone
+    X-rim-org-msg-ref-id:
+    - !ruby/regexp /.+/
+    - :blackberry

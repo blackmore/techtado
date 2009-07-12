@@ -1,0 +1,29 @@
+development:
+    type: pop
+    server: pop.gmail.com
+    username: techtado
+    password: T3(h_tad0
+    receiver: IncomingMailHandler
+    port: 995
+    ssl:  yes
+    use_login: yes
+  
+test:
+    type: pop
+    server: pop.gmail.com
+    username: techtado
+    password: T3(h_tad0
+    receiver: IncomingMailHandler
+    port: 995
+    ssl:  yes
+    use_login: yes
+  
+production:
+    type: pop
+    server: pop.gmail.com
+    username: techtado
+    password: T3(h_tad0
+    receiver: IncomingMailHandler
+    port: 995
+    ssl:  yes
+    use_login: yes

@@ -19,7 +19,21 @@ BUGS
 	
 	
 NOTES
-	Notify: I'll create two or maybe one file with the names of the people to email of urgent and all tasks.
+DONE:	Notify: I'll create two or maybe one file with the names of the people to email of urgent and all tasks.
 			This file will be loaded in the controller through spawn so the check can be made if an email in 
 			to be sent at all. if there are names in the list then these names can be sent off to the 
 			postoffice model, and the mails sent.
+
+	ADD_MAIL_IN_TASKS:
+		using fetcher I will fetch emails from "techtado@gmail.com" every 60 seconds and if the senders email 
+		address is in the users list them I'll combined the subject and the body as the task and if there 
+		are attachments save them with paperclip.
+		What ILl need:
+		Fetcher plugin
+		paperclip - plugin
+		mms2r - gem
+		god - gem
+		
+		ENV path may need to be changed
+		#!/usr/bin/env ruby in the mailer_daemond_fetcher
+		
