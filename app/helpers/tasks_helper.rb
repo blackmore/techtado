@@ -193,7 +193,37 @@ module TasksHelper
      ''
    end
  end
+ 
+ def has_attachment(task)
+  unless task.assets.empty?
+    image_tag 'index_paperclip.png', :id => "paperclip"
+  end
+ end
+ 
+ def filetype_class(asset)
+   sufix = /\.\w\w\w?|\.\w\w?/.match(asset.file.original_filename)
+   case sufix[0]
+            when /.txt|.rb|.srt|.SRT/ : "type_txt"
+            when /.zip|.ZIP/ : "type_zip"
+            when /.doc|.rtf/ : "type_doc"
+            when /.ezt|.890|.stl|.pac/ : "type_sub"
+            when /.xml|.XML/ : "type_xml"
+            when /.pdf|.PDF/ : "type_pdf"
+            else "type_xml"
+            end
+ end
   
+
+ def crop_name(string, count = 25)
+   if string.length > count
+     length_of_string = string.length
+     string_start = string[0,18]
+     string_end = string[(length_of_string-8)..length_of_string]
+     return "#{string_start}...#{string_end}"
+   else
+     string
+   end
+ end
 
   
 

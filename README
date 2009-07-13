@@ -37,3 +37,9 @@ DONE:	Notify: I'll create two or maybe one file with the names of the people to 
 		ENV path may need to be changed
 		#!/usr/bin/env ruby in the mailer_daemond_fetcher
 		
+		TODO:
+			- send notify mail for each new task added task added
+			- display attached files on the task show page
+			- display task has attachments on task index.
+			
+		

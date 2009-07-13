@@ -28,6 +28,7 @@ end
 namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
+    run "god -c config/get_mail.god"
   end
 
   task :stop, :roles => :app do

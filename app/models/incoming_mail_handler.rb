@@ -16,7 +16,7 @@ class IncomingMailHandler < ActionMailer::Base
                         :status => 1,
                         :assigned_to => nil,
                         :resubmit => 0,
-                        :description => mail.body,
+                        :description => create_body(mail, email),
                         :send_email => true,
                         :urgent => false
                          )
@@ -31,12 +31,18 @@ class IncomingMailHandler < ActionMailer::Base
       
       # Save the submitted task.
       if @task.save
+        Postoffice.deliver_task_added(user)
         puts "- saved task -"
       else
         # send notification of error
         puts "- something went wrong"
       end
     end
-  end 
+  end
+  private
+  
+  def create_body(mail, email)
+    "#{email.subject}\n#{mail.body}"
+  end
 
 end

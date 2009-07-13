@@ -17,3 +17,15 @@
 		<span><%= t 'task.details.number' %></span><%= @task.resubmit ? @task.resubmit : "-" %>
 	</li>
 </ul>
+<% unless @task.assets.empty? %>
+<h3>Attachments:</h3>
+	<ul id="attachments">
+<%  @task.assets.each do |asset| %>
+
+		<li class = <%= filetype_class(asset) %> >
+			<%= link_to crop_name(asset.file.original_filename), asset.file.url %>
+		</li>
+
+<% end %>
+	</ul>
+<% end %>
