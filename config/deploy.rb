@@ -38,7 +38,7 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "god terminate"
-    run "touch #{current_release}/tmp/restart.txt"
+    run "touch #{current_release}/tmp/restart.txt" # have to look at this one!
     run "god -c #{current_release}/config/get_mail.god"
   end
 end
