@@ -3,7 +3,7 @@
 <ul>
 	<li>
 		<%= link_to_remote '', :html => { :class => get_status(task) }, :url => update_index_page_path(task, :status => 'finished' ) -%>
-		<%= link_to_unless_current h(description_heading(task.description)), task, :class => "tsk_name #{urgent?(task)}" -%>
+		<%= link_to_unless_current description_heading(task.description), task, :class => "tsk_name #{urgent?(task)}" -%>
 		<%- if task.status == 1 -%>
 			<%= link_to_remote t('task.status_link.Ill_do_this'), :url => update_index_page_path(task, :status => 'assign_to_user'), :html => {:class => "change_status"} -%>
 		<%- end -%>

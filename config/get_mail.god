@@ -1,10 +1,11 @@
 RAILS_ROOT = File.dirname(File.dirname(__FILE__))
 
 God.watch do |w|
+  script = "RAILS_ENV=production #{RAILS_ROOT}/script/mailer_daemon_fetcher"
   w.name = "get_mail-fetcher"
   w.interval = 60.seconds
-  w.start = "#{RAILS_ROOT}/script/mailer_daemon_fetcher start"
-  w.stop = "#{RAILS_ROOT}/script/mailer_daemon_fetcher stop"
+  w.start = "#{script} start"
+  w.stop = "#{script} stop"
   w.start_grace = 20.seconds
   w.pid_file = "#{RAILS_ROOT}/log/MailerDaemonFetcherDaemon.pid"
   

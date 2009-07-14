@@ -30,8 +30,8 @@ class IncomingMailHandler < ActionMailer::Base
       end
       
       # Save the submitted task.
-      if @task.save
-        Postoffice.deliver_task_added(user)
+      if @task.save!
+        #Postoffice.deliver_task_added(user)
         puts "- saved task -"
       else
         # send notification of error
@@ -39,6 +39,7 @@ class IncomingMailHandler < ActionMailer::Base
       end
     end
   end
+  
   private
   
   def create_body(mail, email)
