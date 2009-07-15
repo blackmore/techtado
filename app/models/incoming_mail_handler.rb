@@ -44,6 +44,6 @@ class IncomingMailHandler < ActionMailer::Base
  # 
  # def create_body(mail, email)
  #   "#{email.subject}\n#{mail.body}"
- # end
+  end
 
 end
