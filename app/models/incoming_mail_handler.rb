@@ -1,7 +1,7 @@
 class IncomingMailHandler < ActionMailer::Base 
   def receive(email)
     sender = email.from[0]
-    puts "- have email -"
+    puts "- have email #{sender}-"
     # Check to see if the sender of the mail is a registered user
     if User.exists?(:email => sender)
      puts "- have user -" 
