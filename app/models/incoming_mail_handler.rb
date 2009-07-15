@@ -4,6 +4,7 @@ class IncomingMailHandler < ActionMailer::Base
     puts "- have email #{sender}-"
     # Check to see if the sender of the mail is a registered user
     puts RAILS_ENV
+    puts User.last.email
     if User.exists?(:email => sender)
      puts "- have user -" 
  #     user = User.find_by_email(sender)
@@ -45,6 +46,8 @@ class IncomingMailHandler < ActionMailer::Base
  # 
  # def create_body(mail, email)
  #   "#{email.subject}\n#{mail.body}"
+ else
+   put "eror"
   end
 
 end
