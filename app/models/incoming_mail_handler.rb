@@ -3,6 +3,7 @@ class IncomingMailHandler < ActionMailer::Base
     sender = email.from[0]
     puts "- have email #{sender}-"
     # Check to see if the sender of the mail is a registered user
+    puts RAILS_ENV
     if User.exists?(:email => sender)
      puts "- have user -" 
  #     user = User.find_by_email(sender)
