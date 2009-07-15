@@ -2,9 +2,9 @@ class IncomingMailHandler < ActionMailer::Base
   def receive(email)
     sender = email.from[0]
     puts "- have email -"
- #   # Check to see if the sender of the mail is a registered user
- #   if User.exists?(:email => sender)
- #     
+    # Check to see if the sender of the mail is a registered user
+    if User.exists?(:email => sender)
+     puts "- have user -" 
  #     user = User.find_by_email(sender)
  #     
  #     # Cleanes the body text
@@ -38,7 +38,7 @@ class IncomingMailHandler < ActionMailer::Base
  #       puts "- something went wrong"
  #     end
  #   end
- # end
+  end
  # 
  # private
  # 
