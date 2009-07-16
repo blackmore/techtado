@@ -1,3 +1,4 @@
+require File.dirname(RAILS_ROOT) + '/config/environment.rb'
 class IncomingMailHandler < ActionMailer::Base
   #class User < ActiveRecord::Base
   #end
