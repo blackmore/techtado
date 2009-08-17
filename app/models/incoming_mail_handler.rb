@@ -1,6 +1,12 @@
+#!/usr/bin/env ruby
+#require '/Users/nigel/Code/techtado/config/environment'
+
 class IncomingMailHandler < ActionMailer::Base
 
   def receive(recived_email)
+    #After reciving the mail change ino a the task model.
+    
+    
     sender = recived_email.from[0]
     puts "- have email #{sender}-"
     puts "#{RAILS_ENV}"
