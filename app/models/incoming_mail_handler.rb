@@ -6,7 +6,7 @@ class IncomingMailHandler < ActionMailer::Base
     puts "#{RAILS_ENV}"
     # Check to see if the sender of the mail is a registered user
     begin
-    if ActiveRecord::Base::User.exists?(:email => sender)
+    if User.exists?(:email => sender)
       puts "- user exists -"
      
      # gets user
@@ -45,8 +45,8 @@ class IncomingMailHandler < ActionMailer::Base
    else
      put "user not found"
    end
-     rescue  
-         puts 'I am rescued.'
+     rescue StandardError, Interrupt
+         puts $!, $@
    end
 end
  
