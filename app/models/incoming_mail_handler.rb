@@ -3,12 +3,15 @@ class IncomingMailHandler < ActionMailer::Base
   def receive(recived_email)
     sender = recived_email.from[0]
     puts "- have email #{sender}-"
+    puts "#{RAILS_ENV}"
     # Check to see if the sender of the mail is a registered user
 
-    if User.exists?(:email => sender) 
+    if User.exists?(:email => sender)
+      puts "- user exists -"
      
      # gets user
      user = User.find_by_email(sender)
+     puts "- user ID = #{user.id} -"
      
      # Creates a mms2r object to help clean up unwanted data
      mail = MMS2R::Media.new(recived_email)
