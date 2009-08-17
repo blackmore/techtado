@@ -43,7 +43,7 @@ end
 namespace :god do
   task :start, :roles => :app do
     run "cd #{current_release} && " +
-    "god -c config/get_mail.god --trace"
+    "god -c config/get_mail.god"
   end
   
   task :stop do
