@@ -42,6 +42,8 @@ class IncomingMailHandler < ActionMailer::Base
        # send notification of error
        puts "- something went wrong"
      end
+   else
+     put "user not found"
    end
 end
  
