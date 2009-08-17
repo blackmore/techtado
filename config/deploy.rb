@@ -38,14 +38,14 @@ namespace :deploy do
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
+end
+
+namespace :god do
+  task :start, :roles => :app do
+    run "god -c #{current_release}/config/get_mail.god"
+  end
   
-  namespace :god do
-    task :start, :roles => :app do
-      run "god -c #{current_release}/config/get_mail.god"
-    end
-    
-    task :stop do
-      run "god terminate"
-    end
+  task :stop do
+    run "god terminate"
   end
 end
