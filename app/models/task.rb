@@ -51,11 +51,49 @@ class Task < ActiveRecord::Base
       emails = user_id_list.collect{ |i| User.find(i).email }
       Postoffice.deliver_comment_notify(self, emails)
     end
-  end
-  
+  end  
   
   def freezed?
     status == -2
   end
   
+  def self.create_from_mail(message, mms)
+    
+    # finds the sender
+    sender = message.from[0]
+    
+    # checks to see if the user is registered
+    if User.exists?(:email => sender)
+      
+      # get user ID
+      user = User.find_by_email(sender)
+      
+      # creates a new task
+      task = Task.new( :user_id => user.id,
+                         :status => 1,
+                         :assigned_to => nil,
+                         :resubmit => 0,
+                         :description => "HAVE MAIL",
+                         :send_email => true,
+                         :urgent => false
+                          )
+                          
+       ## if the email has attachments the build up the task object with the files
+       #if recived_email.has_attachments?
+       #  recived_email.attachments.each do |file|
+       #    task.assets.build(:file => file)
+       #    puts "- file -"
+       #  end
+       #end
+       
+       # Save the submitted task.
+        if task.save
+          Postoffice.deliver_task_added(user)
+          puts "- saved task -"
+        else
+          # send notification of error
+          puts "- something went wrong"
+        end
+    end
+  end
 end
