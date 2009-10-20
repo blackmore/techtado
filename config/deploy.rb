@@ -12,6 +12,7 @@ set :repository,  "git://github.com/blackmore/techtado.git"
 
 set :scm, :git
 set :runner, nil
+set :branch, "Clean_fetcher"
 server "10.1.1.211", :app, :web, :db, :primary => true, :user => 'nige'
 
 #role :app, "your app-server here"
