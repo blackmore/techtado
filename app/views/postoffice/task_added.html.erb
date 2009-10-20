@@ -1,4 +1,6 @@
-<h2>Task added</h2>
-<p>If the above URL does not work try copying and pasting it into your browser.
-If you continue to have problem please feel free to contact us.</p>
-<a href="mailto:tech@titelbild.de">tech@titelbild.de</a>
+<p><%= @task.description %></p>
+<p>The above task was added to Techtado</p>
+
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
+
+<p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

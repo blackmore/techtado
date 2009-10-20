@@ -21,6 +21,7 @@ production:
   username: root
   password: 
   host: localhost
+  reconnect: true
 
 #production:
 #  adapter: sqlite3

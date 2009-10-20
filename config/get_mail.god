@@ -34,7 +34,10 @@ def generic_monitoring(w, options = {})
 end
 
 God.watch do |w|
-  script = "export 'RAILS_ENV=production' && #{RAILS_ROOT}/script/mailer_daemon_fetcher"
+  script = "export RAILS_ENV=production
+  cd #{RAILS_ROOT}
+  script/mailer_daemon_fetcher"
+  
   w.name = "get_mail-fetcher"
   w.interval = 60.seconds
   w.start = "#{script} start"

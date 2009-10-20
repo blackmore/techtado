@@ -73,23 +73,22 @@ class Task < ActiveRecord::Base
                          :status => 1,
                          :assigned_to => nil,
                          :resubmit => 0,
-                         :description => "HAVE MAIL",
+                         :description => "#{message.subject}\n#{mms.body}",
                          :send_email => true,
                          :urgent => false
                           )
                           
-       ## if the email has attachments the build up the task object with the files
-       #if recived_email.has_attachments?
-       #  recived_email.attachments.each do |file|
-       #    task.assets.build(:file => file)
-       #    puts "- file -"
-       #  end
-       #end
+       # if the email has attachments the build up the task object with the files
+       if message.has_attachments?
+         message.attachments.each do |file|
+           task.assets.build(:file => file)
+           puts "- file -"
+         end
+       end
        
        # Save the submitted task.
         if task.save
-          Postoffice.deliver_task_added(user)
-          puts "- saved task -"
+          Postoffice.deliver_task_added(user, task)
         else
           # send notification of error
           puts "- something went wrong"

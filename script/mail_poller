@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+require 'net/imap'
+require 'net/http'
+require 'rubygems'
+require 'logger'
+
+config = YAML.load(File.read(File.join(File.dirname(__FILE__), '..', 'config', 'mail.yml')))
+log = Logger.new(STDOUT)
+
+begin
+  imap = Net::IMAP.new(config['host'], config['port'], true)
+  imap.login(config['username'], config['password'])
+
+  # select inbox as our mailbox to process
+  imap.select('Inbox')
+  # get all emails that are in inbox that have not been deleted
+  imap.uid_search(["NOT", "DELETED"]).each do |uid|
+    # fetches the straight up source of the email
+    source   = imap.uid_fetch(uid, 'RFC822').first.attr['RFC822']
+    # Post the email to the Rails app's restful service
+    res = Net::HTTP.post_form(URI.parse(config['service_url']), {'email'=> source})
+    case res
+      when Net::HTTPSuccess, Net::HTTPRedirection
+        # OK
+      else
+        res.error!
+    end
+    # Delete the email
+    imap.uid_store(uid, "+FLAGS", [:Deleted])
+  end
+
+  # expunge removes the deleted emails
+  imap.expunge
+  imap.logout
+
+  # NoResponseError and ByResponseError happen often when imap'ing
+  rescue Net::IMAP::NoResponseError => e
+    # Log if you'd like
+  rescue Net::IMAP::ByeResponseError => e
+    # Log if you'd like
+  rescue => e
+    log.warn e
+end

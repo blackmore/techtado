@@ -61,13 +61,16 @@ class Postoffice < ActionMailer::Base
        #body[:link_to_show_task] = "..."#task_url(task)
      end
      
-     def task_added(user)
+     def task_added(user, task)
         @subject      = "Your task has been added tectado"
         @from         = "Tech-tado <noreply@titelbild.de>"
         headers         "Reply-to" => "tech@titelbild.de"
         @recipients   = user.email
         @sent_on      = Time.now
         @content_type = "text/html"
+        
+        body[:task] = task 
+        body[:link_to_show_task] = task_url(task)
      end
      
      private
