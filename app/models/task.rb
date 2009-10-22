@@ -98,7 +98,7 @@ class Task < ActiveRecord::Base
     end
   end
   
-   update mms2r and test
+   #update mms2r and test
   def self.clean_text(string)
     ic_ignore = Iconv.new('CP1252//IGNORE//TRANSLIT', 'UTF-8')
     string = ic_ignore.iconv(string)
