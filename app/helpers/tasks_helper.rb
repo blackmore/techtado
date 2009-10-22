@@ -207,9 +207,10 @@ module TasksHelper
             when /.zip|.ZIP/ : "type_zip"
             when /.doc|.rtf/ : "type_doc"
             when /.ezt|.890|.stl|.pac/ : "type_sub"
-            when /.xml|.XML/ : "type_xml"
             when /.pdf|.PDF/ : "type_pdf"
-            else "type_xml"
+            when /.mov|.avi|.wmv/ : "type_movie"
+            when /.png|.jpg|.bmp/ : "type_pic"
+            else "type_txt"
             end
  end
   

@@ -831,8 +831,11 @@ a.tsk_name.urgent1, span.tsk_name.urgent1{
 #attachments li.type_sub {
 	background: url(../images/file_type.png) no-repeat 0 -105px;
 }
-#attachments li.type_xml {
+#attachments li.type_movie {
 	background: url(../images/file_type.png) no-repeat 0 -140px;
+}
+#attachments li.type_pic {
+	background: url(../images/file_type.png) no-repeat 0 -210px;
 }
 
 
