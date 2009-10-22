@@ -75,7 +75,7 @@ class Task < ActiveRecord::Base
                          :status => 1,
                          :assigned_to => nil,
                          :resubmit => 0,
-                         :description => "#{message.subject}\n#{mms.body}",
+                         :description => "#{message.subject}\n#{clean_text(mms.body)}",
                          :send_email => true,
                          :urgent => false
                           )
@@ -98,9 +98,9 @@ class Task < ActiveRecord::Base
     end
   end
   
-  # #update mms2r and test
-  #def self.clean_text(string)
-  #  ic_ignore = Iconv.new('CP1252//IGNORE//TRANSLIT', 'UTF-8')
-  #  string = ic_ignore.iconv(string)
-  #end
+   #update mms2r and test
+  def self.clean_text(string)
+    ic_ignore = Iconv.new('CP1252//IGNORE//TRANSLIT', 'UTF-8')
+    string = ic_ignore.iconv(string)
+  end
 end
