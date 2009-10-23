@@ -78,10 +78,15 @@ class VideosController < ApplicationController
                         when "created_reverse"  then ["updated_at DESC", "videos_up"]
                         else "videos.updated_at DESC"
                         end
+      
+      unless params[:query].nil?
+        conditions = ["#{filter_on} LIKE ?", "%#{params[:query]}%"]  
+      else
+        two_weeks_ago = Time.now - (60*60*336)
+        conditions = { :updated_at => two_weeks_ago..Time.now }
+      end
 
-      conditions = ["#{filter_on} LIKE ?", "%#{params[:query]}%"] unless params[:query].nil?
-
-      @videos = Video.find(:all, :include => [:customer], :order => sort, :conditions => conditions)
+      @videos = Video.find(:all, :include => [:customer], :order => sort, :conditions => conditions, :limit => 30 )
 
       if request.xml_http_request?
         render :partial => "videos_list", :layout => false
