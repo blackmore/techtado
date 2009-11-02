@@ -101,6 +101,7 @@ class Task < ActiveRecord::Base
    #update mms2r and test
   def self.clean_text(string)
     # remove all html from mail
-    string.sub(/<html>.*<\/html>/m, "")
+    string.sub(/<html.*<\/html>/m, "")
+    string.sub(/\r\n/m, "\n")
   end
 end
