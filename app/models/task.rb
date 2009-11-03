@@ -94,7 +94,11 @@ class Task < ActiveRecord::Base
         if task.save
           spawn do
             Postoffice.deliver_task_added(user, task)
-            task.deliver_notify!
+            
+            @notify_users = User.notify(task.urgent)
+            if @notify_users.length > 0
+              Postoffice.deliver_notify(@notify_users, task)
+            end
           end
         else
           # send notification of error
