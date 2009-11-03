@@ -92,7 +92,10 @@ class Task < ActiveRecord::Base
        
        # Save the submitted task.
         if task.save
-          Postoffice.deliver_task_added(user, task)
+          spawn do
+            Postoffice.deliver_task_added(user, task)
+            task.deliver_notify!
+          end
         else
           # send notification of error
           puts "- something went wrong"
