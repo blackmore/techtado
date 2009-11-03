@@ -1,6 +1,8 @@
   #require 'iconv'
 class Task < ActiveRecord::Base
   require 'iconv'
+  require 'tmail_mail_extension'
+  
   belongs_to :user
   has_many :comments
   has_many :assets, :dependent => :destroy
@@ -75,7 +77,7 @@ class Task < ActiveRecord::Base
                          :status => 1,
                          :assigned_to => nil,
                          :resubmit => 0,
-                         :description => "#{message.subject}\n#{clean_text(message.body)}",
+                         :description => "#{message.subject}\n#{clean_text(message.body_plain)}",
                          :send_email => true,
                          :urgent => false
                           )
@@ -100,8 +102,6 @@ class Task < ActiveRecord::Base
   
    #update mms2r and test
   def self.clean_text(string)
-    # remove all html from mail
-    string.sub(/<html.*<\/html>/m, "")
     string.sub(/\r\n/m, "\n")
   end
 end
