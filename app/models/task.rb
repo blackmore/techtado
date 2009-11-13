@@ -107,6 +107,6 @@ class Task < ActiveRecord::Base
   
    #update mms2r and test
   def self.clean_text(string)
-    string.sub(/\r\n/m, "\n")
+    string.gsub(/\r\n/m, "\n")
   end
 end
