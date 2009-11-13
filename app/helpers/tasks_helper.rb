@@ -200,6 +200,8 @@ module TasksHelper
   end
  end
  
+ # TODO remove all this and do the same thing with CSS. a[href$=".png"] {ect.. }
+ 
  def filetype_class(asset)
    sufix = /\.\w\w\w?|\.\w\w?/.match(asset.file.original_filename)
    case sufix[0]

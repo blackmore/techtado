@@ -1,5 +1,5 @@
-<p><%= @task.description %></p>
-<p>The above task was added to Techtado</p>
+<h2>Task Added</h2>
+<p><%= @task.description.gsub(/\n/, "<br />") %></p>
 
 <p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
 

@@ -1,6 +1,6 @@
 <h2><%= "URGENT!" if @task.urgent %></h2>
-<p><%= @task.description %><br />
-<span style="color: #424143">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %></span>
+<p><%= @task.description.gsub(/\n/, "<br />") %><br />
+<span style="color: #807f83; display: block; margin-top: 5px;">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %></span>
 </p>
 <p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
 
