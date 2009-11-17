@@ -1,3 +1,7 @@
+/* @override http://techtado.local/stylesheets/master.css?1258377360 */
+
+/* @override http://techtado.local/stylesheets/master.css?1256206144 */
+
 /* @group CSS RESET */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -816,29 +820,6 @@ a.tsk_name.urgent1, span.tsk_name.urgent1{
 
 /* @group paperclip */
 
-#attachments li.type_pdf {
-	background: url(../images/file_type.png) no-repeat 0 -175px;
-}
-#attachments li.type_zip {
-	background: url(../images/file_type.png) no-repeat;
-}
-#attachments li.type_txt {
-	background: url(../images/file_type.png) no-repeat 0 -35px;
-}
-#attachments li.type_doc {
-	background: url(../images/file_type.png) no-repeat 0 -70px;
-}
-#attachments li.type_sub {
-	background: url(../images/file_type.png) no-repeat 0 -105px;
-}
-#attachments li.type_movie {
-	background: url(../images/file_type.png) no-repeat 0 -140px;
-}
-#attachments li.type_pic {
-	background: url(../images/file_type.png) no-repeat 0 -210px;
-}
-
-
 img#paperclip {
 	display: block;
 	position: relative;
@@ -847,11 +828,38 @@ img#paperclip {
 	float: left;
 	margin-right: -34px;
 }
+
 #attachments li {
-	padding-left: 35px;
-	padding-top: 10px;
-	padding-bottom: 8px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
+	
+}
+
+#attachments li a{
+	display: block;
+	padding-left: 25px;
+	padding-top: 8px;
+}
+
+#attachments li a[class="img"] {
+	background: url(../images/file_type.png) no-repeat 0 -151px;
+}
+#attachments li a[class="zip"] {
+	background: url(../images/file_type.png) no-repeat 0 0;
+}
+#attachments li a[class="txt"] {
+	background: url(../images/file_type.png) no-repeat 0 -25px;
+}
+#attachments li a[class="doc"] {
+	background: url(../images/file_type.png) no-repeat 0 -50px;
+}
+#attachments li a[class="sub"] {
+	background: url(../images/file_type.png) no-repeat 0 -75px;
+}
+#attachments li a[class="mov"] {
+	background: url(../images/file_type.png) no-repeat 0 -101px;
+}
+#attachments li a[class="pdf"] {
+	background: url(../images/file_type.png) no-repeat 0 -126px;
 }
 
 ul#attachments {

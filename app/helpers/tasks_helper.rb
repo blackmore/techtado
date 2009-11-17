@@ -203,16 +203,16 @@ module TasksHelper
  # TODO remove all this and do the same thing with CSS. a[href$=".png"] {ect.. }
  
  def filetype_class(asset)
-   sufix = /\.\w\w\w?|\.\w\w?/.match(asset.file.original_filename)
-   case sufix[0]
-            when /.txt|.rb|.srt|.SRT/ : "type_txt"
-            when /.zip|.ZIP/ : "type_zip"
-            when /.doc|.rtf/ : "type_doc"
-            when /.ezt|.890|.stl|.pac/ : "type_sub"
-            when /.pdf|.PDF/ : "type_pdf"
-            when /.mov|.avi|.wmv/ : "type_movie"
-            when /.png|.jpg|.bmp|.tif/ : "type_pic"
-            else "type_txt"
+   sufix = /\.\w\w\w\w?|\.\w\w\w?|\.\w\w?/.match(asset.file.original_filename)
+   case sufix[0] ||= ".txt"
+            when /.txt|.rb|.srt|.SRT/ : "txt"
+            when /.zip|.ZIP/ : "zip"
+            when /.doc|.rtf/ : "doc"
+            when /.ezt|.890|.stl|.pac/ : "sub"
+            when /.pdf|.PDF/ : "pdf"
+            when /.mov|.avi|.wmv/ : "mov"
+            when /.png|.jpg|.bmp|.jpeg|.tif/ : "img"
+            else "txt"
             end
  end
   
