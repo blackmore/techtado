@@ -21,7 +21,7 @@
 		<div id="navigation">
 			<ul>
 				<li id="todo" <%= is_active?('tasks') %> >
-					<%= link_to 'To Do', tasks_path %>
+					<%= link_to 'To Do', :root %>
 				</li>
 				<li id="archive" <%= is_active?('archive') %> >
 					<%= link_to t('tasks.menu.archive'), archive_path %>
