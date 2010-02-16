@@ -20,7 +20,7 @@ class Postoffice < ActionMailer::Base
       @recipients   = emails
       @from         = "Tech-tado <noreply@titelbild.de>"
       headers         "Reply-to" => "tech@titelbild.de"
-      @subject      = "#{task.urgent ? '[URGENT!' has_att(task) ']' : '[New' has_att(task) ']'" } #{subject_task(task.description)}"
+      @subject      = "#{task.urgent ? '[URGENT!' + has_att(task) + ']' : '[New' + has_att(task) + ']'" } #{subject_task(task.description)}"
       @sent_on      = Time.now
       @content_type = "text/html"
       body[:task] = task
@@ -62,7 +62,7 @@ class Postoffice < ActionMailer::Base
      end
      
      def task_added(user, task)
-        @subject      = "#{ '[Task Added' has_att(task) ']'} #{subject_task(task.description)}"
+        @subject      = "#{ '[Task Added' + has_att(task) + ']'} #{subject_task(task.description)}"
         @from         = "Tech-tado <noreply@titelbild.de>"
         headers         "Reply-to" => "tech@titelbild.de"
         @recipients   = user.email
