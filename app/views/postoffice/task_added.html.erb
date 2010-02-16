@@ -1,6 +1,8 @@
-<h2>Task Added</h2>
+<h3>Task Added</h3>
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a><br />
+<span style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.</span>
+
 <p><%= @task.description.gsub(/\n/, "<br />") %></p>
 
-<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
-
-<p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>
+<p style="color: #807f83">If you continue to have problem please feel free to contact us.<br />
+<a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

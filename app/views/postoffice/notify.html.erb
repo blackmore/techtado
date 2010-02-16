@@ -1,6 +1,10 @@
-<h2><%= "URGENT!" if @task.urgent %></h2>
-<p><span style="color: #807f83; display: block; margin-bottom: 5px;">set by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %><br /><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></span></p>
+<h3><%= "URGENT!" if @task.urgent %></h3>
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a><br />
+<span style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br />
+set by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %>
+</span><p>
 
 <p><%= @task.description.gsub(/\n/, "<br />") %></p>
 
-<p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>
+<p style="color: #807f83">If you continue to have problem please feel free to contact us.<br />
+<a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

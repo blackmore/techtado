@@ -9,18 +9,16 @@
 		color: #ffa507;
 	}
 	.subText {
-		font: 9px "Arial", Helvetica, Geneva, sans-serif;
 		color: #807f83;
 	}
 </style>
 
-
 <h2 class="status<%= @status %>"><%= @status %></h2>
-<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
-<p class="subText">If the above URL does not work try copying and pasting it into your browser.<p>
-<p>
-	<%= @task.description.gsub(/\n/, "<br />") %><br />
-</p>
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a><br />
+<span>If the above URL does not work try copying and pasting it into your browser.</span><p>
+
+<p><%= @task.description.gsub(/\n/, "<br />") %><br /></p>
+
 <% if @task.comments.length > 0 %>
 <h3>Comments</h3>
 <ul style="	list-style-type: none; margin-top: 10px;">
@@ -29,3 +27,6 @@
 	<% end %>
 </ul>
 <% end %>
+
+<p style="color: #807f83">If you continue to have problem please feel free to contact us.<br />
+<a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>

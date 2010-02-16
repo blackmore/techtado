@@ -1,7 +1,9 @@
-<p>
-<%= @latest_comment.body %><br /><span style="color: #807f83; margin-top: 10px;"><%= @latest_comment.full_name %> - <%=  @latest_comment.created_at.strftime("%a. %d %b. @ %H:%M") %></span>
+<p><%= @latest_comment.body %><br /><span style="color: #807f83; margin-top: 10px;"><%= @latest_comment.full_name %> - <%=  @latest_comment.created_at.strftime("%a. %d %b. @ %H:%M") %></span>
 </p>
 
-<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
+<p>
+	<a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a><br />
+	<span style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.</span>
+</p>
 
 <p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>
