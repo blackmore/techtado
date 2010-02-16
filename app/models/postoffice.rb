@@ -62,7 +62,7 @@ class Postoffice < ActionMailer::Base
      end
      
      def task_added(user, task)
-        @subject      = "[Task Added#{ has_attachments(task) }] #{subject_task(task.description)}"
+        @subject      = "[#{ has_att(task)}] #{subject_task(task.description)}"
         @from         = "Tech-tado <noreply@titelbild.de>"
         headers         "Reply-to" => "tech@titelbild.de"
         @recipients   = user.email
@@ -93,12 +93,16 @@ class Postoffice < ActionMailer::Base
       	end
      end
      
-     def has_attachments(task)
-       number_of_att = task.assets.count
-       case number_of_att
-       when 0 : ""
-       when 1 : " (one attachment)"
-       else " (#{number_of_att} attachments)"
+     def has_att(task)
+       if task.assets.count
+         number_of_att = task.assets.count
+          case number_of_att
+          when 0 : "[Task Added]"
+          when 1 : " [Task Added (1 attachment)]"
+          else " [Task Added (#{number_of_att} attachments)]"
+          end
+        else
+          "[Task Added]"
        end
      end
 end
