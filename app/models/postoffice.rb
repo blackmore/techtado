@@ -7,7 +7,7 @@ class Postoffice < ActionMailer::Base
       @recipients   = task.user.email
       @from         = "Tech-tado <noreply@titelbild.de>"
       headers         "Reply-to" => "tech@titelbild.de"
-      @subject      = "Ref: #{subject_task(task.description)}"
+      @subject      = "[#{status(task.status)}] #{subject_task(task.description)}"
       @sent_on      = Time.now
       @content_type = "text/html"
       
@@ -20,7 +20,7 @@ class Postoffice < ActionMailer::Base
       @recipients   = emails
       @from         = "Tech-tado <noreply@titelbild.de>"
       headers         "Reply-to" => "tech@titelbild.de"
-      @subject      = "#{task.urgent ? 'URGENT!' : 'New'} task added to Tech tado."
+      @subject      = "#{task.urgent ? '[URGENT!]' : '[New]'} #{subject_task(task.description)}"
       @sent_on      = Time.now
       @content_type = "text/html"
       body[:task] = task
@@ -62,7 +62,7 @@ class Postoffice < ActionMailer::Base
      end
      
      def task_added(user, task)
-        @subject      = "Your task has been added tectado"
+        @subject      = "[TASK ADDED] #{subject_task(task.description)}"
         @from         = "Tech-tado <noreply@titelbild.de>"
         headers         "Reply-to" => "tech@titelbild.de"
         @recipients   = user.email
@@ -91,5 +91,13 @@ class Postoffice < ActionMailer::Base
       	else 
       		string
       	end
+     end
+     
+     def status(tasks_status)
+      case tasks_status
+        when 1 : "To Do"
+        when 0 : "Working On"
+        else "Finished"
+      end
      end
 end

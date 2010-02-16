@@ -1,6 +1,38 @@
-<h2>Status: <%= @status %></h2>
-<p><%= @task.description %><br />
-<span style="color: #424143">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %> ago</span>
+<style type="text/css" media="screen">
+	body {
+		font: 11px "Arial", Helvetica, Geneva, sans-serif;
+	}
+	a {
+		color: #106ed3;
+	}
+	h2 {
+		font: 15px "Arial Black", "Arial Black", Gadget, sans-serif;
+	}
+	.finished {
+		color: #5bab0a;
+	}
+	.workedOn {
+		color: #ffa507;
+	}
+	.subText {
+		font: 9px "Arial", Helvetica, Geneva, sans-serif;
+		color: #807f83;
+	}
+</style>
+
+<% if @task.status == -1 %>
+	<h2 class="finished"><%= @status %></h2>
+<% elsif @task.status == 0 %>
+	<h2 class="workedOn"><%= @status %></h2>
+<% else %>
+	<h2><%= @status %></h2>
+<% end %>
+
+<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
+<p class="subText">If the above URL does not work try copying and pasting it into your browser.<p>
+<p>
+	<span style="color: #424143">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %></span><br />
+	<%= @task.description.gsub(/\n/, "<br />") %><br />
 </p>
 <% if @task.comments.length > 0 %>
 <h3>Comments</h3>
@@ -10,7 +42,3 @@
 	<% end %>
 </ul>
 <% end %>
-
-<p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
-
-<p style="color: #807f83">If the above URL does not work try copying and pasting it into your browser.<br /><a href="mailto:tech@titelbild.de">tech@titelbild.de</a></p>
