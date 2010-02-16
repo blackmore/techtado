@@ -7,7 +7,7 @@ class Postoffice < ActionMailer::Base
       @recipients   = task.user.email
       @from         = "Tech-tado <noreply@titelbild.de>"
       headers         "Reply-to" => "tech@titelbild.de"
-      @subject      = "[#{status(task.status)}] #{subject_task(task.description)}"
+      @subject      = "[#{task.status_to_str}] #{subject_task(task.description)}"
       @sent_on      = Time.now
       @content_type = "text/html"
       
@@ -91,13 +91,5 @@ class Postoffice < ActionMailer::Base
       	else 
       		string
       	end
-     end
-     
-     def status(tasks_status)
-      case tasks_status
-        when 1 : "To Do"
-        when 0 : "Working On"
-        else "Finished"
-      end
      end
 end

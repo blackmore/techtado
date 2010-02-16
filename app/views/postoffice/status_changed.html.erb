@@ -1,17 +1,11 @@
 <style type="text/css" media="screen">
-	body {
-		font: 11px "Arial", Helvetica, Geneva, sans-serif;
-	}
 	a {
 		color: #106ed3;
 	}
-	h2 {
-		font: 15px "Arial Black", "Arial Black", Gadget, sans-serif;
-	}
-	.finished {
+	.statusCompleted {
 		color: #5bab0a;
 	}
-	.workedOn {
+	.statusActive {
 		color: #ffa507;
 	}
 	.subText {
@@ -20,18 +14,11 @@
 	}
 </style>
 
-<% if @task.status == -1 %>
-	<h2 class="finished"><%= @status %></h2>
-<% elsif @task.status == 0 %>
-	<h2 class="workedOn"><%= @status %></h2>
-<% else %>
-	<h2><%= @status %></h2>
-<% end %>
 
+<h2 class="status<%= @status %>"><%= @status %></h2>
 <p><a href="<%= @link_to_show_task %>"><%= @link_to_show_task %></a></p>
 <p class="subText">If the above URL does not work try copying and pasting it into your browser.<p>
 <p>
-	<span style="color: #424143">posted by: <%= @task.user.full_name %> - <%=  @task.created_at.strftime("%a. %d %b. @ %H:%M") %></span><br />
 	<%= @task.description.gsub(/\n/, "<br />") %><br />
 </p>
 <% if @task.comments.length > 0 %>

@@ -27,9 +27,9 @@ class Task < ActiveRecord::Base
   
   def status_to_str
     case status
-    when 1 : "To Do"
-    when 0 : "Being worked on"
-    when -1 : "Finished"
+    when 1 : "Pending"
+    when 0 : "Active"
+    when -1 : "Completed"
     end
   end
   
