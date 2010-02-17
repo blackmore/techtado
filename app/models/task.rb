@@ -66,6 +66,12 @@ class Task < ActiveRecord::Base
     # finds the sender
     sender = message.from[0]
     
+    if message.body_plain
+      body_text = message.body_plain
+    else
+      body_text = "No Message :-)"
+    end
+    
     # checks to see if the user is registered
     if User.exists?(:email => sender)
       
@@ -77,7 +83,7 @@ class Task < ActiveRecord::Base
                          :status => 1,
                          :assigned_to => nil,
                          :resubmit => 0,
-                         :description => "#{message.subject}\n#{clean_text(message.body_plain)}",
+                         :description => "#{message.subject}\n#{clean_text(body_text)}",
                          :send_email => true,
                          :urgent => false
                           )
